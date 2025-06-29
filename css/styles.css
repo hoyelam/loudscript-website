@@ -1,0 +1,463 @@
+body {
+    margin: 0;
+    text-align: center;
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #000000;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+
+.privacyContent {
+    text-align: left;
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: white;
+    font-size: 1.2em;
+    line-height: 1.3em;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.applogo {
+    border-radius: 16px;
+    width: 15%;
+    margin-bottom: 1%;
+}
+
+.link{
+    color: #6042F5;
+    text-decoration: none;
+}
+
+@media only screen and (min-width: 600px) {
+    .head-section {
+        padding-top: 5%;
+        background-color: #000000;
+        padding-bottom: 3%;
+    }
+
+    .footer-section {
+        height: 20%;
+        background-color: #000000;
+    }
+
+    .appstoreLink {
+        font-size: 1.8vw;
+        border-width: 2px;
+        border-color: #6042F5;
+        border-style: solid;
+        color: #6042F5;
+        border-radius: 50px;
+        background-color: none;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        padding-left: 3%;
+        padding-right: 3%;
+        text-decoration: none;
+        transition: 0.5s;
+        font-weight: 700;
+        margin-bottom: 2.5%;
+    }
+
+    .appstoreLink:hover {
+        font-size: 1.8vw;
+        border-width: 2px;
+        border-color: #6042F5;
+        border-style: solid;
+        color: #fff;
+        border-radius: 50px;
+        background-color: #6042F5;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        padding-left: 3%;
+        padding-right: 3%;
+        text-decoration: none;
+        transition: 0.5s;
+        font-weight: 700;
+        margin-bottom: 2.5%;
+    }
+
+    .section {
+        background-color: #000000;
+        z-index: 999;
+        border-radius: 0px;
+    }
+
+    .sectionHeading {
+        color: #fff;
+        line-height: 1em;
+        margin-left: 10%;
+        margin-right: 10%;
+        padding-top: 5%;
+        font-size: 1.5em;
+    }
+
+    .mainHeading {
+        color: #fff;
+        font-size: 5vw;
+        line-height: 0.2em;
+        font-weight: 700;
+    }
+
+    .subHeading {
+        color: #FFF;
+        font-size: 2.5vw;
+        line-height: 1em;
+    }
+
+    .secondarySubHeading {
+        color: #8b8c9f;
+        font-size: 2vw;
+        line-height: 1em;
+        width: 50%;
+        opacity: 0.5;
+        padding-bottom: 2.5%;
+    }
+
+    .threadHeading {
+        color: #fff;
+        line-height: 1em;
+        margin-left: 10%;
+        margin-right: 10%;
+        font-size: 3vw;
+        /* padding-top: auto; */
+    }
+
+    .threadSubHeading,
+    .threadSubHeading1 {
+        color: #8b8c9f;
+        font-size: 2vw;
+        line-height: 1em;
+        padding-bottom: 10%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .threadSubHeading1 {
+        width: 50%;
+        font-size: 2vw;
+    }
+
+    .col {
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        width: auto;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        vertical-align: middle;
+    }
+
+    .col-text {
+        flex: 1;
+        justify-content: center;
+    }
+
+    .flex-grid {
+        display: flex;
+    }
+
+    .image1 {
+        background-color: #4662F9;
+        object-fit: contain;
+        max-height: 60vh;
+        width: 100%;
+    }
+
+    .image2 {
+        width: 70%;
+    }
+
+    .image3 {
+        background-color: #4662F9;
+        width: 100%;
+        border-radius: 10%;
+    }
+
+    .image3 {
+        background-color: #4662F9;
+        width: 100%;
+        border-radius: 10%;
+    }
+
+    /* .fade-in.one {
+        -webkit-animation-delay: 0.1s;
+        -moz-animation-delay: 0.1s;
+        animation-delay: 0.1s;
+    }
+
+    .fade-in.two {
+        -webkit-animation-delay: 1.2s;
+        -moz-animation-delay: 1.2s;
+        animation-delay: 1.2s;
+    }
+
+    .fade-in.three {
+        -webkit-animation-delay: 1.8s;
+        -moz-animation-delay: 1.8s;
+        animation-delay: 1.8s;
+    }
+
+    .fade-in.four {
+        -webkit-animation-delay: 2.0s;
+        -moz-animation-delay: 2.0s;
+        animation-delay: 2.0s;
+    } */
+
+
+    @-webkit-keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @-moz-keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+
+    .fade-in {
+        opacity: 0;
+        -webkit-animation: fadeIn ease-in 1;
+        -moz-animation: fadeIn ease-in 1;
+        animation: fadeIn ease-in 1;
+
+        -webkit-animation-fill-mode: forwards;
+        -moz-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+
+        -webkit-animation-duration: 1s;
+        -moz-animation-duration: 1s;
+        animation-duration: 1s;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .head-section {
+        padding-top: 15%;
+        background-color: #000000;
+        padding-bottom: 20%;
+    }
+
+    .footer-section {
+        height: 20%;
+        background-color: #000000;
+    }
+
+    .appstoreLink {
+        font-size: 6vw;
+        border-width: 2px;
+        border-color: #6042F5;
+        border-style: solid;
+        color: #6042F5;
+        border-radius: 50px;
+        background-color: none;
+        padding-top: 3%;
+        padding-bottom: 3%;
+        padding-left: 10%;
+        padding-right: 10%;
+        text-decoration: none;
+        transition: 0.5s;
+        font-weight: 700;
+        margin-bottom: 2.5%;
+    }
+
+    .appstoreLink:hover {
+        font-size: 6vw;
+        border-width: 2px;
+        border-color: #6042F5;
+        border-style: solid;
+        color: #FFF;
+        border-radius: 50px;
+        background-color: #6042F5;
+        padding-top: 3%;
+        padding-bottom: 3%;
+        padding-left: 10%;
+        padding-right: 10%;
+        text-decoration: none;
+        transition: 0.5s;
+        font-weight: 700;
+        margin-bottom: 2.5%;
+    }
+
+    .section {
+        border-bottom-width: 2px;
+        border-bottom-color: #6042F5;
+        border-bottom-style: solid;
+
+        padding-top: 5%;
+        background-color: #000000;
+        z-index: 999;
+        border-radius: 0px;
+    }
+
+    .mainHeading {
+        color: #fff;
+        font-size: 16vw;
+        line-height: 0.2em;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .sectionHeading {
+        color: #fff;
+        line-height: 1em;
+        margin-left: 10%;
+        margin-right: 10%;
+        padding-top: 5%;
+        font-size: 1.5em;
+        text-align: center;
+    }
+
+    .subHeading {
+        color: #FFF;
+        font-size: 8vw;
+        line-height: 1em;
+        width: 90%;
+        text-align: center;
+    }
+
+    .secondarySubHeading {
+        color: #9C9C9C;
+        font-size: 6vw;
+        line-height: 1em;
+        width: 90%;
+        opacity: 0.5;
+        padding-bottom: 10%;
+        text-align: center;
+    }
+
+    .threadHeading {
+        color: #fff;
+        line-height: 1em;
+        margin-left: 10%;
+        margin-right: 10%;
+        padding-top: 5%;
+        font-size: 8vw;
+        text-align: center;
+    }
+
+    .threadSubHeading,
+    .threadSubHeading1 {
+        color: #fff;
+        font-size: 6vw;
+        line-height: 1em;
+        padding-bottom: 10%;
+        opacity: 0.5;
+        text-align: center;
+    }
+
+    .threadSubHeading1 {
+        width: 90%;
+        font-size: 6vw;
+        line-height: 1em;
+        text-align: center;
+    }
+
+    .image1 {
+        background-color: #4662F9;
+        width: 100%;
+    }
+
+    .image2 {
+        margin-top: 5%;
+        width: 100%;
+    }
+
+    /* .fade-in.one {
+        -webkit-animation-delay: 0.1s;
+        -moz-animation-delay: 0.1s;
+        animation-delay: 0.1s;
+    }
+
+    .fade-in.two {
+        -webkit-animation-delay: 1.2s;
+        -moz-animation-delay: 1.2s;
+        animation-delay: 1.2s;
+    }
+
+    .fade-in.three {
+        -webkit-animation-delay: 1.8s;
+        -moz-animation-delay: 1.8s;
+        animation-delay: 1.8s;
+    }
+
+    .fade-in.four {
+        -webkit-animation-delay: 2.0s;
+        -moz-animation-delay: 2.0s;
+        animation-delay: 2.0s;
+    } */
+
+    @-webkit-keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @-moz-keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+
+    /* .fade-in {
+        opacity: 0;
+        -webkit-animation: fadeIn ease-in 1;
+        -moz-animation: fadeIn ease-in 1;
+        animation: fadeIn ease-in 1;
+
+        -webkit-animation-fill-mode: forwards;
+        -moz-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+
+        -webkit-animation-duration: 1s;
+        -moz-animation-duration: 1s;
+        animation-duration: 1s;
+    } */
+}
