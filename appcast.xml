@@ -16,11 +16,11 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
             <sparkle:version>2</sparkle:version>
             <sparkle:shortVersionString>2026.1.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.6</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/Kin-yee/LoudScript-mac/releases/download/v2026.1.0/LoudScript-2026.1.0.dmg" length="13402096" type="application/octet-stream" sparkle:edSignature="OW7/O/1NFmDkSnbu44H+45SOYKRoGu7pXhWljF57XcbTSaIFQ6lQANjCX0wkTbpm4tlhB47ZNw9NHnN0lA79Bg=="/>
+            <enclosure url="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-v2026.1.0/LoudScript-2026.1.0.dmg" length="13402096" type="application/octet-stream" sparkle:edSignature="OW7/O/1NFmDkSnbu44H+45SOYKRoGu7pXhWljF57XcbTSaIFQ6lQANjCX0wkTbpm4tlhB47ZNw9NHnN0lA79Bg=="/>
         </item>
     </channel>
 </rss>
 <!-- sparkle-signatures:
-edSignature: QeFblOzh58CI9gUI7zN451Q9wH8LJkBy1uUzK9rreP1g2utaoyLp+p9gbd5f1FR4CTnCuhuysTcP6UjcDHuCBw==
-length: 1465
+edSignature: d3s0wgQRJwkKh9kzRvoQmyvXQx0/hyHAosVMh+nD4tNan7SR57eDk64LYw3EnT56bCzwfX0KkuqZwCPgrTHTAQ==
+length: 1484
 -->
