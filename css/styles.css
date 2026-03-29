@@ -35,6 +35,20 @@ body {
     text-decoration: none;
 }
 
+.ctaGroup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.platformNote {
+    color: #8b8c9f;
+    opacity: 0.75;
+    margin-top: 20px;
+}
+
 @media only screen and (min-width: 600px) {
     .head-section {
         padding-top: 5%;
@@ -63,6 +77,12 @@ body {
         transition: 0.5s;
         font-weight: 700;
         margin-bottom: 2.5%;
+    }
+
+    .platformNote {
+        font-size: 1.1vw;
+        width: 50%;
+        line-height: 1.4em;
     }
 
     .appstoreLink:hover {
@@ -287,6 +307,16 @@ body {
         transition: 0.5s;
         font-weight: 700;
         margin-bottom: 2.5%;
+    }
+
+    .ctaGroup {
+        gap: 12px;
+    }
+
+    .platformNote {
+        width: 90%;
+        font-size: 4.5vw;
+        line-height: 1.4em;
     }
 
     .appstoreLink:hover {
