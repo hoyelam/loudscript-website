@@ -1,26 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<!-- sparkle-sign-warning:
-IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires re-signing this file with generate_appcast or sign_update! The signed signature will be embedded at the end of this file.
--->
-<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
     <channel>
-        <title>LoudScript Updates</title>
-        <link>https://loudscript.app/</link>
-        <atom:link href="https://loudscript.app/appcast.xml" rel="self" type="application/rss+xml"/>
-        <description>Release feed for LoudScript for macOS.</description>
-        <language>en</language>
+        <title>LoudScript</title>
         <item>
-            <title>2026.1.0</title>
-            <pubDate>Sun, 29 Mar 2026 11:53:54 +0200</pubDate>
+            <title>2026.1.1</title>
+            <pubDate>Mon, 30 Mar 2026 17:10:31 +0200</pubDate>
             <link>https://loudscript.app</link>
-            <sparkle:version>2</sparkle:version>
-            <sparkle:shortVersionString>2026.1.0</sparkle:shortVersionString>
+            <sparkle:version>3</sparkle:version>
+            <sparkle:shortVersionString>2026.1.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.6</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-v2026.1.0/LoudScript-2026.1.0.dmg" length="13402096" type="application/octet-stream" sparkle:edSignature="OW7/O/1NFmDkSnbu44H+45SOYKRoGu7pXhWljF57XcbTSaIFQ6lQANjCX0wkTbpm4tlhB47ZNw9NHnN0lA79Bg=="/>
+            <enclosure url="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-v2026.1.1/LoudScript-2026.1.1.dmg" length="14677566" type="application/octet-stream" sparkle:edSignature="5cMnbOK5+h+fZ9dtvfoqh1+NF67p6vyQEiXMie21+QxHAMjudkdw8OW/+nFLmXMpT7IFzAbvmkqKkvQeLwXxCw=="/>
         </item>
     </channel>
 </rss>
-<!-- sparkle-signatures:
-edSignature: d3s0wgQRJwkKh9kzRvoQmyvXQx0/hyHAosVMh+nD4tNan7SR57eDk64LYw3EnT56bCzwfX0KkuqZwCPgrTHTAQ==
-length: 1484
--->
