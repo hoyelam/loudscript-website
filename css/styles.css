@@ -618,6 +618,37 @@ body {
     text-transform: uppercase;
 }
 
+.mac-hero-badges {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.mac-hero-badges .mac-eyebrow {
+    margin: 0;
+}
+
+.mac-free-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(255, 191, 87, 0.12);
+    border: 1px solid rgba(255, 191, 87, 0.3);
+    color: #ffcc7a;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
 .mac-title {
     position: relative;
     z-index: 1;
