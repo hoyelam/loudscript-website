@@ -491,3 +491,643 @@ body {
         animation-duration: 1s;
     } */
 }
+
+.macPageLink {
+    margin-top: 0;
+    padding-bottom: 2.5%;
+}
+
+/* ==========================================
+   Mac Page
+   ========================================== */
+
+.mac-page {
+    color: #fff;
+    text-align: left;
+}
+
+.mac-page *,
+.mac-page *::before,
+.mac-page *::after {
+    box-sizing: border-box;
+}
+
+.mac-page img {
+    display: block;
+    max-width: 100%;
+}
+
+/* Shell */
+.mac-shell {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 24px 0;
+}
+
+/* Navigation */
+.mac-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    margin-bottom: 72px;
+}
+
+.mac-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.mac-brand-logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+}
+
+.mac-nav-links {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.mac-nav-links a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 999px;
+    transition: color 0.2s, background 0.2s;
+}
+
+.mac-nav-links a:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.mac-nav-links .mac-nav-cta {
+    color: #6042F5;
+    border: 1px solid rgba(96, 66, 245, 0.3);
+    font-weight: 600;
+}
+
+.mac-nav-links .mac-nav-cta:hover {
+    background: rgba(96, 66, 245, 0.12);
+    color: #7c63f7;
+}
+
+/* Hero */
+.mac-hero {
+    text-align: center;
+    padding-bottom: 80px;
+    position: relative;
+}
+
+.mac-hero::before {
+    content: '';
+    position: absolute;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 500px;
+    background: radial-gradient(ellipse, rgba(96, 66, 245, 0.07) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.mac-eyebrow {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    margin: 0 0 24px;
+    padding: 6px 18px;
+    border-radius: 999px;
+    background: rgba(96, 66, 245, 0.1);
+    border: 1px solid rgba(96, 66, 245, 0.18);
+    color: #9580fa;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.mac-title {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    font-size: clamp(2.8rem, 6vw, 5.2rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: #fff;
+}
+
+.mac-intro {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin: 24px auto 0;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.15rem;
+    line-height: 1.7;
+}
+
+.mac-hero .mac-cta-group {
+    position: relative;
+    z-index: 1;
+    justify-content: center;
+    margin-top: 36px;
+}
+
+.mac-note {
+    position: relative;
+    z-index: 1;
+    margin: 16px 0 0;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.9rem;
+}
+
+/* Buttons */
+.mac-cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.mac-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.mac-btn-primary {
+    background: #6042F5;
+    color: #fff;
+    border: 2px solid #6042F5;
+    box-shadow: 0 8px 32px rgba(96, 66, 245, 0.2);
+}
+
+.mac-btn-primary:hover {
+    background: #7258f7;
+    border-color: #7258f7;
+    box-shadow: 0 12px 40px rgba(96, 66, 245, 0.3);
+    transform: translateY(-1px);
+}
+
+.mac-btn-secondary {
+    color: #6042F5;
+    border: 2px solid #6042F5;
+    background: transparent;
+}
+
+.mac-btn-secondary:hover {
+    background: #6042F5;
+    color: #fff;
+}
+
+.mac-btn-compact {
+    padding: 10px 18px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    align-self: center;
+}
+
+/* Hero Screenshots */
+.mac-hero-screenshots {
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+    margin: 56px auto 0;
+}
+
+.mac-screenshot {
+    margin: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mac-screenshot img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.mac-screenshot-main {
+    box-shadow:
+        0 24px 64px rgba(0, 0, 0, 0.5),
+        0 0 100px rgba(96, 66, 245, 0.05);
+}
+
+.mac-screenshot-overlay {
+    position: absolute;
+    right: -20px;
+    bottom: -28px;
+    width: min(46%, 380px);
+    border-radius: 12px;
+    box-shadow:
+        0 20px 48px rgba(0, 0, 0, 0.6),
+        0 0 60px rgba(96, 66, 245, 0.06);
+}
+
+.mac-screenshot-constrained {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Feature Grid */
+.mac-features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 80px;
+}
+
+.mac-feature-card {
+    padding: 28px 24px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: border-color 0.3s, background 0.3s;
+}
+
+.mac-feature-card:hover {
+    border-color: rgba(96, 66, 245, 0.18);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.mac-feature-label {
+    display: block;
+    margin: 0 0 14px;
+    color: #6042F5;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.mac-feature-card h2 {
+    margin: 0 0 10px;
+    color: #fff;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+.mac-feature-card p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.93rem;
+    line-height: 1.6;
+}
+
+/* Detail Sections */
+.mac-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: stretch;
+    margin-bottom: 20px;
+}
+
+.mac-detail-reverse .mac-detail-text {
+    order: 2;
+}
+
+.mac-detail-reverse .mac-detail-img {
+    order: 1;
+}
+
+.mac-detail-text,
+.mac-detail-img {
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.mac-detail-text {
+    padding: 40px 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mac-detail-img {
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mac-detail-img .mac-screenshot {
+    border: none;
+    background: none;
+    box-shadow: none;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.mac-section-label {
+    display: block;
+    margin: 0 0 14px;
+    color: #6042F5;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.mac-detail-text h2 {
+    margin: 0 0 16px;
+    color: #fff;
+    font-size: clamp(1.5rem, 2.2vw, 2rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+
+.mac-detail-text p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.mac-detail-list {
+    margin: 20px 0 0;
+    padding-left: 20px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
+}
+
+.mac-detail-list li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+/* Workflow */
+.mac-workflow {
+    margin: 80px 0;
+    text-align: center;
+}
+
+.mac-workflow > h2 {
+    margin: 0 0 40px;
+    color: #fff;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    letter-spacing: -0.03em;
+}
+
+.mac-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.mac-step-card {
+    padding: 28px 24px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    text-align: left;
+    transition: border-color 0.3s;
+}
+
+.mac-step-card:hover {
+    border-color: rgba(96, 66, 245, 0.15);
+}
+
+.mac-step-num {
+    display: inline-block;
+    margin-bottom: 16px;
+    color: #6042F5;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.mac-step-card h3 {
+    margin: 0 0 10px;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.mac-step-card p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.93rem;
+    line-height: 1.6;
+}
+
+/* Final CTA */
+.mac-final-cta {
+    text-align: center;
+    padding: 56px 32px;
+    border-radius: 28px;
+    background: rgba(96, 66, 245, 0.04);
+    border: 1px solid rgba(96, 66, 245, 0.1);
+}
+
+.mac-final-cta h2 {
+    margin: 0 0 12px;
+    color: #fff;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    letter-spacing: -0.03em;
+}
+
+.mac-final-cta p {
+    margin: 0 auto 32px;
+    max-width: 520px;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.mac-final-cta .mac-cta-group {
+    justify-content: center;
+}
+
+/* Footer */
+.mac-footer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px 48px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    text-align: center;
+}
+
+.mac-footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 16px;
+}
+
+.mac-footer-links a {
+    color: rgba(255, 255, 255, 0.35);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.mac-footer-links a:hover {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.mac-footer-credit {
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.mac-footer-credit a {
+    color: rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+}
+
+.mac-footer-credit a:hover {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Scroll Reveal Animation */
+.mac-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.mac-reveal.mac-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mac-features .mac-reveal:nth-child(2) { transition-delay: 0.08s; }
+.mac-features .mac-reveal:nth-child(3) { transition-delay: 0.16s; }
+.mac-features .mac-reveal:nth-child(4) { transition-delay: 0.24s; }
+
+.mac-steps .mac-reveal:nth-child(2) { transition-delay: 0.08s; }
+.mac-steps .mac-reveal:nth-child(3) { transition-delay: 0.16s; }
+
+@media (prefers-reduced-motion: reduce) {
+    .mac-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* Responsive — Tablet */
+@media (max-width: 1100px) {
+    .mac-features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Responsive — Small Tablet */
+@media (max-width: 900px) {
+    .mac-detail {
+        grid-template-columns: 1fr;
+    }
+
+    .mac-detail-reverse .mac-detail-text,
+    .mac-detail-reverse .mac-detail-img {
+        order: initial;
+    }
+
+    .mac-steps {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Responsive — Mobile */
+@media (max-width: 600px) {
+    .mac-shell {
+        padding: 20px 16px 0;
+    }
+
+    .mac-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 40px;
+    }
+
+    .mac-nav-links {
+        justify-content: flex-start;
+    }
+
+    .mac-hero {
+        padding-bottom: 48px;
+    }
+
+    .mac-title {
+        font-size: 2.5rem;
+    }
+
+    .mac-intro {
+        font-size: 1rem;
+    }
+
+    .mac-hero-screenshots {
+        margin-top: 40px;
+    }
+
+    .mac-screenshot-overlay {
+        right: -8px;
+        bottom: -16px;
+        width: min(58%, 260px);
+    }
+
+    .mac-features {
+        grid-template-columns: 1fr;
+        margin-bottom: 48px;
+    }
+
+    .mac-btn {
+        width: 100%;
+    }
+
+    .mac-btn-compact {
+        width: auto;
+    }
+
+    .mac-cta-group {
+        width: 100%;
+    }
+
+    .mac-detail-text {
+        padding: 24px 20px;
+    }
+
+    .mac-detail-img {
+        padding: 16px;
+    }
+
+    .mac-final-cta {
+        padding: 40px 20px;
+        border-radius: 22px;
+    }
+
+    .mac-workflow {
+        margin: 48px 0;
+    }
+
+    .mac-footer {
+        padding: 32px 16px 40px;
+    }
+}

@@ -1,42 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<script defer data-domain="loudscript.app" src="https://plausible.io/js/script.js"></script>
 <head>
+    <script defer data-domain="loudscript.app" src="https://plausible.io/js/script.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="LoudScript turns text into natural speech on iPhone and Mac. Read selected text from any Mac app, turn documents into audio, and listen with adjustable voices and reading speed.">
-    <meta name="keywords" content="text to speech, TTS, speech synthesis, mac text to speech, mac app, audio reader, document reader, OCR audio, voice reader, accessibility tools, learning tools, multitasking apps, text reader, speech app, reading assistant, audio conversion">
+    <meta name="description" content="LoudScript for Mac reads selected text from any app, captures on-screen text with OCR, and plays speech with Apple voices or Kokoro AI while a floating overlay keeps you in control.">
+    <meta name="keywords" content="loudscript mac, mac text to speech, mac reading app, screenshot OCR, selected text reader, kokoro tts mac, apple voices mac, productivity app mac, AI voices mac">
     <meta name="author" content="Ho Ye Lam">
     <meta name="robots" content="index, follow">
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="css/styles.css" as="style">
-    <link rel="preload" href="./images/AppLogo.png" as="image" type="image/png">
-    
-    <!-- Open Graph / Facebook -->
+
     <meta property="og:site_name" content="LoudScript">
-    <meta property="og:title" content="LoudScript - Transform Text into Natural Speech">
+    <meta property="og:title" content="LoudScript for Mac — Listen to Anything on Your Mac">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://loudscript.app">
-    <meta property="og:image" content="https://loudscript.app/images/AppLogo.png">
-    <meta property="og:description" content="Transform any text into natural speech on iPhone and Mac. Read selected text from any Mac app or turn documents into audio with high-quality voices.">
+    <meta property="og:url" content="https://loudscript.app/">
+    <meta property="og:image" content="https://loudscript.app/images/mac/mac-main-window.png">
+    <meta property="og:description" content="Select text from any app, capture screenshots with OCR, and listen with Apple voices or Kokoro AI. Free notarized download.">
     <meta property="og:locale" content="en_US">
-    
-    <!-- Twitter -->
+
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="LoudScript - Transform Text into Natural Speech">
-    <meta name="twitter:description" content="Transform any text into natural speech on iPhone and Mac. Read selected text from any Mac app or turn documents into audio with high-quality voices.">
-    <meta name="twitter:image" content="https://loudscript.app/images/AppLogo.png">
+    <meta name="twitter:title" content="LoudScript for Mac — Listen to Anything on Your Mac">
+    <meta name="twitter:description" content="Select text from any app, capture screenshots with OCR, and listen with Apple voices or Kokoro AI.">
+    <meta name="twitter:image" content="https://loudscript.app/images/mac/mac-main-window.png">
     <meta name="twitter:creator" content="@hoyelam">
-    
-    <!-- Additional SEO Meta Tags -->
-    <meta name="application-name" content="LoudScript">
-    <meta name="apple-mobile-web-app-title" content="LoudScript">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    
-    <link rel="canonical" href="https://loudscript.app">
+
+    <link rel="canonical" href="https://loudscript.app/">
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -44,28 +32,23 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#000000">
 
-    <title>LoudScript - Transform Text into Natural Speech on iPhone and Mac</title>
-    
-    <!-- Structured Data for SEO -->
+    <title>LoudScript for Mac — Listen to Anything on Your Mac</title>
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      "name": "LoudScript",
-      "description": "Transform any text into natural speech on iPhone and Mac. Type or paste text, import from photos and documents, or read selected text from any Mac app.",
-      "operatingSystem": "iOS, macOS 15.6+",
+      "name": "LoudScript for Mac",
+      "description": "LoudScript for Mac reads selected text from any app, captures on-screen text with OCR, and plays speech with Apple voices or Kokoro AI neural voices.",
+      "operatingSystem": "macOS 15.6+",
       "applicationCategory": "ProductivityApplication",
+      "downloadUrl": "https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg",
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "ratingCount": "120"
       },
       "author": {
         "@type": "Person",
@@ -73,116 +56,193 @@
       }
     }
     </script>
-    
-    <!-- Website Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "url": "https://loudscript.app/",
-      "name": "LoudScript",
-      "description": "Transform any text into natural speech on iPhone and Mac. Type or paste text, import from photos and documents, or read selected text from any Mac app.",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://loudscript.app/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
 </head>
 
-<body>
-    <main>
-        <!-- Header -->
-        <header>
-            <section class="head-section fade-in one">
-                <div class="flex-grid">
-                    <div class="col">
-                        <center>
-                            <img src="./images/AppLogo.png" class="applogo"></img>
-                            <h1 class="mainHeading fade-in one">LoudScript</h1>
-                            <p class="subHeading fade-in two">Transform any text into natural speech 🎙️</p>
-                            <p class="secondarySubHeading fade-in three">
-                                Type or paste text, import from photos and documents, or read selected text from any Mac app.
-                            </p>
-                            <div class="ctaGroup fade-in three" role="group" aria-label="Download LoudScript">
-                                <a href="https://apps.apple.com/app/loudscript-text-reader/id6747320736" target="_blank" rel="noopener" class="appstoreLink" aria-label="Download LoudScript from App Store">
-                                    Download on App Store
-                                </a>
-                                <a href="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg" target="_blank" rel="noopener" class="appstoreLink" aria-label="Download LoudScript for Mac">
-                                    Download for Mac
-                                </a>
-                            </div>
-                            <p class="platformNote fade-in three">
-                                Direct Mac download via notarized DMG. Requires macOS 15.6 or later.
-                            </p>
-                        </center>
-                    </div>
-                </div>
-            </section>
+<body class="mac-page">
+    <main class="mac-shell">
+        <header class="mac-nav">
+            <a href="index.html" class="mac-brand" aria-label="Go to LoudScript home page">
+                <img src="./images/AppLogo.png" class="mac-brand-logo" alt="LoudScript app icon">
+                <span>LoudScript</span>
+            </a>
+            <nav class="mac-nav-links" aria-label="Page navigation">
+                <a href="support.html">Support</a>
+                <a href="https://apps.apple.com/app/loudscript-text-reader/id6747320736" target="_blank" rel="noopener">See iOS/iPadOS</a>
+                <a href="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg" target="_blank" rel="noopener" class="mac-nav-cta">Download DMG</a>
+            </nav>
         </header>
 
-        <section class="section fade-in three" aria-label="App Preview">
-            <div class="flex-grid fade">
-                <div class="col">
-                    <center><img src="./images/four_screens_app_demo.png" class="image2" alt="LoudScript app interface showing multiple screens" loading="lazy"></center>
-                </div>
+        <section class="mac-hero">
+            <span class="mac-eyebrow">LoudScript for Mac</span>
+            <h1 class="mac-title">Listen to anything<br>on your Mac</h1>
+            <p class="mac-intro">
+                Select text in any app, capture text from screenshots, and hear it read aloud with natural voices while you keep working.
+            </p>
+            <div class="mac-cta-group" role="group" aria-label="LoudScript platforms">
+                <a href="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg" target="_blank" rel="noopener" class="mac-btn mac-btn-primary">
+                    Download for Mac
+                </a>
+                <a href="https://apps.apple.com/app/loudscript-text-reader/id6747320736" target="_blank" rel="noopener" class="mac-btn mac-btn-secondary mac-btn-compact">
+                    See iOS/iPadOS
+                </a>
+            </div>
+            <p class="mac-note">Notarized DMG download. Requires macOS 15.6 or later.</p>
+
+            <div class="mac-hero-screenshots">
+                <figure class="mac-screenshot mac-screenshot-main">
+                    <img src="./images/mac/mac-main-window.png" alt="LoudScript Mac main window showing reading history and current text">
+                </figure>
+                <figure class="mac-screenshot mac-screenshot-overlay">
+                    <img src="./images/mac/mac-speaking-overlay.png" alt="LoudScript floating overlay with live speech highlighting">
+                </figure>
             </div>
         </section>
 
-        <section class="section fade-in three" aria-label="App Features Overview">
-            <div class="flex-grid fade">
-                <div class="col">
-                    <center>
-                        <h2 class="threadHeading">High-Quality Text-to-Speech Technology</h2>
-                        <p class="threadSubHeading1">
-                            Choose from high-quality voices, adjust reading speed, seek through content, and save your entries for later. Perfect for learning, multitasking, or when you prefer listening over reading on iPhone and Mac.
-                        </p>
-                    </center>
-                </div>
+        <section class="mac-features" aria-label="Key features">
+            <article class="mac-feature-card mac-reveal">
+                <span class="mac-feature-label">Read Anywhere</span>
+                <h2>Grab text from any Mac app.</h2>
+                <p>Right-click selected text and choose "Read with LoudScript" from the Services menu, or trigger it with a global keyboard shortcut.</p>
+            </article>
+            <article class="mac-feature-card mac-reveal">
+                <span class="mac-feature-label">Screen OCR</span>
+                <h2>Read text that can't be selected.</h2>
+                <p>When text is locked in images or app interfaces, capture the screen and let built-in OCR extract and read it.</p>
+            </article>
+            <article class="mac-feature-card mac-reveal">
+                <span class="mac-feature-label">Dual Voices</span>
+                <h2>Apple voices and Kokoro AI.</h2>
+                <p>Choose Apple system voices for broad language support or Kokoro for more natural AI speech when you want it.</p>
+            </article>
+            <article class="mac-feature-card mac-reveal">
+                <span class="mac-feature-label">Background Playback</span>
+                <h2>Keep listening while you work.</h2>
+                <p>A floating overlay tracks your listening progress and gives you instant controls without switching windows.</p>
+            </article>
+        </section>
+
+        <section class="mac-detail mac-reveal" aria-label="Playback overlay feature">
+            <div class="mac-detail-text">
+                <span class="mac-section-label">Playback Overlay</span>
+                <h2>Stay focused while you listen.</h2>
+                <p>
+                    The floating overlay sits above your windows, highlights the current phrase as it's spoken, and keeps playback controls one click away.
+                </p>
+                <ul class="mac-detail-list">
+                    <li>Live word highlighting as speech advances</li>
+                    <li>Instant pause and stop without switching apps</li>
+                    <li>Open the full app from the overlay at any time</li>
+                </ul>
+            </div>
+            <div class="mac-detail-img">
+                <figure class="mac-screenshot">
+                    <img src="./images/mac/mac-speaking-overlay.png" alt="LoudScript overlay showing speech progress and quick controls" loading="lazy">
+                </figure>
             </div>
         </section>
 
+        <section class="mac-detail mac-detail-reverse mac-reveal" aria-label="Voice and playback settings">
+            <div class="mac-detail-text">
+                <span class="mac-section-label">Voice & Playback</span>
+                <h2>Dial in how LoudScript reads.</h2>
+                <p>
+                    Switch between Apple system voices and Kokoro neural voices, adjust reading speed, and turn on smart formatting that cleans up text before it's spoken.
+                </p>
+                <ul class="mac-detail-list">
+                    <li>Automatic routing picks the best available voice</li>
+                    <li>Adjustable rate for long-form content</li>
+                    <li>Smart formatting strips markdown, code, and clutter</li>
+                </ul>
+            </div>
+            <div class="mac-detail-img">
+                <figure class="mac-screenshot">
+                    <img src="./images/mac/mac-playback-settings.png" alt="LoudScript playback settings with voice engine and rate options" loading="lazy">
+                </figure>
+            </div>
+        </section>
+
+        <section class="mac-detail mac-reveal" aria-label="Reading history feature">
+            <div class="mac-detail-text">
+                <span class="mac-section-label">Reading History</span>
+                <h2>Revisit anything you've listened to.</h2>
+                <p>
+                    Every read is saved with the source app, detected language, character count, and original text. Search and replay past entries whenever you need them.
+                </p>
+                <ul class="mac-detail-list">
+                    <li>See which app triggered each read</li>
+                    <li>Compare original and formatted versions</li>
+                    <li>Track timing and text metrics across sessions</li>
+                </ul>
+            </div>
+            <div class="mac-detail-img">
+                <figure class="mac-screenshot mac-screenshot-constrained">
+                    <img src="./images/mac/mac-history-overview.png" alt="LoudScript history panel showing metadata and source text" loading="lazy">
+                </figure>
+            </div>
+        </section>
+
+        <section class="mac-workflow mac-reveal" aria-label="How LoudScript for Mac works">
+            <span class="mac-section-label">How It Works</span>
+            <h2>Three steps to listening.</h2>
+            <div class="mac-steps">
+                <article class="mac-step-card mac-reveal">
+                    <span class="mac-step-num">01</span>
+                    <h3>Grab text</h3>
+                    <p>Select text in any app, capture a screenshot, or type directly into LoudScript.</p>
+                </article>
+                <article class="mac-step-card mac-reveal">
+                    <span class="mac-step-num">02</span>
+                    <h3>Listen</h3>
+                    <p>LoudScript picks the right voice, formats the text, and starts reading with a floating overlay.</p>
+                </article>
+                <article class="mac-step-card mac-reveal">
+                    <span class="mac-step-num">03</span>
+                    <h3>Come back later</h3>
+                    <p>Your history keeps every entry with metadata so you can replay, copy, or reference it.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="mac-final-cta mac-reveal">
+            <h2>Start listening on your Mac.</h2>
+            <p>Free, notarized direct download. No App Store account needed.</p>
+            <div class="mac-cta-group" role="group" aria-label="Download LoudScript for Mac">
+                <a href="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg" target="_blank" rel="noopener" class="mac-btn mac-btn-primary">
+                    Download LoudScript for Mac
+                </a>
+            </div>
+        </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer-section fade-in three">
-        <div class="flex-grid fade">
-            <div style="justify-content: center; flex: 1; margin-top: 5%;">
-                <center>
-                    <div class="ctaGroup fade-in three" role="group" aria-label="Download LoudScript">
-                        <a href="https://apps.apple.com/app/loudscript-text-reader/id6747320736" target="_blank" rel="noopener" class="appstoreLink" aria-label="Download LoudScript from App Store">
-                            Download on App Store
-                        </a>
-                        <a href="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg" target="_blank" rel="noopener" class="appstoreLink" aria-label="Download LoudScript for Mac">
-                            Download for Mac
-                        </a>
-                    </div>
-                    <p class="platformNote">
-                        macOS 15.6+ direct download
-                    </p>
-
-                    <nav aria-label="Footer Navigation">
-                        <p class="secondarySubHeading" style="padding-top: 2.5%">
-                            <a href="tos.html" class="link">Terms and Conditions</a>
-                        </p>
-                        <p class="secondarySubHeading">
-                            <a href="privacy.html" class="link">Privacy Policy</a>
-                        </p>
-                        <p class="secondarySubHeading">
-                            <a href="support.html" class="link">Support</a>
-                        </p>
-                    </nav>
-                    <p class="secondarySubHeading">
-                        Development by <a href="https://twitter.com/hoyelam" class="link" rel="noopener">Hoye Lam</a>
-                    </p>
-                    <p class="secondarySubHeading">
-                        ©2025 Kin-Yee
-                    </p>
-                </center>
-            </div>
-        </div>
+    <footer class="mac-footer">
+        <nav class="mac-footer-links" aria-label="Footer navigation">
+            <a href="tos.html">Terms</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="support.html">Support</a>
+            <a href="https://apps.apple.com/app/loudscript-text-reader/id6747320736" target="_blank" rel="noopener">See iOS/iPadOS</a>
+        </nav>
+        <p class="mac-footer-credit">
+            Made by <a href="https://twitter.com/hoyelam" rel="noopener">Hoye Lam</a> &middot; &copy;2025 Kin-Yee
+        </p>
     </footer>
-</body>
 
+    <script>
+    (function() {
+        var els = document.querySelectorAll('.mac-reveal');
+        if (!('IntersectionObserver' in window)) {
+            els.forEach(function(el) { el.classList.add('mac-visible'); });
+            return;
+        }
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('mac-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        els.forEach(function(el) { observer.observe(el); });
+    })();
+    </script>
+</body>
 </html>
