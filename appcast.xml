@@ -3,22 +3,13 @@
     <channel>
         <title>LoudScript</title>
         <item>
-            <title>2026.1.4</title>
-            <pubDate>Wed, 01 Apr 2026 22:25:18 +0200</pubDate>
+            <title>2026.1.5</title>
+            <pubDate>Tue, 07 Apr 2026 21:33:01 +0200</pubDate>
             <link>https://loudscript.app</link>
-            <sparkle:version>6</sparkle:version>
-            <sparkle:shortVersionString>2026.1.4</sparkle:shortVersionString>
+            <sparkle:version>7</sparkle:version>
+            <sparkle:shortVersionString>2026.1.5</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.6</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-v2026.1.4/LoudScript-2026.1.4.dmg" length="14556583" type="application/octet-stream" sparkle:edSignature="MjPELsdkXoNL47ezuwl5UG4cT0nVmEZ3mNeUykR0KKYGd7H+DRf3j0d4tx4HY9sWwmp/3GnPrkB2YlfsluglBw=="/>
-        </item>
-        <item>
-            <title>2026.1.3</title>
-            <pubDate>Wed, 01 Apr 2026 08:07:48 +0200</pubDate>
-            <link>https://loudscript.app</link>
-            <sparkle:version>5</sparkle:version>
-            <sparkle:shortVersionString>2026.1.3</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>15.6</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-v2026.1.3/LoudScript-2026.1.3.dmg" length="13428153" type="application/octet-stream" sparkle:edSignature="M0fvJv6M6n2HefBvMqxwH6M7UhPHzvqHFesrZvCflknV0V34KI6R2R3Io6L7nbWP8xAi3pxpKjjt+jFrM5iXCQ=="/>
+            <enclosure url="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-v2026.1.5/LoudScript-2026.1.5.dmg" length="14597021" type="application/octet-stream" sparkle:edSignature="6v9+9DG0xir63xudIAeOwDzGXiU1iKHosHH+5lqK7x5DdwpcOnDk1rT51MQh2gSrgNHTrXKoNcElEjw7O9d+CA=="/>
         </item>
     </channel>
 </rss>
