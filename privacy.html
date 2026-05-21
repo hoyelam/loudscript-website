@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<script defer data-domain="loudscript.app" src="https://plausible.io/js/script.js"></script>
 
 <head>
+    <script defer data-domain="loudscript.app" src="https://plausible.io/js/script.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -30,30 +30,30 @@
         <section class="head-section">
             <div class="flex-grid">
                 <div class="col-text">
-                    <center>
+                    <div style="text-align: center;">
                         <a href="index.html">
-                            <img src="./images/AppLogo.png" class="applogo"></img>
+                            <img src="./images/AppLogo.png" class="applogo" alt="LoudScript app icon">
                         </a>
                         <h1 class="subHeading">Privacy Policy</h1>
-                    </center>
+                    </div>
                 </div>
             </div>
         </section>
 
     </div>
 
-    <center>
+    <div style="display: flex; justify-content: center;">
         <div style="text-align: left; max-width: 80%;">
             <section class="section">
                 <div class="flex-grid">
                     <div class="col-text">
                         <p class="privacyContent">
-                            Last updated 5 March, 2025
+                            Last updated 21 May, 2026
                         </p>
                         <p class="privacyContent">
                             Welcome to LoudScript, built by Ho Ye Lam ("LoudScript", "Kin-Yee", "we", "us", or "our").
-                            We respect your privacy and are committed to protecting it through our compliance with this
-                            privacy policy.
+                            This privacy policy explains how we handle information when you use the LoudScript website
+                            and the LoudScript apps for macOS, iOS, and iPadOS.
                         </p>
                     </div>
                 </div>
@@ -62,25 +62,31 @@
             <section class="section">
                 <div class="flex-grid">
                     <div class="col-text">
-                        <h1 class="sectionHeading">Analytics and ads</h1>
+                        <h1 class="sectionHeading">Analytics and Diagnostics</h1>
                         <p class="privacyContent">
-                            LoudScript collects aggregate, anonymous statistics, such as the percentage of users who use
-                            specific features, to improve our application. We automatically collect certain non-personal
-                            information when you visit, use, or navigate the LoudScript website and app. This
-                            information includes device and usage details like your device characteristics, operating
-                            system, language preferences, referring URLs, device name, country, coarse location, and
-                            other technical information. We primarily use this information for maintaining the security,
-                            performance, stability and operation of our applications and for internal analytics and
-                            reporting.
-
-                            LoudScript uses services provided by Mixpanel, a business analytics service company.
-                            Mixpanel provides us with the means to track user interactions within our apps. The tracked
-                            data is anonymous and used to identify usage trends, not individual usage. The data
-                            collected includes information about how and when you use our apps, which helps us make
-                            improvements to our services. For more information about Mixpanel's privacy practices, you
-                            can read <a href="https://mixpanel.com/legal/privacy-policy/" class="link">Mixpanel's
+                            LoudScript uses limited analytics and diagnostics to understand whether the website and apps
+                            are working well. The LoudScript website uses Plausible Analytics for aggregate website
+                            statistics, such as page views, referrers, browser or device type, and country-level
+                            location.
+                        </p>
+                        <p class="privacyContent">
+                            LoudScript apps may use Mixpanel for pseudonymous product analytics. App analytics can
+                            include information such as app version, build number, bundle identifier, locale, onboarding
+                            status, feature interactions, selected speech engine, selected voice identifier, speech rate,
+                            read source category, text length, spoken text length, whether formatting was applied, and
+                            playback timing. We do not send raw speech text, OCR output, source app names, or source app
+                            bundle identifiers to Mixpanel. The macOS app sends Mixpanel events to Mixpanel's EU endpoint
+                            and disables IP-address geolocation. For more information about Mixpanel's privacy practices,
+                            you can read <a href="https://mixpanel.com/legal/privacy-policy/" class="link">Mixpanel's
                                 Privacy Policy.</a>
                         </p>
+                        <p class="privacyContent">
+                            LoudScript apps may use Sentry for crash and error diagnostics when configured. Diagnostic
+                            reports can include technical information such as app version, operating system, device model,
+                            stack traces, and error context. We configure Sentry not to send default personally
+                            identifiable information, and we do not intentionally include raw speech text, OCR output, or
+                            source app identity in diagnostic reports.
+                        </p>
                     </div>
                 </div>
             </section>
@@ -88,12 +94,26 @@
             <section class="section">
                 <div class="flex-grid">
                     <div class="col-text">
-                        <h1 class="sectionHeading">Data Storage</h1>
+                        <h1 class="sectionHeading">Local Content and Storage</h1>
                         <p class="privacyContent">
-                            All text content and audio files are stored exclusively on the user's device. We do not have access to this data, unless explicit
-                            permission is granted by the user. Once data is deleted, it is permanently removed and
-                            cannot be recovered. Rest assured, your personal content remains private, secure, and
-                            accessible only by you.
+                            LoudScript is designed to keep your reading content local unless a feature you enable needs
+                            network processing. On macOS, speech history is stored on your device and can include the
+                            original text, the formatted or spoken version, creation date, source app name and bundle
+                            identifier when available, trigger source, character count, selected voice identifier, speech
+                            rate, and formatting status. You can delete individual history items or clear history from
+                            the app.
+                        </p>
+                        <p class="privacyContent">
+                            Screenshot OCR on macOS uses a temporary screenshot file for the selected screen area. The app
+                            deletes that temporary capture after OCR finishes or fails. When direct selected-text reading
+                            is unavailable, the app may temporarily use the clipboard by simulating Copy, reading the
+                            copied text, and restoring the previous clipboard contents when possible.
+                        </p>
+                        <p class="privacyContent">
+                            LoudScript may write local runtime logs for troubleshooting. These logs are stored on your
+                            device and can include technical metadata and short text previews. We do not receive these
+                            logs automatically, but you may choose to share them with support. Optional Supertonic voice
+                            model files are stored locally after installation and can be removed from the app.
                         </p>
                     </div>
                 </div>
@@ -104,7 +124,35 @@
                     <div class="col-text">
                         <h1 class="sectionHeading">Third-Party AI Processing</h1>
                         <p class="privacyContent">
-                            When you use LoudScript's AI features such as text summarization and translation, your text content will be sent to third-party Large Language Models (LLMs) for processing. This processing is necessary to provide AI-enhanced features like content summarization and language translation. While we carefully select our third-party service providers and take reasonable measures to ensure the security of your data, please be aware that your text will be transmitted to these external services only when you actively use these AI features. The text is processed temporarily for the sole purpose of providing the requested AI functionality, and is not permanently stored by these third-party services beyond what is necessary to provide the functionality. By using LoudScript's AI features, you consent to this transmission and processing of your text content.
+                            LoudScript may offer AI-assisted features, including AI formatting before speech. When AI
+                            formatting is enabled and available, the text being formatted may be sent to OpenRouter and
+                            the selected downstream model provider so the text can be rewritten for clearer display and
+                            more natural speech. This does not happen when AI formatting is disabled, unavailable, or
+                            skipped by the app's formatting rules.
+                        </p>
+                        <p class="privacyContent">
+                            Text sent for AI formatting is transmitted for the purpose of providing the requested
+                            formatting result. LoudScript does not claim ownership of your text. Third-party AI providers
+                            may process, store, or retain requests according to their own policies, which are outside our
+                            direct control. Avoid using AI features with sensitive, confidential, legally protected, or
+                            private text unless you are comfortable with that text being processed by third-party AI
+                            services.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="flex-grid">
+                    <div class="col-text">
+                        <h1 class="sectionHeading">Network Services</h1>
+                        <p class="privacyContent">
+                            LoudScript may contact third-party services to provide downloads, updates, purchases, and app
+                            functionality. On macOS, Sparkle checks the LoudScript appcast for updates and may download
+                            app updates from our public release hosting. Optional Supertonic model installation downloads
+                            model files from Hugging Face or another configured model host. LoudScript downloads and
+                            website releases may be hosted through GitHub. On iOS and iPadOS, subscriptions and purchases
+                            are handled through Apple's App Store systems.
                         </p>
                     </div>
                 </div>
@@ -115,13 +163,13 @@
                     <div class="col-text">
                         <h1 class="sectionHeading">Use of Collected Information</h1>
                         <p class="privacyContent">
-                            We use the information collected to enhance LoudScript's functionality and customer support.
-                            We do not share personal information with outside parties unless it is necessary to
-                            accomplish LoudScript's functionalities. We may share anonymous, aggregate statistics with
-                            third parties. We may also disclose your information in response to legal requirements, to
-                            exercise our legal rights, to defend against legal claims, to prevent illegal activities, or
-                            to protect our rights and property. In the event of a merger, acquisition, or any form of
-                            sale of some or all of our assets, user information may be among the transferred assets.
+                            We use collected information to operate LoudScript, provide features you request, understand
+                            usage trends, diagnose crashes and errors, improve performance and stability, provide
+                            customer support, process purchases or subscriptions where available, and comply with legal
+                            obligations. We do not sell your personal information. We may share information with service
+                            providers when necessary to operate LoudScript, with your direction or consent, or when
+                            required to comply with law, protect rights and safety, prevent abuse, defend against legal
+                            claims, or complete a merger, acquisition, or sale of assets.
                         </p>
                     </div>
                 </div>
@@ -160,7 +208,10 @@
                     <div class="col-text">
                         <h1 class="sectionHeading">Consent</h1>
                         <p class="privacyContent">
-                            By using our site or apps, you consent to this privacy policy.
+                            By using our site or apps, you acknowledge this privacy policy and the processing described
+                            here. Some features, such as AI formatting, screen capture, accessibility access, optional
+                            model downloads, diagnostics, analytics, and subscriptions, may depend on your device
+                            settings, app settings, platform permissions, or purchase choices.
                         </p>
                     </div>
                 </div>
@@ -178,23 +229,23 @@
                 </div>
             </section>
         </div>
-    </center>
+    </div>
 
     <!-- And more -->
     <section class="footer-section fade-in three">
         <div class="flex-grid fade">
             <div class="col-text">
-                <center>
+                <div style="text-align: center;">
                     <p class="secondarySubHeading" style="padding-top: 2.5%">
                         <a href="tos.html" class="link">Terms and Conditions</a>
                     </p>
                     <p class="secondarySubHeading" style="padding-top: 2.5%">
                         Development by <a href="https://x.com/hoyelam" class="link">Hoye Lam</a>
                     </p>
-                    <p class="secondarySubHeading"">
-                    ©2025 Kin-Yee
-                </p>
-                </center>
+                    <p class="secondarySubHeading">
+                        ©2025 Kin-Yee
+                    </p>
+                </div>
             </div>
         </div>
     </section>
