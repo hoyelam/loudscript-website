@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Sitemap: https://loudcsript.app/sitemap.xml
+Sitemap: https://loudscript.app/sitemap.xml
 
 # Disallow any potential future admin areas
 User-agent: *
