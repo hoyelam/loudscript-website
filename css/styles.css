@@ -504,6 +504,7 @@ body {
 .mac-page {
     color: #fff;
     text-align: left;
+    overflow-x: hidden;
 }
 
 .mac-page *,
@@ -515,6 +516,11 @@ body {
 .mac-page img {
     display: block;
     max-width: 100%;
+}
+
+.mac-page a:focus-visible {
+    outline: 3px solid #9580fa;
+    outline-offset: 4px;
 }
 
 /* Shell */
@@ -572,14 +578,14 @@ body {
 }
 
 .mac-nav-links .mac-nav-cta {
-    color: #6042F5;
-    border: 1px solid rgba(96, 66, 245, 0.3);
+    color: #9580fa;
+    border: 1px solid rgba(149, 128, 250, 0.5);
     font-weight: 600;
 }
 
 .mac-nav-links .mac-nav-cta:hover {
     background: rgba(96, 66, 245, 0.12);
-    color: #7c63f7;
+    color: #b0a0ff;
 }
 
 /* Hero */
@@ -665,7 +671,7 @@ body {
     z-index: 1;
     max-width: 600px;
     margin: 24px auto 0;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.62);
     font-size: 1.15rem;
     line-height: 1.7;
 }
@@ -681,7 +687,7 @@ body {
     position: relative;
     z-index: 1;
     margin: 16px 0 0;
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.55);
     font-size: 0.9rem;
 }
 
@@ -720,8 +726,8 @@ body {
 }
 
 .mac-btn-secondary {
-    color: #6042F5;
-    border: 2px solid #6042F5;
+    color: #9580fa;
+    border: 2px solid #9580fa;
     background: transparent;
 }
 
@@ -805,7 +811,7 @@ body {
 .mac-feature-label {
     display: block;
     margin: 0 0 14px;
-    color: #6042F5;
+    color: #9580fa;
     font-size: 0.78rem;
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -822,7 +828,7 @@ body {
 
 .mac-feature-card p {
     margin: 0;
-    color: rgba(255, 255, 255, 0.45);
+    color: rgba(255, 255, 255, 0.58);
     font-size: 0.93rem;
     line-height: 1.6;
 }
@@ -876,7 +882,7 @@ body {
 .mac-section-label {
     display: block;
     margin: 0 0 14px;
-    color: #6042F5;
+    color: #9580fa;
     font-size: 0.78rem;
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -893,7 +899,7 @@ body {
 
 .mac-detail-text p {
     margin: 0;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.58);
     font-size: 1rem;
     line-height: 1.7;
 }
@@ -945,7 +951,7 @@ body {
 .mac-step-num {
     display: inline-block;
     margin-bottom: 16px;
-    color: #6042F5;
+    color: #9580fa;
     font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 0.1em;
@@ -959,7 +965,7 @@ body {
 
 .mac-step-card p {
     margin: 0;
-    color: rgba(255, 255, 255, 0.45);
+    color: rgba(255, 255, 255, 0.58);
     font-size: 0.93rem;
     line-height: 1.6;
 }
@@ -983,7 +989,7 @@ body {
 .mac-final-cta p {
     margin: 0 auto 32px;
     max-width: 520px;
-    color: rgba(255, 255, 255, 0.45);
+    color: rgba(255, 255, 255, 0.58);
     font-size: 1rem;
     line-height: 1.6;
 }
@@ -1010,7 +1016,7 @@ body {
 }
 
 .mac-footer-links a {
-    color: rgba(255, 255, 255, 0.35);
+    color: rgba(255, 255, 255, 0.58);
     text-decoration: none;
     font-size: 0.9rem;
     transition: color 0.2s;
@@ -1021,13 +1027,13 @@ body {
 }
 
 .mac-footer-credit {
-    color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.5);
     font-size: 0.85rem;
     margin: 0;
 }
 
 .mac-footer-credit a {
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.62);
     text-decoration: none;
 }
 
@@ -1099,7 +1105,19 @@ body {
     }
 
     .mac-nav-links {
-        justify-content: flex-start;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        width: 100%;
+    }
+
+    .mac-nav-links a {
+        padding: 10px 8px;
+        text-align: center;
+    }
+
+    .mac-nav-links .mac-nav-cta {
+        grid-column: 1 / -1;
     }
 
     .mac-hero {
