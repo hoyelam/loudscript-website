@@ -45,13 +45,40 @@
           "url": "https://loudscript.app/",
           "name": "LoudScript",
           "inLanguage": "en",
-          "publisher": { "@id": "https://loudscript.app/#creator" }
+          "publisher": { "@id": "https://loudscript.app/#organization" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://loudscript.app/#webpage",
+          "url": "https://loudscript.app/",
+          "name": "Free Text-to-Speech App for Mac | LoudScript",
+          "isPartOf": { "@id": "https://loudscript.app/#website" },
+          "about": { "@id": "https://loudscript.app/#mac-app" },
+          "mainEntity": { "@id": "https://loudscript.app/#mac-app" },
+          "inLanguage": "en"
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://loudscript.app/#organization",
+          "name": "Kin-Yee",
+          "url": "https://loudscript.app/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://loudscript.app/images/loudscript-icon-192.webp",
+            "width": 192,
+            "height": 192
+          },
+          "founder": { "@id": "https://loudscript.app/#creator" }
         },
         {
           "@type": "Person",
           "@id": "https://loudscript.app/#creator",
           "name": "Ho Ye Lam",
-          "url": "https://twitter.com/hoyelam"
+          "url": "https://hoyelam.com/",
+          "sameAs": [
+            "https://github.com/hoyelam",
+            "https://x.com/hoyelam"
+          ]
         },
         {
           "@type": "SoftwareApplication",
@@ -62,6 +89,7 @@
           "image": "https://loudscript.app/images/mac/mac-main-window.png",
           "operatingSystem": "macOS 15.6 or later",
           "applicationCategory": "UtilitiesApplication",
+          "isAccessibleForFree": true,
           "downloadUrl": "https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg",
           "featureList": [
             "Read selected text from any Mac app",
@@ -75,7 +103,8 @@
             "priceCurrency": "USD",
             "availability": "https://schema.org/InStock"
           },
-          "author": { "@id": "https://loudscript.app/#creator" }
+          "author": { "@id": "https://loudscript.app/#creator" },
+          "publisher": { "@id": "https://loudscript.app/#organization" }
         },
         {
           "@type": "FAQPage",

@@ -1120,6 +1120,18 @@ body {
     line-height: 1.75;
 }
 
+.seo-byline {
+    color: rgba(255, 255, 255, 0.52);
+    font-size: 0.88rem;
+    margin: 16px 0 0;
+}
+
+.seo-byline a {
+    color: rgba(255, 255, 255, 0.72);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+}
+
 .seo-section {
     margin: 20px 0;
     padding: 36px;

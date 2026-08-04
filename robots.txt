@@ -1,3 +1,23 @@
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /admin/
+Disallow: /wp-admin/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /admin/
+Disallow: /wp-admin/
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /admin/
+Disallow: /wp-admin/
+
+User-agent: Claude-User
+Allow: /
+Disallow: /admin/
+Disallow: /wp-admin/
+
 User-agent: *
 Allow: /
 Disallow: /admin/
