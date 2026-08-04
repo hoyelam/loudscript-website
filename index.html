@@ -5,22 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="LoudScript for Mac reads selected or on-screen text aloud with Apple, Supertonic, Kokoro, or PocketTTS voices while a floating overlay keeps you in control.">
-    <meta name="keywords" content="loudscript mac, mac text to speech, mac reading app, screenshot OCR, selected text reader, offline TTS mac, local TTS mac, supertonic TTS mac, kokoro TTS mac, pocketTTS mac, apple voices mac">
+    <meta name="description" content="LoudScript is a free text-to-speech app for Mac. Read selected text and screenshots aloud with offline voices, OCR, a floating player, and searchable history.">
     <meta name="author" content="Ho Ye Lam">
     <meta name="robots" content="index, follow">
 
     <meta property="og:site_name" content="LoudScript">
-    <meta property="og:title" content="LoudScript for Mac — Listen to Anything on Your Mac">
+    <meta property="og:title" content="Free Text-to-Speech App for Mac | LoudScript">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://loudscript.app/">
     <meta property="og:image" content="https://loudscript.app/images/mac/mac-main-window.png">
-    <meta property="og:description" content="Select text from any app, capture screenshots with OCR, and listen with Apple, Supertonic, Kokoro, or PocketTTS. Free notarized download.">
+    <meta property="og:description" content="Read selected text and screenshots aloud with offline voices, OCR, a floating player, and searchable history. Free for macOS.">
     <meta property="og:locale" content="en_US">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="LoudScript for Mac — Listen to Anything on Your Mac">
-    <meta name="twitter:description" content="Select text from any app, capture screenshots with OCR, and listen with Apple, Supertonic, Kokoro, or PocketTTS.">
+    <meta name="twitter:title" content="Free Text-to-Speech App for Mac | LoudScript">
+    <meta name="twitter:description" content="Read selected text and screenshots aloud with offline voices, OCR, a floating player, and searchable history.">
     <meta name="twitter:image" content="https://loudscript.app/images/mac/mac-main-window.png">
     <meta name="twitter:creator" content="@hoyelam">
 
@@ -34,26 +33,89 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#000000">
 
-    <title>LoudScript for Mac — Listen to Anything on Your Mac</title>
+    <title>Free Text-to-Speech App for Mac | LoudScript</title>
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "LoudScript for Mac",
-      "description": "LoudScript for Mac reads selected or on-screen text aloud with Apple, Supertonic, Kokoro, or PocketTTS voices.",
-      "operatingSystem": "macOS 15.6+",
-      "applicationCategory": "ProductivityApplication",
-      "downloadUrl": "https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Ho Ye Lam"
-      }
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://loudscript.app/#website",
+          "url": "https://loudscript.app/",
+          "name": "LoudScript",
+          "inLanguage": "en",
+          "publisher": { "@id": "https://loudscript.app/#creator" }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://loudscript.app/#creator",
+          "name": "Ho Ye Lam",
+          "url": "https://twitter.com/hoyelam"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://loudscript.app/#mac-app",
+          "name": "LoudScript for Mac",
+          "url": "https://loudscript.app/",
+          "description": "A free text-to-speech app for Mac that reads selected or on-screen text aloud with local speech engines.",
+          "image": "https://loudscript.app/images/mac/mac-main-window.png",
+          "operatingSystem": "macOS 15.6 or later",
+          "applicationCategory": "UtilitiesApplication",
+          "downloadUrl": "https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg",
+          "featureList": [
+            "Read selected text from any Mac app",
+            "Extract and read text from screenshots with OCR",
+            "On-device Apple, Supertonic, Kokoro, and PocketTTS speech",
+            "Floating playback controls and reading history"
+          ],
+          "offers": {
+            "@type": "Offer",
+            "price": 0,
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          },
+          "author": { "@id": "https://loudscript.app/#creator" }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://loudscript.app/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I make my Mac read selected text aloud?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Select text in any app and choose Read with LoudScript from the Services menu, or press Option-Command-R after enabling Selected Text access."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can LoudScript read text from screenshots or images?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. When text cannot be selected, LoudScript can capture a screen region, use built-in macOS OCR to extract the text, and read it aloud. Screen Recording permission is required for capture."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does LoudScript work offline?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes for speech synthesis. Apple voices work on-device, and Supertonic, Kokoro, and PocketTTS run locally after their optional model downloads. Optional AI formatting can send text to a third-party provider when you enable it."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which Macs support LoudScript?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "LoudScript requires macOS 15.6 or later. Apple voices and Supertonic support Intel and Apple silicon Macs. Kokoro and PocketTTS require Apple silicon."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
 </head>
@@ -61,11 +123,12 @@
 <body class="mac-page">
     <main class="mac-shell">
         <header class="mac-nav">
-            <a href="index.html" class="mac-brand" aria-label="Go to LoudScript home page">
-                <img src="./images/AppLogo.png" class="mac-brand-logo" alt="LoudScript app icon">
+            <a href="/" class="mac-brand" aria-label="Go to LoudScript home page">
+                <img src="/images/loudscript-icon-88.webp" class="mac-brand-logo" alt="LoudScript app icon" width="44" height="44">
                 <span>LoudScript</span>
             </a>
             <nav class="mac-nav-links" aria-label="Page navigation">
+                <a href="#guides">Guides</a>
                 <a href="support.html">Support</a>
                 <a href="https://apps.apple.com/app/loudscript-text-reader/id6747320736" target="_blank" rel="noopener">See iOS/iPadOS</a>
                 <a href="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg" target="_blank" rel="noopener" class="mac-nav-cta">Download DMG</a>
@@ -77,9 +140,9 @@
                 <span class="mac-eyebrow">LoudScript for Mac</span>
                 <span class="mac-free-badge">FREE</span>
             </div>
-            <h1 class="mac-title">Listen to anything<br>on your Mac</h1>
+            <h1 class="mac-title">Read any text aloud<br>on your Mac</h1>
             <p class="mac-intro">
-                Select text in any app, capture text from screenshots, and hear it read aloud with natural voices while you keep working.
+                LoudScript is a free text-to-speech app for Mac. Select text in any app, capture words from screenshots, and listen with natural voices while you keep working.
             </p>
             <div class="mac-cta-group" role="group" aria-label="LoudScript platforms">
                 <a href="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg" target="_blank" rel="noopener" class="mac-btn mac-btn-primary">
@@ -93,10 +156,10 @@
 
             <div class="mac-hero-screenshots">
                 <figure class="mac-screenshot mac-screenshot-main">
-                    <img src="./images/mac/mac-main-window.png" alt="LoudScript Mac main window showing reading history and current text">
+                    <img src="./images/mac/mac-main-window.webp" alt="LoudScript Mac main window showing reading history and current text" width="1224" height="768" fetchpriority="high" decoding="async">
                 </figure>
                 <figure class="mac-screenshot mac-screenshot-overlay">
-                    <img src="./images/mac/mac-speaking-overlay.png" alt="LoudScript floating overlay with live speech highlighting">
+                    <img src="./images/mac/mac-speaking-overlay.webp" alt="LoudScript floating overlay with live speech highlighting" width="1200" height="894" decoding="async">
                 </figure>
             </div>
         </section>
@@ -139,7 +202,7 @@
             </div>
             <div class="mac-detail-img">
                 <figure class="mac-screenshot">
-                    <img src="./images/mac/mac-speaking-overlay.png" alt="LoudScript overlay showing speech progress and quick controls" loading="lazy">
+                    <img src="./images/mac/mac-speaking-overlay.webp" alt="LoudScript overlay showing speech progress and quick controls" width="1200" height="894" loading="lazy" decoding="async">
                 </figure>
             </div>
         </section>
@@ -159,7 +222,7 @@
             </div>
             <div class="mac-detail-img">
                 <figure class="mac-screenshot">
-                    <img src="./images/mac/mac-playback-settings.png" alt="LoudScript speech model picker showing Apple, Supertonic, Kokoro, and PocketTTS" loading="lazy">
+                    <img src="./images/mac/mac-playback-settings.webp" alt="LoudScript speech model picker showing Apple, Supertonic, Kokoro, and PocketTTS" width="560" height="708" loading="lazy" decoding="async">
                 </figure>
             </div>
         </section>
@@ -179,7 +242,7 @@
             </div>
             <div class="mac-detail-img">
                 <figure class="mac-screenshot mac-screenshot-constrained">
-                    <img src="./images/mac/mac-history-overview.png" alt="LoudScript history panel showing metadata and source text" loading="lazy">
+                    <img src="./images/mac/mac-history-overview.webp" alt="LoudScript history panel showing metadata and source text" width="390" height="900" loading="lazy" decoding="async">
                 </figure>
             </div>
         </section>
@@ -206,6 +269,74 @@
             </div>
         </section>
 
+        <section class="mac-audiences mac-reveal" aria-labelledby="audiences-title">
+            <span class="mac-section-label">Built for real reading</span>
+            <h2 id="audiences-title">A Mac text reader for work, study, and accessibility.</h2>
+            <div class="mac-audience-grid">
+                <article class="mac-audience-card">
+                    <h3>Proofread with your ears</h3>
+                    <p>Hear drafts, emails, and scripts aloud to catch missing words, awkward phrasing, and repetition.</p>
+                </article>
+                <article class="mac-audience-card">
+                    <h3>Study without staring</h3>
+                    <p>Listen to selected passages while taking notes, reviewing material, or giving your eyes a break.</p>
+                </article>
+                <article class="mac-audience-card">
+                    <h3>Read inaccessible text</h3>
+                    <p>Use screenshot OCR when an image, PDF viewer, or interface will not let you select the words you need.</p>
+                </article>
+                <article class="mac-audience-card">
+                    <h3>Keep working while listening</h3>
+                    <p>Let the floating player stay above your windows while LoudScript reads in the background.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="mac-guides mac-reveal" id="guides" aria-labelledby="guides-title">
+            <span class="mac-section-label">Mac text-to-speech guides</span>
+            <h2 id="guides-title">Choose the reading workflow you need.</h2>
+            <div class="mac-guide-grid">
+                <a class="mac-guide-card" href="/read-selected-text-aloud-mac/">
+                    <span>Selected text</span>
+                    <h3>Read selected text aloud on Mac</h3>
+                    <p>Use the Services menu or Option-Command-R in browsers, editors, email, and other Mac apps.</p>
+                </a>
+                <a class="mac-guide-card" href="/screenshot-ocr-text-to-speech-mac/">
+                    <span>Screenshot OCR</span>
+                    <h3>Turn on-screen text into speech</h3>
+                    <p>Capture words that cannot be selected, extract them with macOS OCR, and listen.</p>
+                </a>
+                <a class="mac-guide-card" href="/offline-text-to-speech-mac/">
+                    <span>Local voices</span>
+                    <h3>Compare offline text-to-speech engines</h3>
+                    <p>See which local engine fits your Mac, languages, download size, and voice preferences.</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="mac-faq mac-reveal" aria-labelledby="faq-title">
+            <span class="mac-section-label">Frequently asked questions</span>
+            <h2 id="faq-title">LoudScript for Mac FAQ</h2>
+            <div class="mac-faq-list">
+                <details>
+                    <summary>How do I make my Mac read selected text aloud?</summary>
+                    <p>Select text in any app and choose <strong>Read with LoudScript</strong> from the Services menu, or press <strong>Option-Command-R</strong> after enabling Selected Text access.</p>
+                </details>
+                <details>
+                    <summary>Can LoudScript read text from screenshots or images?</summary>
+                    <p>Yes. When text cannot be selected, LoudScript can capture a screen region, use built-in macOS OCR to extract the text, and read it aloud. Screen Recording permission is required for capture.</p>
+                </details>
+                <details>
+                    <summary>Does LoudScript work offline?</summary>
+                    <p>Yes for speech synthesis. Apple voices work on-device, and Supertonic, Kokoro, and PocketTTS run locally after their optional model downloads. Optional AI formatting can send text to a third-party provider when you enable it.</p>
+                </details>
+                <details>
+                    <summary>Which Macs support LoudScript?</summary>
+                    <p>LoudScript requires macOS 15.6 or later. Apple voices and Supertonic support Intel and Apple silicon Macs. Kokoro and PocketTTS require Apple silicon.</p>
+                </details>
+            </div>
+        </section>
+
         <section class="mac-final-cta mac-reveal">
             <h2>Start listening on your Mac.</h2>
             <p>Free, notarized direct download. No App Store account needed.</p>
@@ -222,6 +353,9 @@
             <a href="tos.html">Terms</a>
             <a href="privacy.html">Privacy</a>
             <a href="support.html">Support</a>
+            <a href="/read-selected-text-aloud-mac/">Selected Text Guide</a>
+            <a href="/screenshot-ocr-text-to-speech-mac/">OCR Guide</a>
+            <a href="/offline-text-to-speech-mac/">Offline Voices</a>
             <a href="https://apps.apple.com/app/loudscript-text-reader/id6747320736" target="_blank" rel="noopener">See iOS/iPadOS</a>
         </nav>
         <p class="mac-footer-credit">

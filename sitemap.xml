@@ -2,26 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://loudscript.app/</loc>
-    <lastmod>2026-04-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://loudscript.app/read-selected-text-aloud-mac/</loc>
+    <lastmod>2026-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://loudscript.app/screenshot-ocr-text-to-speech-mac/</loc>
+    <lastmod>2026-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://loudscript.app/offline-text-to-speech-mac/</loc>
+    <lastmod>2026-08-04</lastmod>
   </url>
   <url>
     <loc>https://loudscript.app/privacy.html</loc>
-    <lastmod>2023-07-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-05-21</lastmod>
   </url>
   <url>
     <loc>https://loudscript.app/tos.html</loc>
-    <lastmod>2023-07-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-05-21</lastmod>
   </url>
   <url>
     <loc>https://loudscript.app/support.html</loc>
-    <lastmod>2023-07-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-08-04</lastmod>
   </url>
 </urlset> 
