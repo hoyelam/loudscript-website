@@ -601,7 +601,7 @@ body {
     top: -120px;
     left: 50%;
     transform: translateX(-50%);
-    width: 700px;
+    width: min(700px, 100%);
     height: 500px;
     background: radial-gradient(ellipse, rgba(96, 66, 245, 0.07) 0%, transparent 70%);
     pointer-events: none;
@@ -1327,6 +1327,202 @@ body {
 
 .mac-steps .mac-reveal:nth-child(2) { transition-delay: 0.08s; }
 .mac-steps .mac-reveal:nth-child(3) { transition-delay: 0.16s; }
+
+/* Follow the visitor's system appearance while keeping dark mode as the default. */
+@media (prefers-color-scheme: light) {
+    body.mac-page {
+        color-scheme: light;
+        color: #17141e;
+        background-color: #f7f7fb;
+    }
+
+    .mac-page a:focus-visible,
+    .mac-faq-list summary:focus-visible {
+        outline-color: #6042f5;
+    }
+
+    .mac-brand,
+    .mac-title,
+    .mac-feature-card h2,
+    .mac-detail-text h2,
+    .mac-workflow > h2,
+    .mac-step-card h3,
+    .mac-audiences > h2,
+    .mac-guides > h2,
+    .mac-faq > h2,
+    .mac-audience-card h3,
+    .mac-guide-card h3,
+    .mac-faq-list summary,
+    .seo-hero h1,
+    .seo-section h2,
+    .seo-section h3,
+    .seo-table th,
+    .seo-related a,
+    .mac-final-cta h2 {
+        color: #17141e;
+    }
+
+    .mac-nav-links a {
+        color: rgba(23, 20, 30, 0.66);
+    }
+
+    .mac-nav-links a:hover {
+        color: #17141e;
+        background: rgba(23, 20, 30, 0.06);
+    }
+
+    .mac-nav-links .mac-nav-cta,
+    .mac-eyebrow,
+    .mac-feature-label,
+    .mac-section-label,
+    .mac-step-num,
+    .seo-breadcrumb {
+        color: #5137d6;
+    }
+
+    .mac-guide-card > span {
+        color: #5a42d5;
+    }
+
+    .mac-nav-links .mac-nav-cta {
+        border-color: rgba(81, 55, 214, 0.4);
+    }
+
+    .mac-nav-links .mac-nav-cta:hover {
+        color: #4129bd;
+        background: rgba(81, 55, 214, 0.08);
+    }
+
+    .mac-hero::before {
+        background: radial-gradient(ellipse, rgba(96, 66, 245, 0.1) 0%, transparent 70%);
+    }
+
+    .mac-eyebrow {
+        background: rgba(81, 55, 214, 0.08);
+        border-color: rgba(81, 55, 214, 0.18);
+    }
+
+    .mac-free-badge {
+        color: #8a5200;
+        background: rgba(190, 114, 0, 0.08);
+        border-color: rgba(138, 82, 0, 0.22);
+    }
+
+    .mac-intro,
+    .mac-audience-card p,
+    .mac-guide-card p {
+        color: rgba(23, 20, 30, 0.68);
+    }
+
+    .mac-note,
+    .mac-feature-card p,
+    .mac-detail-text p,
+    .mac-detail-list,
+    .mac-step-card p,
+    .mac-final-cta p,
+    .mac-footer-links a {
+        color: rgba(23, 20, 30, 0.6);
+    }
+
+    .mac-footer-links a:hover,
+    .mac-footer-credit a {
+        color: rgba(23, 20, 30, 0.72);
+    }
+
+    .mac-footer-credit {
+        color: rgba(23, 20, 30, 0.6);
+    }
+
+    .mac-footer-credit a:hover {
+        color: rgba(23, 20, 30, 0.72);
+    }
+
+    .mac-screenshot {
+        background: rgba(255, 255, 255, 0.72);
+        border-color: rgba(23, 20, 30, 0.1);
+    }
+
+    .mac-screenshot-main {
+        box-shadow:
+            0 24px 64px rgba(34, 27, 55, 0.18),
+            0 0 100px rgba(96, 66, 245, 0.08);
+    }
+
+    .mac-screenshot-overlay {
+        box-shadow:
+            0 20px 48px rgba(34, 27, 55, 0.22),
+            0 0 60px rgba(96, 66, 245, 0.08);
+    }
+
+    .mac-feature-card,
+    .mac-detail-text,
+    .mac-detail-img,
+    .mac-step-card,
+    .mac-audience-card,
+    .mac-guide-card,
+    .mac-faq-list details,
+    .seo-section,
+    .seo-related a {
+        background: rgba(255, 255, 255, 0.82);
+        border-color: rgba(23, 20, 30, 0.08);
+        box-shadow: 0 1px 2px rgba(34, 27, 55, 0.03);
+    }
+
+    .mac-feature-card:hover,
+    .mac-guide-card:hover {
+        background: #fff;
+        border-color: rgba(81, 55, 214, 0.24);
+    }
+
+    .mac-step-card:hover,
+    .seo-related a:hover {
+        border-color: rgba(81, 55, 214, 0.22);
+    }
+
+    .mac-faq-list p,
+    .seo-lede,
+    .seo-section p,
+    .seo-section li,
+    .seo-table td {
+        color: rgba(23, 20, 30, 0.7);
+    }
+
+    .seo-byline {
+        color: rgba(23, 20, 30, 0.6);
+    }
+
+    .seo-byline a {
+        color: rgba(23, 20, 30, 0.74);
+    }
+
+    .seo-section a {
+        color: #5137d6;
+    }
+
+    .seo-table th,
+    .seo-table td {
+        border-color: rgba(23, 20, 30, 0.1);
+    }
+
+    .seo-callout,
+    .mac-final-cta {
+        background: rgba(81, 55, 214, 0.05);
+        border-color: rgba(81, 55, 214, 0.14);
+    }
+
+    .mac-btn-secondary {
+        color: #5137d6;
+        border-color: #6042f5;
+    }
+
+    .mac-btn-secondary:hover {
+        color: #fff;
+    }
+
+    .mac-footer {
+        border-color: rgba(23, 20, 30, 0.08);
+    }
+}
 
 @media (prefers-reduced-motion: reduce) {
     .mac-reveal {
