@@ -1173,6 +1173,98 @@ body {
     color: #b7aaff;
 }
 
+/* Public release changelog */
+.changelog-page {
+    max-width: 860px;
+    margin: 0 auto 80px;
+}
+
+.changelog-hero {
+    max-width: 680px;
+    margin: 0 auto 56px;
+    text-align: center;
+}
+
+.changelog-hero .mac-section-label {
+    margin: 0 0 18px;
+}
+
+.changelog-hero h1 {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(2.7rem, 7vw, 5rem);
+    line-height: 1;
+    letter-spacing: -0.045em;
+}
+
+.changelog-hero > p:last-child {
+    margin: 24px auto 0;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 1.12rem;
+    line-height: 1.7;
+}
+
+.release-list {
+    display: grid;
+    gap: 20px;
+}
+
+.release-entry {
+    padding: 32px 36px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.release-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.release-version-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 7px;
+}
+
+.release-version {
+    color: #fff;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.release-latest {
+    padding: 4px 9px;
+    border: 1px solid rgba(149, 128, 250, 0.3);
+    border-radius: 999px;
+    color: #b7aaff;
+    background: rgba(96, 66, 245, 0.12);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.release-header time {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+}
+
+.release-notes {
+    margin: 24px 0 0;
+    padding-left: 22px;
+}
+
+.release-notes li {
+    margin: 9px 0;
+    padding-left: 4px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.65;
+}
+
 .seo-steps {
     margin: 0;
     padding-left: 24px;
@@ -1499,6 +1591,32 @@ body {
         color: #5137d6;
     }
 
+    .changelog-hero h1,
+    .release-version {
+        color: #17141e;
+    }
+
+    .changelog-hero > p:last-child,
+    .release-notes li {
+        color: rgba(23, 20, 30, 0.7);
+    }
+
+    .release-entry {
+        background: rgba(255, 255, 255, 0.82);
+        border-color: rgba(23, 20, 30, 0.08);
+        box-shadow: 0 1px 2px rgba(34, 27, 55, 0.03);
+    }
+
+    .release-latest {
+        color: #5137d6;
+        background: rgba(81, 55, 214, 0.06);
+        border-color: rgba(81, 55, 214, 0.18);
+    }
+
+    .release-header time {
+        color: rgba(23, 20, 30, 0.55);
+    }
+
     .seo-table th,
     .seo-table td {
         border-color: rgba(23, 20, 30, 0.1);
@@ -1629,6 +1747,20 @@ body {
     .seo-section {
         padding: 24px 20px;
         border-radius: 18px;
+    }
+
+    .changelog-hero {
+        margin-bottom: 40px;
+    }
+
+    .release-entry {
+        padding: 24px 20px;
+        border-radius: 18px;
+    }
+
+    .release-header {
+        flex-direction: column;
+        gap: 14px;
     }
 
     .mac-btn {
