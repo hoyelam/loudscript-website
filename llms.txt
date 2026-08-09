@@ -9,6 +9,7 @@
 - [Screenshot OCR text-to-speech](https://loudscript.app/screenshot-ocr-text-to-speech-mac/): Screen capture, OCR, permissions, and privacy.
 - [Offline text-to-speech engines](https://loudscript.app/offline-text-to-speech-mac/): Apple, Supertonic, Kokoro, and PocketTTS comparison.
 - [Support](https://loudscript.app/support.html): Contact and troubleshooting links.
+- [Changelog](https://loudscript.app/changelog.html): Current and previous LoudScript for Mac releases.
 - [Privacy policy](https://loudscript.app/privacy.html): Local storage, analytics, OCR, and optional AI processing.
 - [Terms of service](https://loudscript.app/tos.html): Product terms.
 
@@ -21,6 +22,11 @@
 - Apple voices and Supertonic support Intel and Apple silicon Macs. Kokoro and PocketTTS require Apple silicon.
 - Optional AI formatting is separate from local speech and can send the text being formatted to a third-party provider when enabled.
 - Raw speech text, OCR output, and source-app identity are not sent to product analytics.
+
+## Entity facts
+
+- LoudScript is published by Kin-Yee and developed by Ho Ye Lam, who also uses the name Hoye Lam and the handle `hoyelam`.
+- The Mac product is presented as LoudScript for Mac. The iPhone and iPad App Store listing is named Text Reader - LoudScript.
 
 ## Official downloads
 

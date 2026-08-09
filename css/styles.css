@@ -1591,6 +1591,11 @@ body {
         color: #5137d6;
     }
 
+    .seo-section .mac-btn-primary,
+    .seo-section .mac-btn-primary:hover {
+        color: #fff;
+    }
+
     .changelog-hero h1,
     .release-version {
         color: #17141e;
