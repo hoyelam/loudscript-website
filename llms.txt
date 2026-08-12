@@ -26,7 +26,7 @@
 ## Entity facts
 
 - LoudScript is published by Kin-Yee and developed by Ho Ye Lam, who also uses the name Hoye Lam and the handle `hoyelam`.
-- The Mac product is presented as LoudScript for Mac. The iPhone and iPad App Store listing is named Text Reader - LoudScript.
+- The Mac product is presented as LoudScript for Mac. The iPhone and iPad App Store listing is named LoudScript: Text to Speech.
 
 ## Official downloads
 
