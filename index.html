@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="LoudScript is a free text-to-speech app for Mac. Read selected text and screenshots aloud with offline voices, OCR, a floating player, and searchable history.">
+    <meta name="description" content="LoudScript is a free text-to-speech app for Mac. Listen to selected text, screenshots, and PDFs with natural voices, highlighting, and reading history.">
     <meta name="author" content="Ho Ye Lam">
     <meta name="robots" content="index, follow">
 
@@ -15,12 +15,12 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://loudscript.app/">
     <meta property="og:image" content="https://loudscript.app/images/mac/mac-main-window.png">
-    <meta property="og:description" content="Read selected text and screenshots aloud with offline voices, OCR, a floating player, and searchable history. Free for macOS.">
+    <meta property="og:description" content="Listen to selected text, screenshots, and PDFs with natural voices, highlighting, and reading history. Free for macOS.">
     <meta property="og:locale" content="en_US">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Free Text-to-Speech App for Mac | LoudScript">
-    <meta name="twitter:description" content="Read selected text and screenshots aloud with offline voices, OCR, a floating player, and searchable history.">
+    <meta name="twitter:description" content="Listen to selected text, screenshots, and PDFs with natural voices, highlighting, and reading history.">
     <meta name="twitter:image" content="https://loudscript.app/images/mac/mac-main-window.png">
     <meta name="twitter:creator" content="@hoyelam">
 
@@ -89,7 +89,7 @@
           "@id": "https://loudscript.app/#mac-app",
           "name": "LoudScript for Mac",
           "url": "https://loudscript.app/",
-          "description": "A free text-to-speech app for Mac that reads selected or on-screen text aloud with local speech engines.",
+          "description": "A free text-to-speech app for Mac that reads selected text, screenshots, and PDFs aloud.",
           "image": "https://loudscript.app/images/mac/mac-main-window.png",
           "operatingSystem": "macOS 15.6 or later",
           "applicationCategory": "UtilitiesApplication",
@@ -98,6 +98,7 @@
           "featureList": [
             "Read selected text from any Mac app",
             "Extract and read text from screenshots with OCR",
+            "Import selected PDF pages and follow the spoken text in the document",
             "On-device Apple, Supertonic, Kokoro, and PocketTTS speech",
             "Floating playback controls and reading history"
           ],
@@ -174,9 +175,9 @@
                 <span class="mac-eyebrow">LoudScript for Mac</span>
                 <span class="mac-free-badge">FREE</span>
             </div>
-            <h1 class="mac-title">Read any text aloud<br>on your Mac</h1>
+            <h1 class="mac-title">Listen to any text<br>on your Mac</h1>
             <p class="mac-intro">
-                LoudScript is a free text-to-speech app for Mac. Select text in any app, capture words from screenshots, and listen with natural voices while you keep working.
+                Listen to selected text, screenshots, and PDFs with natural voices while you keep working.
             </p>
             <div class="mac-cta-group" role="group" aria-label="LoudScript platforms">
                 <a href="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg" target="_blank" rel="noopener" class="mac-btn mac-btn-primary">
@@ -190,53 +191,53 @@
 
             <div class="mac-hero-screenshots">
                 <figure class="mac-screenshot mac-screenshot-main">
-                    <img src="./images/mac/mac-main-window.webp" srcset="./images/mac/mac-main-window-640.webp 640w, ./images/mac/mac-main-window-768.webp 768w, ./images/mac/mac-main-window.webp 1224w" sizes="(max-width: 600px) calc(100vw - 34px), 860px" alt="LoudScript Mac main window showing reading history and current text" width="1224" height="768" fetchpriority="high" decoding="async">
+                    <img src="./images/mac/mac-main-window.webp" srcset="./images/mac/mac-main-window-640.webp 640w, ./images/mac/mac-main-window-1280.webp 1280w, ./images/mac/mac-main-window.webp 2560w" sizes="(max-width: 600px) calc(100vw - 34px), 860px" alt="LoudScript reading a PDF with synchronized text and document highlighting" width="2560" height="1410" fetchpriority="high" decoding="async">
                 </figure>
                 <figure class="mac-screenshot mac-screenshot-overlay">
-                    <img src="./images/mac/mac-speaking-overlay.webp" srcset="./images/mac/mac-speaking-overlay-640.webp 640w, ./images/mac/mac-speaking-overlay.webp 1200w" sizes="(max-width: 600px) 58vw, 380px" alt="LoudScript floating overlay with live speech highlighting" width="1200" height="894" decoding="async">
+                    <img src="./images/mac/mac-playback-settings.webp" srcset="./images/mac/mac-playback-settings-560.webp 560w, ./images/mac/mac-playback-settings.webp 1120w" sizes="(max-width: 600px) 58vw, 380px" alt="LoudScript speech-model picker with local voice options" width="1120" height="1416" decoding="async">
                 </figure>
             </div>
         </section>
 
         <section class="mac-features" aria-label="Key features">
             <article class="mac-feature-card mac-reveal">
-                <span class="mac-feature-label">Read Anywhere</span>
-                <h2>Grab text from any Mac app.</h2>
-                <p>Right-click selected text and choose "Read with LoudScript" from the Services menu, or trigger it with a global keyboard shortcut.</p>
+                <span class="mac-feature-label">PDF Reading</span>
+                <h2>Listen while the page stays in view.</h2>
+                <p>Import the pages you need and follow the spoken text in the original document.</p>
             </article>
             <article class="mac-feature-card mac-reveal">
                 <span class="mac-feature-label">Screen OCR</span>
                 <h2>Read text that can't be selected.</h2>
-                <p>When text is locked in images or app interfaces, capture the screen and let built-in OCR extract and read it.</p>
+                <p>Capture text from images and apps, then listen to it.</p>
             </article>
             <article class="mac-feature-card mac-reveal">
                 <span class="mac-feature-label">Four Speech Engines</span>
-                <h2>Choose the voice technology you prefer.</h2>
-                <p>Use Apple's built-in voices or download Supertonic, Kokoro, or PocketTTS for local speech on your Mac.</p>
+                <h2>Choose the voice you prefer.</h2>
+                <p>Use Apple voices or download Supertonic, Kokoro, or PocketTTS.</p>
             </article>
             <article class="mac-feature-card mac-reveal">
                 <span class="mac-feature-label">Background Playback</span>
                 <h2>Keep listening while you work.</h2>
-                <p>A floating overlay tracks your listening progress and gives you instant controls without switching windows.</p>
+                <p>Control playback from a small floating player without switching windows.</p>
             </article>
         </section>
 
-        <section class="mac-detail mac-reveal" aria-label="Playback overlay feature">
+        <section class="mac-detail mac-reveal" aria-label="PDF reading feature">
             <div class="mac-detail-text">
-                <span class="mac-section-label">Playback Overlay</span>
-                <h2>Stay focused while you listen.</h2>
+                <span class="mac-section-label">PDF Reading</span>
+                <h2>Keep the text and document together.</h2>
                 <p>
-                    The floating overlay sits above your windows, highlights the current phrase as it's spoken, and keeps playback controls one click away.
+                    Read the extracted text beside the original PDF. LoudScript highlights the current sentence in both views.
                 </p>
                 <ul class="mac-detail-list">
-                    <li>Live text highlighting as speech advances</li>
-                    <li>Instant pause and stop without switching apps</li>
-                    <li>Open the full app from the overlay at any time</li>
+                    <li>Choose a page range before importing</li>
+                    <li>Follow playback across PDF pages</li>
+                    <li>Hide the text or overview when you need more space</li>
                 </ul>
             </div>
             <div class="mac-detail-img">
                 <figure class="mac-screenshot">
-                    <img src="./images/mac/mac-speaking-overlay.webp" srcset="./images/mac/mac-speaking-overlay-640.webp 640w, ./images/mac/mac-speaking-overlay.webp 1200w" sizes="(max-width: 900px) calc(100vw - 66px), 606px" alt="LoudScript overlay showing speech progress and quick controls" width="1200" height="894" loading="lazy" decoding="async">
+                    <img src="./images/mac/mac-main-window.webp" srcset="./images/mac/mac-main-window-640.webp 640w, ./images/mac/mac-main-window-1280.webp 1280w, ./images/mac/mac-main-window.webp 2560w" sizes="(max-width: 900px) calc(100vw - 66px), 606px" alt="LoudScript PDF playback showing synchronized text and document highlighting" width="2560" height="1410" loading="lazy" decoding="async">
                 </figure>
             </div>
         </section>
@@ -244,19 +245,19 @@
         <section class="mac-detail mac-detail-reverse mac-reveal" aria-label="Voice and playback settings">
             <div class="mac-detail-text">
                 <span class="mac-section-label">Voice & Playback</span>
-                <h2>Dial in how LoudScript reads.</h2>
+                <h2>Choose how LoudScript sounds.</h2>
                 <p>
-                    Choose Apple, Supertonic, Kokoro, or PocketTTS, adjust reading speed, and optionally use AI formatting to improve phrasing before speech begins.
+                    Choose a voice, set the reading speed, and turn on AI formatting if you want smoother phrasing.
                 </p>
                 <ul class="mac-detail-list">
-                    <li>Download and remove local speech models in LoudScript</li>
-                    <li>Apple voices remain available as an automatic fallback</li>
-                    <li>Adjustable rate and optional AI phrasing</li>
+                    <li>Manage downloaded voices in LoudScript</li>
+                    <li>Use Apple voices as a fallback</li>
+                    <li>Change the speed at any time</li>
                 </ul>
             </div>
             <div class="mac-detail-img">
                 <figure class="mac-screenshot">
-                    <img src="./images/mac/mac-playback-settings.webp" srcset="./images/mac/mac-playback-settings-320.webp 320w, ./images/mac/mac-playback-settings.webp 560w" sizes="(max-width: 900px) min(400px, calc(100vw - 66px)), 400px" alt="LoudScript speech model picker showing Apple, Supertonic, Kokoro, and PocketTTS" width="560" height="708" loading="lazy" decoding="async">
+                    <img src="./images/mac/mac-playback-settings.webp" srcset="./images/mac/mac-playback-settings-560.webp 560w, ./images/mac/mac-playback-settings.webp 1120w" sizes="(max-width: 900px) min(400px, calc(100vw - 66px)), 400px" alt="LoudScript speech model picker showing Apple, Supertonic, Kokoro, and PocketTTS" width="1120" height="1416" loading="lazy" decoding="async">
                 </figure>
             </div>
         </section>
@@ -264,19 +265,19 @@
         <section class="mac-detail mac-reveal" aria-label="Reading history feature">
             <div class="mac-detail-text">
                 <span class="mac-section-label">Reading History</span>
-                <h2>Revisit anything you've listened to.</h2>
+                <h2>Return to anything you've heard.</h2>
                 <p>
-                    Every read is saved with the source app, detected language, character count, and original text. Search and replay past entries whenever you need them.
+                    LoudScript saves each read with its source, language, and text. Search your history and listen again at any time.
                 </p>
                 <ul class="mac-detail-list">
-                    <li>See which app triggered each read</li>
-                    <li>Compare original and formatted versions</li>
-                    <li>Track timing and text metrics across sessions</li>
+                    <li>See where each read came from</li>
+                    <li>Compare original and formatted text</li>
+                    <li>Review reading time and text details</li>
                 </ul>
             </div>
             <div class="mac-detail-img">
                 <figure class="mac-screenshot mac-screenshot-constrained">
-                    <img src="./images/mac/mac-history-overview.webp" alt="LoudScript history panel showing metadata and source text" width="390" height="900" loading="lazy" decoding="async">
+                    <img src="./images/mac/mac-history-overview.webp" srcset="./images/mac/mac-history-overview-380.webp 380w, ./images/mac/mac-history-overview.webp 760w" sizes="(max-width: 900px) min(400px, calc(100vw - 66px)), 400px" alt="LoudScript reading overview showing language, source, text, and playback details" width="760" height="1800" loading="lazy" decoding="async">
                 </figure>
             </div>
         </section>
@@ -287,18 +288,18 @@
             <div class="mac-steps">
                 <article class="mac-step-card mac-reveal">
                     <span class="mac-step-num">01</span>
-                    <h3>Grab text</h3>
-                    <p>Select text in any app, capture a screenshot, or type directly into LoudScript.</p>
+                    <h3>Add text</h3>
+                    <p>Select text, capture a screenshot, import a PDF, or type in LoudScript.</p>
                 </article>
                 <article class="mac-step-card mac-reveal">
                     <span class="mac-step-num">02</span>
                     <h3>Listen</h3>
-                    <p>LoudScript uses your selected speech model, falls back to Apple if needed, and starts reading with a floating overlay.</p>
+                    <p>Choose a voice and press Play. The current sentence stays highlighted.</p>
                 </article>
                 <article class="mac-step-card mac-reveal">
                     <span class="mac-step-num">03</span>
                     <h3>Come back later</h3>
-                    <p>Your history keeps every entry with metadata so you can replay, copy, or reference it.</p>
+                    <p>Find past reads in your history to replay or copy them.</p>
                 </article>
             </div>
         </section>
@@ -343,7 +344,7 @@
                 <a class="mac-guide-card" href="/offline-text-to-speech-mac/">
                     <span>Local voices</span>
                     <h3>Compare offline text-to-speech engines</h3>
-                    <p>See which local engine fits your Mac, languages, download size, and voice preferences.</p>
+                    <p>Compare supported Macs, languages, download sizes, and voices.</p>
                 </a>
             </div>
         </section>
@@ -358,11 +359,15 @@
                 </details>
                 <details>
                     <summary>Can LoudScript read text from screenshots or images?</summary>
-                    <p>Yes. When text cannot be selected, LoudScript can capture a screen region, use built-in macOS OCR to extract the text, and read it aloud. Screen Recording permission is required for capture.</p>
+                    <p>Yes. Capture an area of your screen and LoudScript will find and read the text. Screen Recording permission is required.</p>
+                </details>
+                <details>
+                    <summary>Can LoudScript read PDFs?</summary>
+                    <p>Yes. Import up to 50 pages at a time. LoudScript shows the original PDF beside the extracted text and highlights the current sentence.</p>
                 </details>
                 <details>
                     <summary>Does LoudScript work offline?</summary>
-                    <p>Yes for speech synthesis. Apple voices work on-device, and Supertonic, Kokoro, and PocketTTS run locally after their optional model downloads. Optional AI formatting can send text to a third-party provider when you enable it.</p>
+                    <p>Yes. Apple voices work on your Mac. Supertonic, Kokoro, and PocketTTS also work locally after you download their models. AI formatting may send text to your chosen AI provider when enabled.</p>
                 </details>
                 <details>
                     <summary>Which Macs support LoudScript?</summary>
