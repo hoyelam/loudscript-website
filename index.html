@@ -128,7 +128,15 @@
               "name": "Can LoudScript read text from screenshots or images?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. When text cannot be selected, LoudScript can capture a screen region, use built-in macOS OCR to extract the text, and read it aloud. Screen Recording permission is required for capture."
+                "text": "Yes. Capture an area of your screen and LoudScript will find and read the text. Screen Recording permission is required."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can LoudScript read PDFs?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Import up to 50 pages at a time. LoudScript shows the original PDF beside the extracted text and highlights the current sentence."
               }
             },
             {
@@ -136,7 +144,7 @@
               "name": "Does LoudScript work offline?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes for speech synthesis. Apple voices work on-device, and Supertonic, Kokoro, and PocketTTS run locally after their optional model downloads. Optional AI formatting can send text to a third-party provider when you enable it."
+                "text": "Yes. Apple voices work on your Mac. Supertonic, Kokoro, and PocketTTS also work locally after you download their models. AI formatting may send text to your chosen AI provider when enabled."
               }
             },
             {
@@ -191,10 +199,16 @@
 
             <div class="mac-hero-screenshots">
                 <figure class="mac-screenshot mac-screenshot-main">
-                    <img src="./images/mac/mac-main-window.webp" srcset="./images/mac/mac-main-window-640.webp 640w, ./images/mac/mac-main-window-1280.webp 1280w, ./images/mac/mac-main-window.webp 2560w" sizes="(max-width: 600px) calc(100vw - 34px), 860px" alt="LoudScript reading a PDF with synchronized text and document highlighting" width="2560" height="1410" fetchpriority="high" decoding="async">
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="./images/mac/mac-main-window-640.webp">
+                        <img src="./images/mac/mac-main-window.webp" srcset="./images/mac/mac-main-window-640.webp 640w, ./images/mac/mac-main-window-1280.webp 1280w, ./images/mac/mac-main-window.webp 2560w" sizes="860px" alt="LoudScript reading a PDF with synchronized text and document highlighting" width="2560" height="1410" fetchpriority="high" decoding="async">
+                    </picture>
                 </figure>
                 <figure class="mac-screenshot mac-screenshot-overlay">
-                    <img src="./images/mac/mac-playback-settings.webp" srcset="./images/mac/mac-playback-settings-560.webp 560w, ./images/mac/mac-playback-settings.webp 1120w" sizes="(max-width: 600px) 58vw, 380px" alt="LoudScript speech-model picker with local voice options" width="1120" height="1416" decoding="async">
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="./images/mac/mac-playback-settings-560.webp">
+                        <img src="./images/mac/mac-playback-settings.webp" srcset="./images/mac/mac-playback-settings-560.webp 560w, ./images/mac/mac-playback-settings.webp 1120w" sizes="380px" alt="LoudScript speech-model picker with local voice options" width="1120" height="1416" decoding="async">
+                    </picture>
                 </figure>
             </div>
         </section>
@@ -237,7 +251,10 @@
             </div>
             <div class="mac-detail-img">
                 <figure class="mac-screenshot">
-                    <img src="./images/mac/mac-main-window.webp" srcset="./images/mac/mac-main-window-640.webp 640w, ./images/mac/mac-main-window-1280.webp 1280w, ./images/mac/mac-main-window.webp 2560w" sizes="(max-width: 900px) calc(100vw - 66px), 606px" alt="LoudScript PDF playback showing synchronized text and document highlighting" width="2560" height="1410" loading="lazy" decoding="async">
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="./images/mac/mac-main-window-640.webp">
+                        <img src="./images/mac/mac-main-window.webp" srcset="./images/mac/mac-main-window-640.webp 640w, ./images/mac/mac-main-window-1280.webp 1280w, ./images/mac/mac-main-window.webp 2560w" sizes="(max-width: 900px) calc(100vw - 66px), 606px" alt="LoudScript PDF playback showing synchronized text and document highlighting" width="2560" height="1410" loading="lazy" decoding="async">
+                    </picture>
                 </figure>
             </div>
         </section>
@@ -257,7 +274,10 @@
             </div>
             <div class="mac-detail-img">
                 <figure class="mac-screenshot">
-                    <img src="./images/mac/mac-playback-settings.webp" srcset="./images/mac/mac-playback-settings-560.webp 560w, ./images/mac/mac-playback-settings.webp 1120w" sizes="(max-width: 900px) min(400px, calc(100vw - 66px)), 400px" alt="LoudScript speech model picker showing Apple, Supertonic, Kokoro, and PocketTTS" width="1120" height="1416" loading="lazy" decoding="async">
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="./images/mac/mac-playback-settings-560.webp">
+                        <img src="./images/mac/mac-playback-settings.webp" srcset="./images/mac/mac-playback-settings-560.webp 560w, ./images/mac/mac-playback-settings.webp 1120w" sizes="(max-width: 900px) min(400px, calc(100vw - 66px)), 400px" alt="LoudScript speech model picker showing Apple, Supertonic, Kokoro, and PocketTTS" width="1120" height="1416" loading="lazy" decoding="async">
+                    </picture>
                 </figure>
             </div>
         </section>
@@ -277,7 +297,10 @@
             </div>
             <div class="mac-detail-img">
                 <figure class="mac-screenshot mac-screenshot-constrained">
-                    <img src="./images/mac/mac-history-overview.webp" srcset="./images/mac/mac-history-overview-380.webp 380w, ./images/mac/mac-history-overview.webp 760w" sizes="(max-width: 900px) min(400px, calc(100vw - 66px)), 400px" alt="LoudScript reading overview showing language, source, text, and playback details" width="760" height="1800" loading="lazy" decoding="async">
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="./images/mac/mac-history-overview-380.webp">
+                        <img src="./images/mac/mac-history-overview.webp" srcset="./images/mac/mac-history-overview-380.webp 380w, ./images/mac/mac-history-overview.webp 760w" sizes="(max-width: 900px) min(400px, calc(100vw - 66px)), 400px" alt="LoudScript reading overview showing language, source, text, and playback details" width="760" height="1800" loading="lazy" decoding="async">
+                    </picture>
                 </figure>
             </div>
         </section>

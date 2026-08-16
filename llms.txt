@@ -1,6 +1,6 @@
 # LoudScript
 
-> LoudScript is a free native macOS text-to-speech app by Kin-Yee. It reads selected text and text captured from screenshots aloud while keeping playback controls available above other windows.
+> LoudScript is a free native macOS text-to-speech app by Kin-Yee. It reads selected text, screenshots, and imported PDF pages aloud while keeping playback controls available above other windows.
 
 ## Official pages
 
@@ -18,6 +18,7 @@
 - LoudScript for Mac is free and requires macOS 15.6 or later.
 - Selected text can be read from the macOS Services menu or with Option-Command-R after the required permission is enabled.
 - Screenshot OCR uses a temporary screen capture and built-in macOS text recognition.
+- PDF imports support page-range selection and synchronized highlighting in the original document and extracted text.
 - Apple voices and downloaded speech models synthesize speech locally.
 - Apple voices and Supertonic support Intel and Apple silicon Macs. Kokoro and PocketTTS require Apple silicon.
 - Optional AI formatting is separate from local speech and can send the text being formatted to a third-party provider when enabled.
