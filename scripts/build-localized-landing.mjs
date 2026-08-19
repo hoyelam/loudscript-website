@@ -13,7 +13,7 @@ const locales = [
     canonicalUrl: "https://loudscript.app/",
     outputPath: path.join(siteRoot, "index.html"),
     ogLocale: "en_US",
-    ogAlternateLocales: ["zh_TW", "zh_CN"],
+    ogAlternateLocales: ["zh_TW", "zh_CN", "de_DE"],
     guidePrefix: ""
   },
   {
@@ -23,7 +23,7 @@ const locales = [
     canonicalUrl: "https://loudscript.app/zh-hant/",
     outputPath: path.join(siteRoot, "zh-hant", "index.html"),
     ogLocale: "zh_TW",
-    ogAlternateLocales: ["en_US", "zh_CN"],
+    ogAlternateLocales: ["en_US", "zh_CN", "de_DE"],
     guidePrefix: "/zh-hant"
   },
   {
@@ -33,8 +33,18 @@ const locales = [
     canonicalUrl: "https://loudscript.app/zh-hans/",
     outputPath: path.join(siteRoot, "zh-hans", "index.html"),
     ogLocale: "zh_CN",
-    ogAlternateLocales: ["en_US", "zh_TW"],
+    ogAlternateLocales: ["en_US", "zh_TW", "de_DE"],
     guidePrefix: "/zh-hans"
+  },
+  {
+    id: "de",
+    htmlLang: "de",
+    textDirection: "ltr",
+    canonicalUrl: "https://loudscript.app/de/",
+    outputPath: path.join(siteRoot, "de", "index.html"),
+    ogLocale: "de_DE",
+    ogAlternateLocales: ["en_US", "zh_TW", "zh_CN"],
+    guidePrefix: "/de"
   }
 ];
 
@@ -50,12 +60,14 @@ function languageNavigation(locale, messages) {
   const englishCurrent = locale.id === "en" ? ' aria-current="page"' : "";
   const chineseCurrent = locale.id === "zh-Hant" ? ' aria-current="page"' : "";
   const simplifiedChineseCurrent = locale.id === "zh-Hans" ? ' aria-current="page"' : "";
+  const germanCurrent = locale.id === "de" ? ' aria-current="page"' : "";
 
   return [
     `<nav class="mac-language-links" aria-label="${escapeHtml(messages["nav.languageAria"])}">`,
     `    <a href="/" lang="en" hreflang="en"${englishCurrent}>${escapeHtml(messages["nav.english"])}</a>`,
     `    <a href="/zh-hant/" lang="zh-Hant" hreflang="zh-Hant"${chineseCurrent}>${escapeHtml(messages["nav.chinese"])}</a>`,
     `    <a href="/zh-hans/" lang="zh-Hans" hreflang="zh-Hans"${simplifiedChineseCurrent}>${escapeHtml(messages["nav.simplifiedChinese"])}</a>`,
+    `    <a href="/de/" lang="de" hreflang="de"${germanCurrent}>${escapeHtml(messages["nav.german"])}</a>`,
     "</nav>"
   ].join("\n");
 }

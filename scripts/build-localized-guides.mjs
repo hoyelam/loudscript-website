@@ -3,6 +3,9 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const siteRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const german = JSON.parse(
+  await readFile(path.join(siteRoot, "locales", "guides-de.json"), "utf8")
+);
 const guides = [
   { route: "read-selected-text-aloud-mac", schemaType: "HowTo" },
   { route: "screenshot-ocr-text-to-speech-mac", schemaType: "HowTo" },
@@ -177,9 +180,19 @@ const offline = {
 };
 
 const locales = [
-  { id: "zh-Hant", key: "zhHant", prefix: "/zh-hant", ogLocale: "zh_TW", ogAlternates: ["en_US", "zh_CN"], languageAria: "語言選擇" },
-  { id: "zh-Hans", key: "zhHans", prefix: "/zh-hans", ogLocale: "zh_CN", ogAlternates: ["en_US", "zh_TW"], languageAria: "语言选择" }
+  { id: "zh-Hant", key: "zhHant", prefix: "/zh-hant", ogLocale: "zh_TW", ogAlternates: ["en_US", "zh_CN", "de_DE"], languageAria: "語言選擇" },
+  { id: "zh-Hans", key: "zhHans", prefix: "/zh-hans", ogLocale: "zh_CN", ogAlternates: ["en_US", "zh_TW", "de_DE"], languageAria: "语言选择" },
+  { id: "de", key: "de", prefix: "/de", ogLocale: "de_DE", ogAlternates: ["en_US", "zh_TW", "zh_CN"], languageAria: "Sprachauswahl" }
 ];
+
+const translations = { ...common, ...selected, ...ocr, ...offline };
+const germanKeys = Object.keys(german).sort();
+const sourceKeys = Object.keys(translations).sort();
+if (JSON.stringify(germanKeys) !== JSON.stringify(sourceKeys)) {
+  const missing = sourceKeys.filter((key) => !Object.hasOwn(german, key));
+  const extra = germanKeys.filter((key) => !Object.hasOwn(translations, key));
+  throw new Error(`German guide translations differ from the English source keys. Missing: ${missing.join(" | ") || "none"}. Extra: ${extra.join(" | ") || "none"}.`);
+}
 
 function replaceAllLiteral(source, search, replacement) {
   return source.split(search).join(replacement);
@@ -190,6 +203,7 @@ function alternateLinks(route) {
     `<link rel="alternate" hreflang="en" href="https://loudscript.app/${route}/">`,
     `<link rel="alternate" hreflang="zh-Hant" href="https://loudscript.app/zh-hant/${route}/">`,
     `<link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/${route}/">`,
+    `<link rel="alternate" hreflang="de" href="https://loudscript.app/de/${route}/">`,
     `<link rel="alternate" hreflang="x-default" href="https://loudscript.app/${route}/">`
   ].map((line) => `    ${line}`).join("\n");
 }
@@ -202,6 +216,7 @@ function languageNavigation(route, current, ariaLabel) {
     `                <a href="/${route}/" lang="en" hreflang="en"${currentAttribute("en")}>English</a>`,
     `                <a href="/zh-hant/${route}/" lang="zh-Hant" hreflang="zh-Hant"${currentAttribute("zh-Hant")}>繁體中文</a>`,
     `                <a href="/zh-hans/${route}/" lang="zh-Hans" hreflang="zh-Hans"${currentAttribute("zh-Hans")}>简体中文</a>`,
+    `                <a href="/de/${route}/" lang="de" hreflang="de"${currentAttribute("de")}>Deutsch</a>`,
     "            </nav>",
     "            <!-- GUIDE_LANGUAGE_NAV_END -->"
   ].join("\n");
@@ -219,7 +234,7 @@ function enhanceEnglish(html, guide) {
   html = html.replace(/\n\s*<meta property="og:locale:alternate" content="[^"]+">/g, "");
   html = html.replace(
     '    <meta property="og:locale" content="en_US">',
-    '    <meta property="og:locale" content="en_US">\n    <meta property="og:locale:alternate" content="zh_TW">\n    <meta property="og:locale:alternate" content="zh_CN">'
+    '    <meta property="og:locale" content="en_US">\n    <meta property="og:locale:alternate" content="zh_TW">\n    <meta property="og:locale:alternate" content="zh_CN">\n    <meta property="og:locale:alternate" content="de_DE">'
   );
   if (!html.includes('"inLanguage": "en"')) {
     html = html.replace(`          "@type": "${guide.schemaType}",`, `          "@type": "${guide.schemaType}",\n          "inLanguage": "en",`);
@@ -237,12 +252,11 @@ function localize(base, guide, locale) {
   let html = base
     .replace('<html lang="en">', `<html lang="${locale.id}">`)
     .replace('"inLanguage": "en"', `"inLanguage": "${locale.id}"`)
-    .replace('    <meta property="og:locale" content="en_US">\n    <meta property="og:locale:alternate" content="zh_TW">\n    <meta property="og:locale:alternate" content="zh_CN">', `    <meta property="og:locale" content="${locale.ogLocale}">\n${locale.ogAlternates.map((value) => `    <meta property="og:locale:alternate" content="${value}">`).join("\n")}`)
+    .replace('    <meta property="og:locale" content="en_US">\n    <meta property="og:locale:alternate" content="zh_TW">\n    <meta property="og:locale:alternate" content="zh_CN">\n    <meta property="og:locale:alternate" content="de_DE">', `    <meta property="og:locale" content="${locale.ogLocale}">\n${locale.ogAlternates.map((value) => `    <meta property="og:locale:alternate" content="${value}">`).join("\n")}`)
     .replace(/\s*<!-- GUIDE_LANGUAGE_NAV_START -->[\s\S]*?<!-- GUIDE_LANGUAGE_NAV_END -->/, `\n${languageNavigation(guide.route, locale.id, locale.languageAria)}`);
 
-  const translations = { ...common, ...selected, ...ocr, ...offline };
   for (const [source, targets] of Object.entries(translations).sort((a, b) => b[0].length - a[0].length)) {
-    html = replaceAllLiteral(html, source, targets[locale.key]);
+    html = replaceAllLiteral(html, source, locale.id === "de" ? german[source] : targets[locale.key]);
   }
 
   const canonical = `https://loudscript.app/${guide.route}/`;
@@ -261,10 +275,13 @@ function localize(base, guide, locale) {
   }
   html = html
     .replaceAll('href="/support.html"', 'href="/support.html" hreflang="en"')
-    .replaceAll('href="/privacy.html"', 'href="/privacy.html" hreflang="en"')
-    .replaceAll('</strong>.</li>', '</strong>。</li>')
-    .replaceAll('</a>.</p>', '</a>。</p>')
-    .replace(/\s*<!-- GUIDE_LANGUAGE_NAV_START -->[\s\S]*?<!-- GUIDE_LANGUAGE_NAV_END -->/, `\n${languageNavigation(guide.route, locale.id, locale.languageAria)}`);
+    .replaceAll('href="/privacy.html"', 'href="/privacy.html" hreflang="en"');
+  if (locale.id.startsWith("zh-")) {
+    html = html
+      .replaceAll('</strong>.</li>', '</strong>。</li>')
+      .replaceAll('</a>.</p>', '</a>。</p>');
+  }
+  html = html.replace(/\s*<!-- GUIDE_LANGUAGE_NAV_START -->[\s\S]*?<!-- GUIDE_LANGUAGE_NAV_END -->/, `\n${languageNavigation(guide.route, locale.id, locale.languageAria)}`);
   return html;
 }
 

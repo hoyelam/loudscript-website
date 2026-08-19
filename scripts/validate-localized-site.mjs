@@ -9,6 +9,7 @@ const localeSpecs = [
     lang: "en",
     canonical: "https://loudscript.app/",
     output: "index.html",
+    prefix: "",
     ogLocale: "en_US",
     primaryKeyword: "text-to-speech"
   },
@@ -17,6 +18,7 @@ const localeSpecs = [
     lang: "zh-Hant",
     canonical: "https://loudscript.app/zh-hant/",
     output: "zh-hant/index.html",
+    prefix: "zh-hant/",
     ogLocale: "zh_TW",
     primaryKeyword: "文字轉語音",
     openingKeyword: "文字轉語音"
@@ -26,16 +28,28 @@ const localeSpecs = [
     lang: "zh-Hans",
     canonical: "https://loudscript.app/zh-hans/",
     output: "zh-hans/index.html",
+    prefix: "zh-hans/",
     ogLocale: "zh_CN",
     primaryKeyword: "文本转语音",
     openingKeyword: "文本转语音"
+  },
+  {
+    id: "de",
+    lang: "de",
+    canonical: "https://loudscript.app/de/",
+    output: "de/index.html",
+    prefix: "de/",
+    ogLocale: "de_DE",
+    primaryKeyword: "Text auf dem Mac vorlesen",
+    openingKeyword: "vorlesen"
   }
 ];
 const guideRoutes = [
-  { route: "read-selected-text-aloud-mac", schemaType: "HowTo", keywords: { en: "selected text", "zh-Hant": "朗讀", "zh-Hans": "朗读" } },
-  { route: "screenshot-ocr-text-to-speech-mac", schemaType: "HowTo", keywords: { en: "OCR", "zh-Hant": "OCR", "zh-Hans": "OCR" } },
-  { route: "offline-text-to-speech-mac", schemaType: "TechArticle", keywords: { en: "Offline Text-to-Speech", "zh-Hant": "離線文字轉語音", "zh-Hans": "离线文本转语音" } }
+  { route: "read-selected-text-aloud-mac", schemaType: "HowTo", keywords: { en: "selected text", "zh-Hant": "朗讀", "zh-Hans": "朗读", de: "ausgewählten Text" } },
+  { route: "screenshot-ocr-text-to-speech-mac", schemaType: "HowTo", keywords: { en: "OCR", "zh-Hant": "OCR", "zh-Hans": "OCR", de: "OCR" } },
+  { route: "offline-text-to-speech-mac", schemaType: "TechArticle", keywords: { en: "Offline Text-to-Speech", "zh-Hant": "離線文字轉語音", "zh-Hans": "离线文本转语音", de: "Offline-Text-to-Speech" } }
 ];
+const allOgLocales = localeSpecs.map(({ ogLocale }) => ogLocale);
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -84,6 +98,7 @@ const generatedMessageKeys = new Set([
   "nav.english",
   "nav.chinese",
   "nav.simplifiedChinese",
+  "nav.german",
   "fallback.englishPage"
 ]);
 for (const [key, value] of Object.entries(english)) {
@@ -102,6 +117,9 @@ for (const spec of localeSpecs) {
   assert(html.includes(`<html lang="${spec.lang}" dir="ltr">`), `${spec.output}: incorrect html lang`);
   assert(html.includes(`<link rel="canonical" href="${spec.canonical}">`), `${spec.output}: incorrect canonical`);
   assert(html.includes(`<meta property="og:locale" content="${spec.ogLocale}">`), `${spec.output}: incorrect Open Graph locale`);
+  for (const alternateOgLocale of allOgLocales.filter((value) => value !== spec.ogLocale)) {
+    assert(html.includes(`<meta property="og:locale:alternate" content="${alternateOgLocale}">`), `${spec.output}: missing ${alternateOgLocale} Open Graph alternate`);
+  }
   assert(html.includes(`<title>${messages["meta.title"]}</title>`), `${spec.output}: incorrect title`);
   assert((html.match(/<title>/g) || []).length === 1, `${spec.output}: expected exactly one title`);
   assert(
@@ -122,11 +140,20 @@ for (const spec of localeSpecs) {
   localizedTitles.add(messages["meta.title"]);
   localizedDescriptions.add(messages["meta.description"]);
   assert((html.match(/<h1\b/g) || []).length === 1, `${spec.output}: expected exactly one h1`);
+  if (spec.id === "de") {
+    assert(messages["meta.title"].length <= 60, `${spec.output}: German title is too long`);
+    assert(messages["meta.description"].length >= 120 && messages["meta.description"].length <= 170, `${spec.output}: German meta description is outside the reviewed range`);
+  }
+  assert(
+    html.includes(`<a href="/${spec.prefix}" lang="${spec.lang}" hreflang="${spec.lang}" aria-current="page">`),
+    `${spec.output}: language navigation does not identify the current locale`
+  );
 
   const alternates = [
     ['en', 'https://loudscript.app/'],
     ['zh-Hant', 'https://loudscript.app/zh-hant/'],
     ['zh-Hans', 'https://loudscript.app/zh-hans/'],
+    ['de', 'https://loudscript.app/de/'],
     ['x-default', 'https://loudscript.app/']
   ];
   for (const [lang, href] of alternates) {
@@ -180,11 +207,12 @@ for (const guide of guideRoutes) {
     ["en", `https://loudscript.app/${guide.route}/`],
     ["zh-Hant", `https://loudscript.app/zh-hant/${guide.route}/`],
     ["zh-Hans", `https://loudscript.app/zh-hans/${guide.route}/`],
+    ["de", `https://loudscript.app/de/${guide.route}/`],
     ["x-default", `https://loudscript.app/${guide.route}/`]
   ];
 
   for (const locale of localeSpecs) {
-    const prefix = locale.id === "en" ? "" : locale.id === "zh-Hant" ? "zh-hant/" : "zh-hans/";
+    const prefix = locale.prefix;
     const output = `${prefix}${guide.route}/index.html`;
     const outputPath = path.join(siteRoot, output);
     const canonical = `https://loudscript.app/${prefix}${guide.route}/`;
@@ -197,15 +225,27 @@ for (const guide of guideRoutes) {
     assert(html.includes(`<link rel="canonical" href="${canonical}">`), `${output}: incorrect canonical`);
     assert(html.includes(`<meta property="og:url" content="${canonical}">`), `${output}: incorrect Open Graph URL`);
     assert(html.includes(`<meta property="og:locale" content="${locale.ogLocale}">`), `${output}: incorrect Open Graph locale`);
+    for (const alternateOgLocale of allOgLocales.filter((value) => value !== locale.ogLocale)) {
+      assert(html.includes(`<meta property="og:locale:alternate" content="${alternateOgLocale}">`), `${output}: missing ${alternateOgLocale} Open Graph alternate`);
+    }
     assert(html.includes('<meta name="robots" content="index, follow">'), `${output}: page is not explicitly indexable`);
     const keyword = guide.keywords[locale.id].toLocaleLowerCase();
     assert(title && title.toLocaleLowerCase().includes(keyword), `${output}: title lacks localized search phrase`);
     assert(h1 && h1.toLocaleLowerCase().includes(keyword), `${output}: h1 lacks localized search phrase`);
     assert(description && description.length >= 50, `${output}: meta description is missing or too short`);
+    assert(description.toLocaleLowerCase().includes(keyword), `${output}: meta description lacks localized search phrase`);
+    assert(html.includes(`<meta property="og:title" content="${title}">`), `${output}: Open Graph title differs from title`);
+    const ogDescription = html.match(/<meta property="og:description" content="([^"]+)">/)?.[1];
+    assert(ogDescription && ogDescription.length >= 15, `${output}: Open Graph description is missing or too short`);
+    assert(html.includes(`<meta name="twitter:title" content="${title}">`), `${output}: Twitter title differs from title`);
     assert(!guideTitles.has(title), `${output}: duplicate guide title`);
     assert(!guideDescriptions.has(description), `${output}: duplicate guide description`);
     guideTitles.add(title);
     guideDescriptions.add(description);
+    if (locale.id === "de") {
+      assert(title.length <= 60, `${output}: German title is too long`);
+      assert(description.length >= 120 && description.length <= 170, `${output}: German meta description is outside the reviewed range`);
+    }
 
     for (const [lang, href] of alternates) {
       assert(html.includes(`<link rel="alternate" hreflang="${lang}" href="${href}">`), `${output}: missing ${lang} hreflang`);
@@ -235,7 +275,12 @@ for (const guide of guideRoutes) {
         ">Guides<"
       ];
       for (const phrase of untranslated) assert(!html.includes(phrase), `${output}: untranslated English remains: ${phrase}`);
-      const localePrefix = locale.id === "zh-Hant" ? "/zh-hant/" : "/zh-hans/";
+      if (locale.id === "de") {
+        for (const phrase of ["How to ", "What if ", "Updated August", ">Read selected text<", ">Download DMG<"]) {
+          assert(!html.includes(phrase), `${output}: untranslated English remains in German copy: ${phrase}`);
+        }
+      }
+      const localePrefix = `/${locale.prefix}`;
       for (const related of guideRoutes) {
         assert(html.includes(`href="${localePrefix}${related.route}/"`), `${output}: missing localized link to ${related.route}`);
       }
@@ -260,6 +305,7 @@ const sitemapAlternates = [
   ['en', 'https://loudscript.app/'],
   ['zh-Hant', 'https://loudscript.app/zh-hant/'],
   ['zh-Hans', 'https://loudscript.app/zh-hans/'],
+  ['de', 'https://loudscript.app/de/'],
   ['x-default', 'https://loudscript.app/']
 ];
 for (const spec of localeSpecs) {
@@ -279,9 +325,10 @@ for (const guide of guideRoutes) {
     ["en", `https://loudscript.app/${guide.route}/`],
     ["zh-Hant", `https://loudscript.app/zh-hant/${guide.route}/`],
     ["zh-Hans", `https://loudscript.app/zh-hans/${guide.route}/`],
+    ["de", `https://loudscript.app/de/${guide.route}/`],
     ["x-default", `https://loudscript.app/${guide.route}/`]
   ];
-  for (const [, canonical] of alternates.slice(0, 3)) {
+  for (const [, canonical] of alternates.slice(0, 4)) {
     const blockMatch = sitemap.match(new RegExp(`<url>\\s*<loc>${escapeRegExp(canonical)}<\\/loc>([\\s\\S]*?)<\\/url>`));
     assert(blockMatch, `Sitemap lacks ${canonical}`);
     for (const [lang, href] of alternates) {
@@ -294,6 +341,6 @@ const robots = await readFile(path.join(siteRoot, "robots.txt"), "utf8");
 assert(robots.includes("User-agent: *"), "robots.txt lacks a default crawler policy");
 assert(robots.includes("Allow: /"), "robots.txt does not allow the site root");
 assert(robots.includes("Sitemap: https://loudscript.app/sitemap.xml"), "robots.txt lacks the canonical sitemap URL");
-assert(!/Disallow:\s*\/(?:zh-hans|zh-hant)\/?/i.test(robots), "robots.txt blocks a Chinese locale");
+assert(!/Disallow:\s*\/(?:zh-hans|zh-hant|de)\/?/i.test(robots), "robots.txt blocks a localized page");
 
 console.log(`Validated ${localeSpecs.length} landing pages, ${guideRoutes.length * localeSpecs.length} guide pages, and ${englishKeys.length} landing message keys.`);
