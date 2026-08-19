@@ -588,33 +588,123 @@ body {
     color: #b0a0ff;
 }
 
-.mac-language-links {
-    display: inline-flex;
+.mac-language-menu {
+    position: relative;
     flex: 0 0 auto;
-    padding: 3px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.04);
+    z-index: 20;
 }
 
-.mac-language-links a {
-    padding: 6px 10px;
-    border-radius: 999px;
+.mac-language-menu details {
+    position: relative;
+}
+
+.mac-language-menu summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 36px;
+    padding: 7px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.04);
     color: rgba(255, 255, 255, 0.58);
     font-size: 0.78rem;
     font-weight: 600;
     line-height: 1;
-    text-decoration: none;
+    cursor: pointer;
+    list-style: none;
     white-space: nowrap;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
 }
 
-.mac-language-links a:hover {
-    color: #fff;
+.mac-language-menu summary::-webkit-details-marker {
+    display: none;
 }
 
-.mac-language-links a[aria-current="page"] {
+.mac-language-menu summary:hover,
+.mac-language-menu summary:focus-visible,
+.mac-language-menu details[open] summary {
     color: #fff;
-    background: rgba(149, 128, 250, 0.22);
+    border-color: rgba(149, 128, 250, 0.45);
+    background: rgba(149, 128, 250, 0.1);
+}
+
+.mac-language-menu summary:focus-visible {
+    outline: 3px solid #9580fa;
+    outline-offset: 3px;
+}
+
+.mac-language-globe,
+.mac-language-chevron,
+.mac-language-check {
+    flex: 0 0 auto;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.mac-language-globe {
+    width: 16px;
+    height: 16px;
+}
+
+.mac-language-chevron {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.2s ease;
+}
+
+.mac-language-menu details[open] .mac-language-chevron {
+    transform: rotate(180deg);
+}
+
+.mac-language-options {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 176px;
+    padding: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    border-radius: 14px;
+    background: #17141e;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.32);
+}
+
+.mac-language-options a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 38px;
+    padding: 8px 10px;
+    border-radius: 9px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.84rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.mac-language-options a:hover,
+.mac-language-options a:focus-visible {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.07);
+    outline: none;
+}
+
+.mac-language-options a[aria-current="page"] {
+    color: #fff;
+    background: rgba(149, 128, 250, 0.14);
+}
+
+.mac-language-check {
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+}
+
+.mac-language-options a[aria-current="page"] .mac-language-check {
+    opacity: 1;
 }
 
 .mac-link-language {
@@ -1509,22 +1599,42 @@ body {
         background: rgba(23, 20, 30, 0.06);
     }
 
-    .mac-language-links {
+    .mac-language-menu summary {
         border-color: rgba(23, 20, 30, 0.1);
         background: rgba(23, 20, 30, 0.035);
     }
 
-    .mac-language-links a {
+    .mac-language-menu summary {
         color: rgba(23, 20, 30, 0.62);
     }
 
-    .mac-language-links a:hover,
-    .mac-language-links a[aria-current="page"] {
+    .mac-language-menu summary:hover,
+    .mac-language-menu summary:focus-visible,
+    .mac-language-menu details[open] summary {
         color: #17141e;
+        border-color: rgba(81, 55, 214, 0.38);
+        background: rgba(81, 55, 214, 0.08);
     }
 
-    .mac-language-links a[aria-current="page"] {
-        background: rgba(81, 55, 214, 0.13);
+    .mac-language-options {
+        border-color: rgba(23, 20, 30, 0.1);
+        background: #fff;
+        box-shadow: 0 18px 50px rgba(23, 20, 30, 0.16);
+    }
+
+    .mac-language-options a {
+        color: rgba(23, 20, 30, 0.7);
+    }
+
+    .mac-language-options a:hover,
+    .mac-language-options a:focus-visible {
+        color: #17141e;
+        background: rgba(23, 20, 30, 0.055);
+    }
+
+    .mac-language-options a[aria-current="page"] {
+        color: #17141e;
+        background: rgba(81, 55, 214, 0.1);
     }
 
     .mac-nav-links .mac-nav-cta,
@@ -1734,7 +1844,7 @@ body {
         gap: 16px;
     }
 
-    .mac-language-links {
+    .mac-language-menu {
         order: 2;
         margin-left: auto;
     }
@@ -1783,8 +1893,13 @@ body {
         width: 100%;
     }
 
-    .mac-language-links {
+    .mac-language-menu {
         margin-left: 0;
+    }
+
+    .mac-language-options {
+        right: auto;
+        left: 0;
     }
 
     .mac-nav-links a {

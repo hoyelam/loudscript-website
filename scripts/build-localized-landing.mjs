@@ -57,17 +57,35 @@ function escapeHtml(value) {
 }
 
 function languageNavigation(locale, messages) {
-  const englishCurrent = locale.id === "en" ? ' aria-current="page"' : "";
-  const chineseCurrent = locale.id === "zh-Hant" ? ' aria-current="page"' : "";
-  const simplifiedChineseCurrent = locale.id === "zh-Hans" ? ' aria-current="page"' : "";
-  const germanCurrent = locale.id === "de" ? ' aria-current="page"' : "";
+  const options = [
+    { id: "en", href: "/", lang: "en", label: messages["nav.english"] },
+    { id: "zh-Hant", href: "/zh-hant/", lang: "zh-Hant", label: messages["nav.chinese"] },
+    { id: "zh-Hans", href: "/zh-hans/", lang: "zh-Hans", label: messages["nav.simplifiedChinese"] },
+    { id: "de", href: "/de/", lang: "de", label: messages["nav.german"] }
+  ];
+  const current = options.find((option) => option.id === locale.id);
+  const links = options.map((option) => {
+    const currentAttribute = option.id === locale.id ? ' aria-current="page"' : "";
+    return [
+      `        <a href="${option.href}" lang="${option.lang}" hreflang="${option.lang}"${currentAttribute}>`,
+      `            <span>${escapeHtml(option.label)}</span>`,
+      '            <svg class="mac-language-check" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 8.5 3 3 7-7"/></svg>',
+      "        </a>"
+    ].join("\n");
+  }).join("\n");
 
   return [
-    `<nav class="mac-language-links" aria-label="${escapeHtml(messages["nav.languageAria"])}">`,
-    `    <a href="/" lang="en" hreflang="en"${englishCurrent}>${escapeHtml(messages["nav.english"])}</a>`,
-    `    <a href="/zh-hant/" lang="zh-Hant" hreflang="zh-Hant"${chineseCurrent}>${escapeHtml(messages["nav.chinese"])}</a>`,
-    `    <a href="/zh-hans/" lang="zh-Hans" hreflang="zh-Hans"${simplifiedChineseCurrent}>${escapeHtml(messages["nav.simplifiedChinese"])}</a>`,
-    `    <a href="/de/" lang="de" hreflang="de"${germanCurrent}>${escapeHtml(messages["nav.german"])}</a>`,
+    `<nav class="mac-language-menu" aria-label="${escapeHtml(messages["nav.languageAria"])}">`,
+    "    <details>",
+    `        <summary aria-label="${escapeHtml(messages["nav.languageAria"])}: ${escapeHtml(current.label)}">`,
+    '            <svg class="mac-language-globe" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M2.8 10h14.4M10 2.5c2 2.1 3 4.6 3 7.5s-1 5.4-3 7.5c-2-2.1-3-4.6-3-7.5s1-5.4 3-7.5Z"/></svg>',
+    `            <span>${escapeHtml(current.label)}</span>`,
+    '            <svg class="mac-language-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg>',
+    "        </summary>",
+    '        <div class="mac-language-options">',
+    links,
+    "        </div>",
+    "    </details>",
     "</nav>"
   ].join("\n");
 }

@@ -148,6 +148,10 @@ for (const spec of localeSpecs) {
     html.includes(`<a href="/${spec.prefix}" lang="${spec.lang}" hreflang="${spec.lang}" aria-current="page">`),
     `${spec.output}: language navigation does not identify the current locale`
   );
+  assert((html.match(/<nav class="mac-language-menu"/g) || []).length === 1, `${spec.output}: expected one language menu`);
+  const languageMenu = html.match(/<nav class="mac-language-menu"[\s\S]*?<\/nav>/)?.[0];
+  assert(languageMenu && (languageMenu.match(/<details>/g) || []).length === 1, `${spec.output}: language disclosure is missing`);
+  assert((languageMenu.match(/hreflang=/g) || []).length === localeSpecs.length, `${spec.output}: language menu options are incomplete`);
 
   const alternates = [
     ['en', 'https://loudscript.app/'],
@@ -179,7 +183,8 @@ for (const spec of localeSpecs) {
     `${spec.output}: invalid app schema`
   );
   assert(!jsonLd["@graph"].some((entry) => entry["@type"] === "FAQPage"), `${spec.output}: obsolete FAQPage schema remains`);
-  assert((html.match(/<details>/g) || []).length === 5, `${spec.output}: visible FAQ content is incomplete`);
+  const faqList = html.match(/<div class="mac-faq-list">([\s\S]*?)<\/div>/)?.[1];
+  assert(faqList && (faqList.match(/<details>/g) || []).length === 5, `${spec.output}: visible FAQ content is incomplete`);
 
   for (const labelledBy of html.matchAll(/aria-labelledby="([^"]+)"/g)) {
     assert(new RegExp(`\\bid=["']${escapeRegExp(labelledBy[1])}["']`).test(html), `${spec.output}: missing aria-labelledby target ${labelledBy[1]}`);

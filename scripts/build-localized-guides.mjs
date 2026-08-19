@@ -209,20 +209,47 @@ function alternateLinks(route) {
 }
 
 function languageNavigation(route, current, ariaLabel) {
-  const currentAttribute = (id) => id === current ? ' aria-current="page"' : "";
+  const options = [
+    { id: "en", href: `/${route}/`, lang: "en", label: "English" },
+    { id: "zh-Hant", href: `/zh-hant/${route}/`, lang: "zh-Hant", label: "繁體中文" },
+    { id: "zh-Hans", href: `/zh-hans/${route}/`, lang: "zh-Hans", label: "简体中文" },
+    { id: "de", href: `/de/${route}/`, lang: "de", label: "Deutsch" }
+  ];
+  const currentOption = options.find((option) => option.id === current);
+  const links = options.map((option) => {
+    const currentAttribute = option.id === current ? ' aria-current="page"' : "";
+    return [
+      `                    <a href="${option.href}" lang="${option.lang}" hreflang="${option.lang}"${currentAttribute}>`,
+      `                        <span>${option.label}</span>`,
+      '                        <svg class="mac-language-check" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 8.5 3 3 7-7"/></svg>',
+      "                    </a>"
+    ].join("\n");
+  }).join("\n");
   return [
     "            <!-- GUIDE_LANGUAGE_NAV_START -->",
-    `            <nav class="mac-language-links" aria-label="${ariaLabel}">`,
-    `                <a href="/${route}/" lang="en" hreflang="en"${currentAttribute("en")}>English</a>`,
-    `                <a href="/zh-hant/${route}/" lang="zh-Hant" hreflang="zh-Hant"${currentAttribute("zh-Hant")}>繁體中文</a>`,
-    `                <a href="/zh-hans/${route}/" lang="zh-Hans" hreflang="zh-Hans"${currentAttribute("zh-Hans")}>简体中文</a>`,
-    `                <a href="/de/${route}/" lang="de" hreflang="de"${currentAttribute("de")}>Deutsch</a>`,
+    `            <nav class="mac-language-menu" aria-label="${ariaLabel}">`,
+    "                <details>",
+    `                    <summary aria-label="${ariaLabel}: ${currentOption.label}">`,
+    '                        <svg class="mac-language-globe" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M2.8 10h14.4M10 2.5c2 2.1 3 4.6 3 7.5s-1 5.4-3 7.5c-2-2.1-3-4.6-3-7.5s1-5.4 3-7.5Z"/></svg>',
+    `                        <span>${currentOption.label}</span>`,
+    '                        <svg class="mac-language-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg>',
+    "                    </summary>",
+    '                    <div class="mac-language-options">',
+    links,
+    "                    </div>",
+    "                </details>",
     "            </nav>",
     "            <!-- GUIDE_LANGUAGE_NAV_END -->"
   ].join("\n");
 }
 
 function enhanceEnglish(html, guide) {
+  if (!html.includes('/js/language-menu.js')) {
+    html = html.replace(
+      '    <script defer data-domain="loudscript.app" src="https://plausible.io/js/script.js"></script>',
+      '    <script defer data-domain="loudscript.app" src="https://plausible.io/js/script.js"></script>\n    <script defer src="/js/language-menu.js"></script>'
+    );
+  }
   html = html
     .replaceAll('"dateModified": "2026-08-04"', '"dateModified": "2026-08-19"')
     .replaceAll("Updated August 4, 2026", "Updated August 19, 2026");
