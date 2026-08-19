@@ -4,12 +4,12 @@
         <title>LoudScript</title>
         <item>
             <title>2026.1.19</title>
-            <pubDate>Wed, 19 Aug 2026 18:52:11 +0200</pubDate>
+            <pubDate>Wed, 19 Aug 2026 19:04:10 +0200</pubDate>
             <link>https://loudscript.app</link>
             <sparkle:version>21</sparkle:version>
             <sparkle:shortVersionString>2026.1.19</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.6</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-v2026.1.19/LoudScript-2026.1.19.dmg" length="32277300" type="application/octet-stream" sparkle:edSignature="SD/dTziYToVFr+l3xZ6kj5RAdch6DdxE0SstIf3aF9kR0NDs6xCfV/tm1kzgZit9KljwmbKDI1Q3AsUUuHg2Dg=="/>
+            <enclosure url="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-v2026.1.19/LoudScript-2026.1.19.dmg" length="32277181" type="application/octet-stream" sparkle:edSignature="DVfiWyJRM2JLXDju+ylqo5TwLT6hVoKStmj7KQZrEfm3BqrNNJcN6UdJHzBJ8NGEHNrCP+X1H0sl7/jtTe1KAw=="/>
         </item>
     </channel>
 </rss>
