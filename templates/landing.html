@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="{{htmlLang}}" dir="{{textDirection}}">
 <head>
     <link rel="preconnect" href="https://plausible.io" crossorigin>
     <script defer data-domain="loudscript.app" src="https://plausible.io/js/script.js"></script>
@@ -13,12 +13,11 @@
     <meta property="og:site_name" content="LoudScript">
     <meta property="og:title" content="Free Text-to-Speech App for Mac | LoudScript">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://loudscript.app/">
+    <meta property="og:url" content="{{canonicalUrl}}">
     <meta property="og:image" content="https://loudscript.app/images/mac/mac-main-window.png">
     <meta property="og:description" content="Listen to selected text, screenshots, and PDFs with natural voices, highlighting, and reading history. Free for macOS.">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:locale:alternate" content="zh_TW">
-    <meta property="og:locale:alternate" content="zh_CN">
+    <meta property="og:locale" content="{{ogLocale}}">
+    {{{ogAlternateLocaleTags}}}
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Free Text-to-Speech App for Mac | LoudScript">
@@ -26,7 +25,7 @@
     <meta name="twitter:image" content="https://loudscript.app/images/mac/mac-main-window.png">
     <meta name="twitter:creator" content="@hoyelam">
 
-    <link rel="canonical" href="https://loudscript.app/">
+    <link rel="canonical" href="{{canonicalUrl}}">
     <link rel="alternate" hreflang="en" href="https://loudscript.app/">
     <link rel="alternate" hreflang="zh-Hant" href="https://loudscript.app/zh-hant/">
     <link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/">
@@ -57,13 +56,13 @@
         },
         {
           "@type": "WebPage",
-          "@id": "https://loudscript.app/#webpage",
-          "url": "https://loudscript.app/",
+          "@id": "{{canonicalUrl}}#webpage",
+          "url": "{{canonicalUrl}}",
           "name": "Free Text-to-Speech App for Mac | LoudScript",
           "isPartOf": { "@id": "https://loudscript.app/#website" },
-          "about": { "@id": "https://loudscript.app/#mac-app" },
-          "mainEntity": { "@id": "https://loudscript.app/#mac-app" },
-          "inLanguage": "en"
+          "about": { "@id": "{{canonicalUrl}}#mac-app" },
+          "mainEntity": { "@id": "{{canonicalUrl}}#mac-app" },
+          "inLanguage": "{{htmlLang}}"
         },
         {
           "@type": "Organization",
@@ -91,11 +90,11 @@
         },
         {
           "@type": "SoftwareApplication",
-          "@id": "https://loudscript.app/#mac-app",
+          "@id": "{{canonicalUrl}}#mac-app",
           "name": "LoudScript for Mac",
-          "url": "https://loudscript.app/",
+          "url": "{{canonicalUrl}}",
           "description": "A free text-to-speech app for Mac that reads selected text, screenshots, and PDFs aloud.",
-          "inLanguage": "en",
+          "inLanguage": "{{htmlLang}}",
           "image": "https://loudscript.app/images/mac/mac-main-window.png",
           "operatingSystem": "macOS 15.6 or later",
           "applicationCategory": "UtilitiesApplication",
@@ -131,16 +130,12 @@
             </a>
             <nav class="mac-nav-links" aria-label="Page navigation">
                 <a href="#guides">Guides</a>
-                <a href="/changelog.html" hreflang="en">Changelog</a>
-                <a href="/support.html" hreflang="en">Support</a>
+                <a href="/changelog.html" hreflang="en">Changelog{{{englishFallbackBadge}}}</a>
+                <a href="/support.html" hreflang="en">Support{{{englishFallbackBadge}}}</a>
                 <a href="https://apps.apple.com/app/loudscript-text-reader/id6747320736" target="_blank" rel="noopener">See iOS/iPadOS</a>
                 <a href="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg" target="_blank" rel="noopener" class="mac-nav-cta">Download DMG</a>
             </nav>
-            <nav class="mac-language-links" aria-label="Language selection">
-    <a href="/" lang="en" hreflang="en" aria-current="page">English</a>
-    <a href="/zh-hant/" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a>
-    <a href="/zh-hans/" lang="zh-Hans" hreflang="zh-Hans">简体中文</a>
-</nav>
+            {{{languageNav}}}
         </header>
 
         <section class="mac-hero">
@@ -319,17 +314,17 @@
             <span class="mac-section-label">Mac text-to-speech guides</span>
             <h2 id="guides-title">Choose the reading workflow you need.</h2>
             <div class="mac-guide-grid">
-                <a class="mac-guide-card" href="/read-selected-text-aloud-mac/" hreflang="en">
+                <a class="mac-guide-card" href="{{selectedGuideUrl}}" hreflang="{{htmlLang}}">
                     <span>Selected text</span>
                     <h3>Read selected text aloud on Mac</h3>
                     <p>Use the Services menu or Option-Command-R in browsers, editors, email, and other Mac apps.</p>
                 </a>
-                <a class="mac-guide-card" href="/screenshot-ocr-text-to-speech-mac/" hreflang="en">
+                <a class="mac-guide-card" href="{{ocrGuideUrl}}" hreflang="{{htmlLang}}">
                     <span>Screenshot OCR</span>
                     <h3>Turn on-screen text into speech</h3>
                     <p>Capture words that cannot be selected, extract them with macOS OCR, and listen.</p>
                 </a>
-                <a class="mac-guide-card" href="/offline-text-to-speech-mac/" hreflang="en">
+                <a class="mac-guide-card" href="{{offlineGuideUrl}}" hreflang="{{htmlLang}}">
                     <span>Local voices</span>
                     <h3>Compare offline text-to-speech engines</h3>
                     <p>Compare supported Macs, languages, download sizes, and voices.</p>
@@ -377,13 +372,13 @@
 
     <footer class="mac-footer">
         <nav class="mac-footer-links" aria-label="Footer navigation">
-            <a href="/changelog.html" hreflang="en">Changelog</a>
-            <a href="/tos.html" hreflang="en">Terms</a>
-            <a href="/privacy.html" hreflang="en">Privacy</a>
-            <a href="/support.html" hreflang="en">Support</a>
-            <a href="/read-selected-text-aloud-mac/" hreflang="en">Selected Text Guide</a>
-            <a href="/screenshot-ocr-text-to-speech-mac/" hreflang="en">OCR Guide</a>
-            <a href="/offline-text-to-speech-mac/" hreflang="en">Offline Voices</a>
+            <a href="/changelog.html" hreflang="en">Changelog{{{englishFallbackBadge}}}</a>
+            <a href="/tos.html" hreflang="en">Terms{{{englishFallbackBadge}}}</a>
+            <a href="/privacy.html" hreflang="en">Privacy{{{englishFallbackBadge}}}</a>
+            <a href="/support.html" hreflang="en">Support{{{englishFallbackBadge}}}</a>
+            <a href="{{selectedGuideUrl}}" hreflang="{{htmlLang}}">Selected Text Guide</a>
+            <a href="{{ocrGuideUrl}}" hreflang="{{htmlLang}}">OCR Guide</a>
+            <a href="{{offlineGuideUrl}}" hreflang="{{htmlLang}}">Offline Voices</a>
             <a href="https://apps.apple.com/app/loudscript-text-reader/id6747320736" target="_blank" rel="noopener">See iOS/iPadOS</a>
         </nav>
         <p class="mac-footer-credit">

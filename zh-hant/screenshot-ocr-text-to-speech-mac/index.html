@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <script defer data-domain="loudscript.app" src="https://plausible.io/js/script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="使用 LoudScript 在 Mac 上透過截圖 OCR 將文字轉為語音。擷取無法選取的螢幕文字，以 macOS OCR 辨識後朗讀。">
+    <meta name="author" content="Ho Ye Lam">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:site_name" content="LoudScript">
+    <meta property="og:title" content="Mac 截圖 OCR 文字轉語音｜LoudScript">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://loudscript.app/zh-hant/screenshot-ocr-text-to-speech-mac/">
+    <meta property="og:image" content="https://loudscript.app/images/mac/mac-main-window.png">
+    <meta property="og:description" content="擷取無法選取的文字，以 macOS 內建 OCR 辨識，再使用 LoudScript 聆聽。">
+    <meta property="og:locale" content="zh_TW">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="zh_CN">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mac 截圖 OCR 文字轉語音｜LoudScript">
+    <meta name="twitter:description" content="在 Mac 上將截圖、圖片與 App 介面中無法選取的文字轉為語音。">
+    <meta name="twitter:image" content="https://loudscript.app/images/mac/mac-main-window.png">
+
+    <link rel="canonical" href="https://loudscript.app/zh-hant/screenshot-ocr-text-to-speech-mac/">
+    <link rel="alternate" hreflang="en" href="https://loudscript.app/screenshot-ocr-text-to-speech-mac/">
+    <link rel="alternate" hreflang="zh-Hant" href="https://loudscript.app/zh-hant/screenshot-ocr-text-to-speech-mac/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/screenshot-ocr-text-to-speech-mac/">
+    <link rel="alternate" hreflang="x-default" href="https://loudscript.app/screenshot-ocr-text-to-speech-mac/">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <meta name="color-scheme" content="dark light">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7fb">
+
+    <title>Mac 截圖 OCR 文字轉語音｜LoudScript</title>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "HowTo",
+          "inLanguage": "zh-Hant",
+          "@id": "https://loudscript.app/zh-hant/screenshot-ocr-text-to-speech-mac/#howto",
+          "name": "如何在 Mac 上朗讀截圖中的文字",
+          "description": "擷取無法選取的文字，以 macOS OCR 辨識，再使用 LoudScript 朗讀。",
+          "datePublished": "2026-08-04",
+          "dateModified": "2026-08-19",
+          "author": { "@type": "Person", "@id": "https://loudscript.app/#creator", "name": "Ho Ye Lam", "url": "https://hoyelam.com/" },
+          "publisher": { "@type": "Organization", "@id": "https://loudscript.app/#organization", "name": "Kin-Yee", "url": "https://loudscript.app/" },
+          "mainEntityOfPage": "https://loudscript.app/zh-hant/screenshot-ocr-text-to-speech-mac/",
+          "totalTime": "PT2M",
+          "tool": { "@type": "HowToTool", "name": "LoudScript Mac 版" },
+          "step": [
+            { "@type": "HowToStep", "position": 1, "name": "開始螢幕擷取", "text": "未選取文字時，按下 Option-Command-R。" },
+            { "@type": "HowToStep", "position": 2, "name": "擷取文字", "text": "拖曳框選你想聆聽的螢幕文字。" },
+            { "@type": "HowToStep", "position": 3, "name": "聆聽", "text": "LoudScript 會使用 macOS OCR 辨識可見文字並開始播放。" }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "LoudScript", "item": "https://loudscript.app/zh-hant/" },
+            { "@type": "ListItem", "position": 2, "name": "Mac 截圖 OCR 文字轉語音", "item": "https://loudscript.app/zh-hant/screenshot-ocr-text-to-speech-mac/" }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="mac-page">
+    <main class="mac-shell">
+        <header class="mac-nav">
+            <a href="/zh-hant/" class="mac-brand" aria-label="前往 LoudScript 首頁">
+                <img src="/images/loudscript-icon-88.webp" class="mac-brand-logo" alt="LoudScript App 圖示" width="44" height="44">
+                <span>LoudScript</span>
+            </a>
+            <nav class="mac-nav-links" aria-label="頁面導覽">
+                <a href="/zh-hant/">總覽</a>
+                <a href="/zh-hant/#guides">指南</a>
+                <a href="/support.html" hreflang="en">支援</a>
+                <a href="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg" class="mac-nav-cta">下載 DMG</a>
+            </nav>
+            <!-- GUIDE_LANGUAGE_NAV_START -->
+            <nav class="mac-language-links" aria-label="語言選擇">
+                <a href="/screenshot-ocr-text-to-speech-mac/" lang="en" hreflang="en">English</a>
+                <a href="/zh-hant/screenshot-ocr-text-to-speech-mac/" lang="zh-Hant" hreflang="zh-Hant" aria-current="page">繁體中文</a>
+                <a href="/zh-hans/screenshot-ocr-text-to-speech-mac/" lang="zh-Hans" hreflang="zh-Hans">简体中文</a>
+            </nav>
+            <!-- GUIDE_LANGUAGE_NAV_END -->
+        </header>
+
+        <article class="seo-page">
+            <header class="seo-hero">
+                <p class="seo-breadcrumb"><a href="/zh-hant/">LoudScript</a> / 截圖 OCR 指南</p>
+                <h1>Mac 截圖 OCR 文字轉語音</h1>
+                <p class="seo-lede">朗讀圖片、影片、掃描文件與 App 介面中無法選取的文字。LoudScript 會擷取螢幕區域，以 macOS OCR 辨識可見文字，然後開始朗讀。</p>
+                <p class="seo-byline">作者：<a href="https://hoyelam.com/" rel="author">Ho Ye Lam</a> · 更新於 2026 年 8 月 19 日</p>
+            </header>
+
+            <section class="seo-section" aria-labelledby="quick-steps">
+                <h2 id="quick-steps">將螢幕文字轉為語音</h2>
+                <ol class="seo-steps">
+                    <li><strong>按下 Option-Command-R</strong>，請確保未選取任何文字。</li>
+                    <li><strong>拖曳框選文字</strong>，選擇要讓 LoudScript 擷取的內容。</li>
+                    <li><strong>聆聽</strong>，macOS 內建 OCR 會辨識文字，LoudScript 隨即開始播放。</li>
+                </ol>
+                <p>螢幕擷取需要 macOS「螢幕錄影」權限。LoudScript 會在需要時提示你授權，並直接連結至相關的「系統設定」頁面。</p>
+            </section>
+
+            <section class="seo-section" aria-labelledby="when-to-use">
+                <h2 id="when-to-use">何時適合使用截圖朗讀</h2>
+                <p>如果 App 能正常提供內容，直接選取文字是最快的方法；無法選取時，則可使用截圖 OCR。</p>
+                <ul>
+                    <li>截圖、投影片、圖表或掃描頁面中的文字。</li>
+                    <li>影片畫面或遠端桌面工作階段中的文字。</li>
+                    <li>停用或限制文字選取的 PDF 與電子書閱讀器。</li>
+                    <li>無法選取文字的標籤、提示與自訂介面。</li>
+                </ul>
+            </section>
+
+            <section class="seo-section" aria-labelledby="privacy">
+                <h2 id="privacy">截圖 OCR 如何處理你的內容</h2>
+                <p>LoudScript 會為你選擇的螢幕區域建立暫時截圖。OCR 完成或失敗後，App 會刪除該暫存檔案。辨識出的 OCR 文字不會傳送至產品分析服務。</p>
+                <p>使用 Apple 語音或已下載的 Supertonic、Kokoro 或 PocketTTS 模型時，語音合成會留在你的 Mac 上。選用的 AI 格式化功能是獨立功能；若啟用，待格式化的文字可能會傳送至第三方供應商。完整說明請參閱<a href="/privacy.html" hreflang="en">隱私權政策</a>。</p>
+            </section>
+
+            <section class="seo-section" aria-labelledby="accuracy">
+                <h2 id="accuracy">取得更清晰的 OCR 結果</h2>
+                <ul>
+                    <li>只擷取所需文字，不要包含整個雜亂的螢幕。</li>
+                    <li>字元較小時，請提高縮放比例。</li>
+                    <li>盡量避開重疊的視窗、游標與控制項。</li>
+                    <li>在採用朗讀結果前，請先檢查姓名、數字與技術符號。</li>
+                </ul>
+                <p>OCR 準確度取決於圖片清晰度、對比度、語言與版面配置。LoudScript 會保留辨識出的文字，方便你在朗讀記錄中檢查或重新播放。</p>
+            </section>
+
+            <section class="seo-section" aria-labelledby="other-workflows">
+                <h2 id="other-workflows">使用最快的朗讀方式</h2>
+                <p>如果文字可以選取，無須截圖；直接透過「服務」選單或全域快速鍵將文字傳送至 LoudScript。</p>
+                <div class="seo-related">
+                    <a href="/zh-hant/read-selected-text-aloud-mac/">閱讀選取文字指南</a>
+                    <a href="/zh-hant/offline-text-to-speech-mac/">比較本機語音引擎</a>
+                </div>
+            </section>
+
+            <section class="seo-section seo-callout" aria-labelledby="download">
+                <h2 id="download">聆聽無法選取的文字</h2>
+                <p>LoudScript 可免費下載，已通過 Apple 公證，適用於 macOS 15.6 或以上版本。</p>
+                <a href="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg" class="mac-btn mac-btn-primary">下載 Mac 版 LoudScript</a>
+            </section>
+        </article>
+    </main>
+
+    <footer class="mac-footer">
+        <nav class="mac-footer-links" aria-label="頁尾導覽">
+            <a href="/zh-hant/">LoudScript</a>
+            <a href="/zh-hant/read-selected-text-aloud-mac/">選取文字</a>
+            <a href="/zh-hant/offline-text-to-speech-mac/">離線語音</a>
+            <a href="/support.html" hreflang="en">支援</a>
+            <a href="/privacy.html" hreflang="en">隱私權</a>
+        </nav>
+        <p class="mac-footer-credit">製作者： <a href="https://twitter.com/hoyelam" rel="noopener">Hoye Lam</a> &middot; &copy;2026 Kin-Yee</p>
+    </footer>
+</body>
+</html>

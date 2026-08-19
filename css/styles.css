@@ -588,6 +588,46 @@ body {
     color: #b0a0ff;
 }
 
+.mac-language-links {
+    display: inline-flex;
+    flex: 0 0 auto;
+    padding: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.mac-language-links a {
+    padding: 6px 10px;
+    border-radius: 999px;
+    color: rgba(255, 255, 255, 0.58);
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.mac-language-links a:hover {
+    color: #fff;
+}
+
+.mac-language-links a[aria-current="page"] {
+    color: #fff;
+    background: rgba(149, 128, 250, 0.22);
+}
+
+.mac-link-language {
+    display: inline-block;
+    margin-left: 0.2em;
+    color: #9580fa;
+    font-size: 0.66em;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    line-height: 1;
+    vertical-align: 0.08em;
+}
+
 /* Hero */
 .mac-hero {
     text-align: center;
@@ -674,6 +714,7 @@ body {
     color: rgba(255, 255, 255, 0.62);
     font-size: 1.15rem;
     line-height: 1.7;
+    text-wrap: balance;
 }
 
 .mac-hero .mac-cta-group {
@@ -689,6 +730,7 @@ body {
     margin: 16px 0 0;
     color: rgba(255, 255, 255, 0.55);
     font-size: 0.9rem;
+    text-wrap: balance;
 }
 
 /* Buttons */
@@ -1467,11 +1509,30 @@ body {
         background: rgba(23, 20, 30, 0.06);
     }
 
+    .mac-language-links {
+        border-color: rgba(23, 20, 30, 0.1);
+        background: rgba(23, 20, 30, 0.035);
+    }
+
+    .mac-language-links a {
+        color: rgba(23, 20, 30, 0.62);
+    }
+
+    .mac-language-links a:hover,
+    .mac-language-links a[aria-current="page"] {
+        color: #17141e;
+    }
+
+    .mac-language-links a[aria-current="page"] {
+        background: rgba(81, 55, 214, 0.13);
+    }
+
     .mac-nav-links .mac-nav-cta,
     .mac-eyebrow,
     .mac-feature-label,
     .mac-section-label,
     .mac-step-num,
+    .mac-link-language,
     .seo-breadcrumb {
         color: #5137d6;
     }
@@ -1668,6 +1729,22 @@ body {
 
 /* Responsive — Small Tablet */
 @media (max-width: 900px) {
+    .mac-nav {
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .mac-language-links {
+        order: 2;
+        margin-left: auto;
+    }
+
+    .mac-nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+    }
+
     .mac-detail {
         grid-template-columns: 1fr;
     }
@@ -1704,6 +1781,10 @@ body {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 8px;
         width: 100%;
+    }
+
+    .mac-language-links {
+        margin-left: 0;
     }
 
     .mac-nav-links a {

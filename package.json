@@ -1,0 +1,10 @@
+{
+  "name": "loudscript-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-localized-landing.mjs && node scripts/build-localized-guides.mjs",
+    "pretest": "npm run build",
+    "test": "node scripts/validate-localized-site.mjs"
+  }
+}

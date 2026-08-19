@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" dir="ltr">
+<head>
+    <link rel="preconnect" href="https://plausible.io" crossorigin>
+    <script defer data-domain="loudscript.app" src="https://plausible.io/js/script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="LoudScript 是一款免费的 Mac 文本转语音 App，可用自然语音朗读所选文本、截屏中的文字和 PDF，支持同步高亮标记、离线语音和朗读历史记录。">
+    <meta name="author" content="Ho Ye Lam">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:site_name" content="LoudScript">
+    <meta property="og:title" content="Mac 文本转语音 App（免费）｜LoudScript">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://loudscript.app/zh-hans/">
+    <meta property="og:image" content="https://loudscript.app/images/mac/mac-main-window.png">
+    <meta property="og:description" content="用自然语音朗读所选文本、截屏中的文字和 PDF，朗读时同步高亮标记文本并保存朗读历史记录。Mac 版可免费下载。">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="zh_TW">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mac 文本转语音 App（免费）｜LoudScript">
+    <meta name="twitter:description" content="用自然语音朗读所选文本、截屏中的文字和 PDF，朗读时同步高亮标记文本并保存朗读历史记录。">
+    <meta name="twitter:image" content="https://loudscript.app/images/mac/mac-main-window.png">
+    <meta name="twitter:creator" content="@hoyelam">
+
+    <link rel="canonical" href="https://loudscript.app/zh-hans/">
+    <link rel="alternate" hreflang="en" href="https://loudscript.app/">
+    <link rel="alternate" hreflang="zh-Hant" href="https://loudscript.app/zh-hant/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/">
+    <link rel="alternate" hreflang="x-default" href="https://loudscript.app/">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="color-scheme" content="dark light">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7fb">
+
+    <title>Mac 文本转语音 App（免费）｜LoudScript</title>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://loudscript.app/#website",
+          "url": "https://loudscript.app/",
+          "name": "LoudScript",
+          "publisher": { "@id": "https://loudscript.app/#organization" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://loudscript.app/zh-hans/#webpage",
+          "url": "https://loudscript.app/zh-hans/",
+          "name": "Mac 文本转语音 App（免费）｜LoudScript",
+          "isPartOf": { "@id": "https://loudscript.app/#website" },
+          "about": { "@id": "https://loudscript.app/zh-hans/#mac-app" },
+          "mainEntity": { "@id": "https://loudscript.app/zh-hans/#mac-app" },
+          "inLanguage": "zh-Hans"
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://loudscript.app/#organization",
+          "name": "Kin-Yee",
+          "url": "https://loudscript.app/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://loudscript.app/images/loudscript-icon-192.webp",
+            "width": 192,
+            "height": 192
+          },
+          "founder": { "@id": "https://loudscript.app/#creator" }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://loudscript.app/#creator",
+          "name": "Ho Ye Lam",
+          "alternateName": "Hoye Lam",
+          "url": "https://hoyelam.com/",
+          "sameAs": [
+            "https://github.com/hoyelam",
+            "https://x.com/hoyelam"
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://loudscript.app/zh-hans/#mac-app",
+          "name": "LoudScript Mac 版",
+          "url": "https://loudscript.app/zh-hans/",
+          "description": "一款免费的 Mac 文本转语音 App，可朗读所选文本、截屏中的文字和 PDF。",
+          "inLanguage": "zh-Hans",
+          "image": "https://loudscript.app/images/mac/mac-main-window.png",
+          "operatingSystem": "macOS 15.6 or later",
+          "applicationCategory": "UtilitiesApplication",
+          "isAccessibleForFree": true,
+          "downloadUrl": "https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg",
+          "featureList": [
+            "朗读任何 Mac App 中的所选文本",
+            "使用 OCR 提取并朗读截屏中的文本",
+            "导入选定的 PDF 页面，并在原始文稿中同步查看朗读位置",
+            "Apple、Supertonic、Kokoro 和 PocketTTS 语音均在 Mac 本地运行",
+            "浮动播放控制和朗读历史记录"
+          ],
+          "offers": {
+            "@type": "Offer",
+            "price": 0,
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          },
+          "author": { "@id": "https://loudscript.app/#creator" },
+          "publisher": { "@id": "https://loudscript.app/#organization" }
+        }
+      ]
+    }
+    </script>
+</head>
+
+<body class="mac-page">
+    <main class="mac-shell">
+        <header class="mac-nav">
+            <a href="/" class="mac-brand" aria-label="前往 LoudScript 首页">
+                <img src="/images/loudscript-icon-88.webp" class="mac-brand-logo" alt="LoudScript App 图标" width="44" height="44">
+                <span>LoudScript</span>
+            </a>
+            <nav class="mac-nav-links" aria-label="页面导航">
+                <a href="#guides">指南</a>
+                <a href="/changelog.html" hreflang="en">更新日志 <small class="mac-link-language" aria-label="英文页面">EN</small></a>
+                <a href="/support.html" hreflang="en">支持 <small class="mac-link-language" aria-label="英文页面">EN</small></a>
+                <a href="https://apps.apple.com/app/loudscript-text-reader/id6747320736" target="_blank" rel="noopener">查看 iOS/iPadOS 版</a>
+                <a href="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg" target="_blank" rel="noopener" class="mac-nav-cta">下载 DMG</a>
+            </nav>
+            <nav class="mac-language-links" aria-label="选择语言">
+    <a href="/" lang="en" hreflang="en">English</a>
+    <a href="/zh-hant/" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a>
+    <a href="/zh-hans/" lang="zh-Hans" hreflang="zh-Hans" aria-current="page">简体中文</a>
+</nav>
+        </header>
+
+        <section class="mac-hero">
+            <div class="mac-hero-badges">
+                <span class="mac-eyebrow">LoudScript Mac 版</span>
+                <span class="mac-free-badge">免费</span>
+            </div>
+            <h1 class="mac-title">让 Mac 朗读<br>任何文本</h1>
+            <p class="mac-intro">
+                LoudScript 是一款免费的 Mac 文本转语音 App，可朗读所选文本、截屏中的文字和 PDF，让你边听边工作。
+            </p>
+            <div class="mac-cta-group" role="group" aria-label="LoudScript 平台">
+                <a href="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg" target="_blank" rel="noopener" class="mac-btn mac-btn-primary">
+                    下载 Mac 版
+                </a>
+                <a href="https://apps.apple.com/app/loudscript-text-reader/id6747320736" target="_blank" rel="noopener" class="mac-btn mac-btn-secondary mac-btn-compact">
+                    查看 iOS/iPadOS 版
+                </a>
+            </div>
+            <p class="mac-note">已通过 Apple 公证。需要 macOS 15.6 或更高版本。</p>
+
+            <div class="mac-hero-screenshots">
+                <figure class="mac-screenshot mac-screenshot-main">
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="/images/mac/mac-main-window-640.webp">
+                        <img src="/images/mac/mac-main-window.webp" srcset="/images/mac/mac-main-window-640.webp 640w, /images/mac/mac-main-window-1280.webp 1280w, /images/mac/mac-main-window.webp 2560w" sizes="860px" alt="LoudScript 正在朗读 PDF，并在文本与文稿中同步高亮标记当前句子" width="2560" height="1410" fetchpriority="high" decoding="async">
+                    </picture>
+                </figure>
+                <figure class="mac-screenshot mac-screenshot-overlay">
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="/images/mac/mac-playback-settings-560.webp">
+                        <img src="/images/mac/mac-playback-settings.webp" srcset="/images/mac/mac-playback-settings-560.webp 560w, /images/mac/mac-playback-settings.webp 1120w" sizes="380px" alt="LoudScript 语音模型选择器，显示本地语音选项" width="1120" height="1416" decoding="async">
+                    </picture>
+                </figure>
+            </div>
+        </section>
+
+        <section class="mac-features" aria-label="主要功能">
+            <article class="mac-feature-card mac-reveal">
+                <span class="mac-feature-label">PDF 朗读</span>
+                <h2>边听边查看原始页面。</h2>
+                <p>导入需要的页面，一边聆听，一边在原始 PDF 中同步查看朗读位置。</p>
+            </article>
+            <article class="mac-feature-card mac-reveal">
+                <span class="mac-feature-label">截屏 OCR</span>
+                <h2>朗读无法直接选择的文本。</h2>
+                <p>提取图片或 App 界面中的文本，然后聆听内容。</p>
+            </article>
+            <article class="mac-feature-card mac-reveal">
+                <span class="mac-feature-label">四种语音引擎</span>
+                <h2>选择你喜欢的语音。</h2>
+                <p>使用 Apple 语音，或下载 Supertonic、Kokoro 或 PocketTTS。</p>
+            </article>
+            <article class="mac-feature-card mac-reveal">
+                <span class="mac-feature-label">后台播放</span>
+                <h2>工作时继续聆听。</h2>
+                <p>通过小型浮动播放器控制播放，无需切换窗口。</p>
+            </article>
+        </section>
+
+        <section class="mac-detail mac-reveal" aria-label="PDF 朗读功能">
+            <div class="mac-detail-text">
+                <span class="mac-section-label">PDF 朗读</span>
+                <h2>让文本与文稿并排显示。</h2>
+                <p>
+                    并排查看提取的文本与原始 PDF。LoudScript 会在两侧同步高亮标记当前朗读的句子。
+                </p>
+                <ul class="mac-detail-list">
+                    <li>导入前选择页码范围</li>
+                    <li>跨页朗读时自动跟随播放进度</li>
+                    <li>需要更多空间时隐藏文本或概览</li>
+                </ul>
+            </div>
+            <div class="mac-detail-img">
+                <figure class="mac-screenshot">
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="/images/mac/mac-main-window-640.webp">
+                        <img src="/images/mac/mac-main-window.webp" srcset="/images/mac/mac-main-window-640.webp 640w, /images/mac/mac-main-window-1280.webp 1280w, /images/mac/mac-main-window.webp 2560w" sizes="(max-width: 900px) calc(100vw - 66px), 606px" alt="LoudScript PDF 播放画面，在文本与文稿中同步高亮标记当前句子" width="2560" height="1410" loading="lazy" decoding="async">
+                    </picture>
+                </figure>
+            </div>
+        </section>
+
+        <section class="mac-detail mac-detail-reverse mac-reveal" aria-label="语音与播放设置">
+            <div class="mac-detail-text">
+                <span class="mac-section-label">语音与播放</span>
+                <h2>自定义 LoudScript 的朗读方式。</h2>
+                <p>
+                    选择语音、调整语速，还可以启用 AI 格式化，让语句更流畅。
+                </p>
+                <ul class="mac-detail-list">
+                    <li>在 LoudScript 中管理已下载的语音</li>
+                    <li>使用 Apple 语音作为备用</li>
+                    <li>随时调整语速</li>
+                </ul>
+            </div>
+            <div class="mac-detail-img">
+                <figure class="mac-screenshot">
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="/images/mac/mac-playback-settings-560.webp">
+                        <img src="/images/mac/mac-playback-settings.webp" srcset="/images/mac/mac-playback-settings-560.webp 560w, /images/mac/mac-playback-settings.webp 1120w" sizes="(max-width: 900px) min(400px, calc(100vw - 66px)), 400px" alt="LoudScript 语音模型选择器，显示 Apple、Supertonic、Kokoro 和 PocketTTS" width="1120" height="1416" loading="lazy" decoding="async">
+                    </picture>
+                </figure>
+            </div>
+        </section>
+
+        <section class="mac-detail mac-reveal" aria-label="朗读历史记录功能">
+            <div class="mac-detail-text">
+                <span class="mac-section-label">朗读历史记录</span>
+                <h2>随时重听以前的内容。</h2>
+                <p>
+                    LoudScript 会保存每次朗读的来源、语言和文本。搜索朗读历史记录，即可随时再次聆听。
+                </p>
+                <ul class="mac-detail-list">
+                    <li>查看每次朗读的来源</li>
+                    <li>比较原始文本与格式化后的文本</li>
+                    <li>查看朗读时间与文本详细信息</li>
+                </ul>
+            </div>
+            <div class="mac-detail-img">
+                <figure class="mac-screenshot mac-screenshot-constrained">
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="/images/mac/mac-history-overview-380.webp">
+                        <img src="/images/mac/mac-history-overview.webp" srcset="/images/mac/mac-history-overview-380.webp 380w, /images/mac/mac-history-overview.webp 760w" sizes="(max-width: 900px) min(400px, calc(100vw - 66px)), 400px" alt="LoudScript 朗读概览，显示语言、来源、文本和播放详细信息" width="760" height="1800" loading="lazy" decoding="async">
+                    </picture>
+                </figure>
+            </div>
+        </section>
+
+        <section class="mac-workflow mac-reveal" aria-label="LoudScript Mac 版的使用方式">
+            <span class="mac-section-label">使用方式</span>
+            <h2>三步开始聆听。</h2>
+            <div class="mac-steps">
+                <article class="mac-step-card mac-reveal">
+                    <span class="mac-step-num">01</span>
+                    <h3>添加要朗读的文本</h3>
+                    <p>选择文本、截屏、导入 PDF，或直接在 LoudScript 中输入。</p>
+                </article>
+                <article class="mac-step-card mac-reveal">
+                    <span class="mac-step-num">02</span>
+                    <h3>聆听</h3>
+                    <p>选择语音并点按“播放”。LoudScript 会同步高亮标记当前朗读的句子。</p>
+                </article>
+                <article class="mac-step-card mac-reveal">
+                    <span class="mac-step-num">03</span>
+                    <h3>稍后继续听</h3>
+                    <p>从朗读历史记录中找回内容，然后再次朗读或复制文本。</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="mac-audiences mac-reveal" aria-labelledby="audiences-title">
+            <span class="mac-section-label">专为日常阅读而设计</span>
+            <h2 id="audiences-title">一款适用于工作、学习及辅助功能需求的 Mac 文本朗读器。</h2>
+            <div class="mac-audience-grid">
+                <article class="mac-audience-card">
+                    <h3>用耳朵校对</h3>
+                    <p>聆听草稿、电子邮件和脚本，找出漏字、不通顺的语句和重复内容。</p>
+                </article>
+                <article class="mac-audience-card">
+                    <h3>学习时不用一直盯着屏幕</h3>
+                    <p>一边聆听所选段落，一边做笔记、复习资料，或让眼睛休息。</p>
+                </article>
+                <article class="mac-audience-card">
+                    <h3>朗读无法选择的文本</h3>
+                    <p>当图片、PDF 阅读器或其他 App 界面中的文本无法直接选择时，使用截屏 OCR 提取并朗读内容。</p>
+                </article>
+                <article class="mac-audience-card">
+                    <h3>边工作边聆听</h3>
+                    <p>将浮动播放器置于其他窗口上方，LoudScript 会在后台继续朗读。</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="mac-guides mac-reveal" id="guides" aria-labelledby="guides-title">
+            <span class="mac-section-label">Mac 文本转语音指南</span>
+            <h2 id="guides-title">选择适合你的朗读方式。</h2>
+            <div class="mac-guide-grid">
+                <a class="mac-guide-card" href="/zh-hans/read-selected-text-aloud-mac/" hreflang="zh-Hans">
+                    <span>所选文本</span>
+                    <h3>在 Mac 上朗读所选文本</h3>
+                    <p>在浏览器、编辑器、“邮件”和其他 Mac App 中使用“服务”菜单或 Option-Command-R。</p>
+                </a>
+                <a class="mac-guide-card" href="/zh-hans/screenshot-ocr-text-to-speech-mac/" hreflang="zh-Hans">
+                    <span>截屏 OCR</span>
+                    <h3>朗读屏幕上无法选择的文本</h3>
+                    <p>框选屏幕上无法直接选择的文本，LoudScript 会使用 macOS OCR 进行识别和朗读。</p>
+                </a>
+                <a class="mac-guide-card" href="/zh-hans/offline-text-to-speech-mac/" hreflang="zh-Hans">
+                    <span>本地语音</span>
+                    <h3>比较离线文本转语音引擎</h3>
+                    <p>比较各引擎支持的 Mac 机型、语言、下载大小和语音。</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="mac-faq mac-reveal" aria-labelledby="faq-title">
+            <span class="mac-section-label">常见问题</span>
+            <h2 id="faq-title">LoudScript Mac 版常见问题</h2>
+            <div class="mac-faq-list">
+                <details>
+                    <summary>如何让 Mac 朗读所选文本？</summary>
+                    <p>在任意 App 中选择文本，然后从“服务”菜单中选择 <strong>Read with LoudScript</strong>，或在授予辅助功能权限后按下 <strong>Option-Command-R</strong>。</p>
+                </details>
+                <details>
+                    <summary>LoudScript 可以朗读截屏或图片中的文本吗？</summary>
+                    <p>可以。框选屏幕区域后，LoudScript 会识别并朗读其中的文本。此功能需要“录屏与系统录音”权限。</p>
+                </details>
+                <details>
+                    <summary>LoudScript 可以朗读 PDF 吗？</summary>
+                    <p>可以。每次最多导入 50 页。LoudScript 会在提取的文本旁显示原始 PDF，并同步高亮标记当前朗读的句子。</p>
+                </details>
+                <details>
+                    <summary>LoudScript 可以离线使用吗？</summary>
+                    <p>可以。Apple 语音直接在 Mac 上运行。下载模型后，Supertonic、Kokoro 和 PocketTTS 也能在本地运行。启用 AI 格式化时，文本可能会发送给你选择的 AI 服务商。</p>
+                </details>
+                <details>
+                    <summary>哪些 Mac 支持 LoudScript？</summary>
+                    <p>LoudScript 需要 macOS 15.6 或更高版本。Apple 语音和 Supertonic 支持基于 Intel 的 Mac 和搭载 Apple 芯片的 Mac；Kokoro 和 PocketTTS 则需要搭载 Apple 芯片的 Mac。</p>
+                </details>
+            </div>
+        </section>
+
+        <section class="mac-final-cta mac-reveal">
+            <h2>开始在 Mac 上聆听。</h2>
+            <p>免费下载，已通过 Apple 公证。无需 App Store 账户。</p>
+            <div class="mac-cta-group" role="group" aria-label="下载 LoudScript Mac 版">
+                <a href="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg" target="_blank" rel="noopener" class="mac-btn mac-btn-primary">
+                    下载 LoudScript Mac 版
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mac-footer">
+        <nav class="mac-footer-links" aria-label="页脚导航">
+            <a href="/changelog.html" hreflang="en">更新日志 <small class="mac-link-language" aria-label="英文页面">EN</small></a>
+            <a href="/tos.html" hreflang="en">条款 <small class="mac-link-language" aria-label="英文页面">EN</small></a>
+            <a href="/privacy.html" hreflang="en">隐私 <small class="mac-link-language" aria-label="英文页面">EN</small></a>
+            <a href="/support.html" hreflang="en">支持 <small class="mac-link-language" aria-label="英文页面">EN</small></a>
+            <a href="/zh-hans/read-selected-text-aloud-mac/" hreflang="zh-Hans">所选文本指南</a>
+            <a href="/zh-hans/screenshot-ocr-text-to-speech-mac/" hreflang="zh-Hans">OCR 指南</a>
+            <a href="/zh-hans/offline-text-to-speech-mac/" hreflang="zh-Hans">离线语音</a>
+            <a href="https://apps.apple.com/app/loudscript-text-reader/id6747320736" target="_blank" rel="noopener">查看 iOS/iPadOS 版</a>
+        </nav>
+        <p class="mac-footer-credit">
+            制作： <a href="https://twitter.com/hoyelam" rel="noopener">Hoye Lam</a> &middot; &copy;2026 Kin-Yee
+        </p>
+    </footer>
+
+    <script>
+    (function() {
+        var els = document.querySelectorAll('.mac-reveal');
+        if (!('IntersectionObserver' in window)) {
+            els.forEach(function(el) { el.classList.add('mac-visible'); });
+            return;
+        }
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('mac-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        els.forEach(function(el) { observer.observe(el); });
+    })();
+    </script>
+</body>
+</html>
