@@ -71,6 +71,7 @@
           "@id": "https://loudscript.app/ja/#webpage",
           "url": "https://loudscript.app/ja/",
           "name": "Mac向けテキスト読み上げアプリ（無料）｜LoudScript",
+          "dateModified": "2026-08-20",
           "isPartOf": { "@id": "https://loudscript.app/#website" },
           "about": { "@id": "https://loudscript.app/ja/#mac-app" },
           "mainEntity": { "@id": "https://loudscript.app/ja/#mac-app" },
@@ -80,7 +81,9 @@
           "@type": "Organization",
           "@id": "https://loudscript.app/#organization",
           "name": "Kin-Yee",
+          "legalName": "Kin-Yee",
           "url": "https://loudscript.app/",
+          "email": "hoyelam@kin-yee.com",
           "logo": {
             "@type": "ImageObject",
             "url": "https://loudscript.app/images/loudscript-icon-192.webp",
@@ -110,8 +113,14 @@
           "image": "https://loudscript.app/images/mac/mac-main-window.png",
           "operatingSystem": "macOS 15.6 or later",
           "applicationCategory": "UtilitiesApplication",
+          "applicationSubCategory": "Text-to-speech reader",
+          "softwareVersion": "2026.1.20",
+          "dateModified": "2026-08-20",
+          "installUrl": "https://loudscript.app/download/",
+          "releaseNotes": "https://loudscript.app/changelog.html#version-2026-1-20",
+          "processorRequirements": "Intel or Apple silicon Mac; some downloadable voices require Apple silicon",
           "isAccessibleForFree": true,
-          "downloadUrl": "https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg",
+          "downloadUrl": "https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-v2026.1.20/LoudScript-2026.1.20.dmg",
           "featureList": [
             "あらゆるMacアプリで選択したテキストを読み上げ",
             "OCRでスクリーンショットの文字を抽出して読み上げ",
@@ -144,8 +153,8 @@
                 <a href="#guides">ガイド</a>
                 <a href="/changelog.html" hreflang="en">更新履歴 <small class="mac-link-language" aria-label="英語ページ">EN</small></a>
                 <a href="/support.html" hreflang="en">サポート <small class="mac-link-language" aria-label="英語ページ">EN</small></a>
-                <a href="https://apps.apple.com/app/loudscript-text-reader/id6747320736" target="_blank" rel="noopener">iOS/iPadOS版を見る</a>
-                <a href="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg" target="_blank" rel="noopener" class="mac-nav-cta">DMGをダウンロード</a>
+                <a href="/loudscript-mac-vs-ios/" hreflang="en">iOS/iPadOS版を見る <small class="mac-link-language" aria-label="英語ページ">EN</small></a>
+                <a href="/download/" hreflang="en" class="mac-nav-cta">DMGをダウンロード <small class="mac-link-language" aria-label="英語ページ">EN</small></a>
             </nav>
             <nav class="mac-language-menu" aria-label="言語を選択">
     <details>
@@ -202,10 +211,10 @@
                 Macのテキスト読み上げをもっと便利に。選択したテキスト、スクリーンショット、PDFを自然な音声で聞きながら作業を続けられます。
             </p>
             <div class="mac-cta-group" role="group" aria-label="LoudScript対応プラットフォーム">
-                <a href="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg" target="_blank" rel="noopener" class="mac-btn mac-btn-primary">
+                <a href="/download/" hreflang="en" class="mac-btn mac-btn-primary">
                     Mac版をダウンロード
                 </a>
-                <a href="https://apps.apple.com/app/loudscript-text-reader/id6747320736" target="_blank" rel="noopener" class="mac-btn mac-btn-secondary mac-btn-compact">
+                <a href="/loudscript-mac-vs-ios/" hreflang="en" class="mac-btn mac-btn-secondary mac-btn-compact">
                     iOS/iPadOS版を見る
                 </a>
             </div>
@@ -383,6 +392,16 @@
                     <h3>オフライン音声読み上げエンジンを比較</h3>
                     <p>対応Mac、言語、ダウンロードサイズ、音声を比較できます。</p>
                 </a>
+                <a class="mac-guide-card" href="/read-pdf-aloud-mac/" hreflang="en">
+                    <span>PDF読み上げ <small class="mac-link-language" aria-label="英語ページ">EN</small></span>
+                    <h3>MacでPDFを読み上げる</h3>
+                    <p>最大50ページを読み込み、元の文書で同期するハイライトを確認できます。</p>
+                </a>
+                <a class="mac-guide-card" href="/best-text-to-speech-app-for-mac/" hreflang="en">
+                    <span>アプリを選ぶ <small class="mac-link-language" aria-label="英語ページ">EN</small></span>
+                    <h3>Mac用テキスト読み上げアプリを選ぶ</h3>
+                    <p>ワークフロー、プライバシーの範囲、互換性、制限を比較します。</p>
+                </a>
             </div>
         </section>
 
@@ -417,7 +436,7 @@
             <h2>Macで読み上げを始めましょう。</h2>
             <p>無料の公証済みDMGを直接ダウンロードできます。App Storeアカウントは不要です。</p>
             <div class="mac-cta-group" role="group" aria-label="Mac版LoudScriptをダウンロード">
-                <a href="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg" target="_blank" rel="noopener" class="mac-btn mac-btn-primary">
+                <a href="/download/" hreflang="en" class="mac-btn mac-btn-primary">
                     Mac版LoudScriptをダウンロード
                 </a>
             </div>
@@ -433,7 +452,9 @@
             <a href="/ja/read-selected-text-aloud-mac/" hreflang="ja">選択テキストガイド</a>
             <a href="/ja/screenshot-ocr-text-to-speech-mac/" hreflang="ja">OCRガイド</a>
             <a href="/ja/offline-text-to-speech-mac/" hreflang="ja">オフライン音声</a>
-            <a href="https://apps.apple.com/app/loudscript-text-reader/id6747320736" target="_blank" rel="noopener">iOS/iPadOS版を見る</a>
+            <a href="/read-pdf-aloud-mac/" hreflang="en">PDF Guide <small class="mac-link-language" aria-label="英語ページ">EN</small></a>
+            <a href="/best-text-to-speech-app-for-mac/" hreflang="en">Choose a Mac TTS App <small class="mac-link-language" aria-label="英語ページ">EN</small></a>
+            <a href="/loudscript-mac-vs-ios/" hreflang="en">Mac vs iOS <small class="mac-link-language" aria-label="英語ページ">EN</small></a>
         </nav>
         <p class="mac-footer-credit">
             制作 <a href="https://twitter.com/hoyelam" rel="noopener">Hoye Lam</a> &middot; &copy;2026 Kin-Yee

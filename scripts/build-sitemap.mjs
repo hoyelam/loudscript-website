@@ -1,10 +1,11 @@
 import { writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { siteLastModified } from "./site-metadata.mjs";
 
 const siteRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const siteUrl = "https://loudscript.app";
-const lastModified = "2026-08-19";
+const lastModified = siteLastModified;
 const locales = [
   { lang: "en", prefix: "" },
   { lang: "zh-Hant", prefix: "/zh-hant" },
@@ -22,10 +23,14 @@ const routes = [
   "offline-text-to-speech-mac"
 ];
 const staticPages = [
+  { route: "download/", lastModified: siteLastModified },
+  { route: "best-text-to-speech-app-for-mac/", lastModified: siteLastModified },
+  { route: "read-pdf-aloud-mac/", lastModified: siteLastModified },
+  { route: "loudscript-mac-vs-ios/", lastModified: siteLastModified },
   { route: "privacy.html", lastModified: "2026-05-21" },
   { route: "tos.html", lastModified: "2026-05-21" },
   { route: "support.html", lastModified: "2026-08-04" },
-  { route: "changelog.html", lastModified: "2026-08-19" }
+  { route: "changelog.html", lastModified: siteLastModified }
 ];
 
 function localizedUrl(prefix, route) {

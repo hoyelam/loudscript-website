@@ -65,6 +65,7 @@
           "@id": "{{canonicalUrl}}#webpage",
           "url": "{{canonicalUrl}}",
           "name": "Free Text-to-Speech App for Mac | LoudScript",
+          "dateModified": "2026-08-20",
           "isPartOf": { "@id": "https://loudscript.app/#website" },
           "about": { "@id": "{{canonicalUrl}}#mac-app" },
           "mainEntity": { "@id": "{{canonicalUrl}}#mac-app" },
@@ -74,7 +75,9 @@
           "@type": "Organization",
           "@id": "https://loudscript.app/#organization",
           "name": "Kin-Yee",
+          "legalName": "Kin-Yee",
           "url": "https://loudscript.app/",
+          "email": "hoyelam@kin-yee.com",
           "logo": {
             "@type": "ImageObject",
             "url": "https://loudscript.app/images/loudscript-icon-192.webp",
@@ -104,8 +107,14 @@
           "image": "https://loudscript.app/images/mac/mac-main-window.png",
           "operatingSystem": "macOS 15.6 or later",
           "applicationCategory": "UtilitiesApplication",
+          "applicationSubCategory": "Text-to-speech reader",
+          "softwareVersion": "2026.1.20",
+          "dateModified": "2026-08-20",
+          "installUrl": "https://loudscript.app/download/",
+          "releaseNotes": "https://loudscript.app/changelog.html#version-2026-1-20",
+          "processorRequirements": "Intel or Apple silicon Mac; some downloadable voices require Apple silicon",
           "isAccessibleForFree": true,
-          "downloadUrl": "https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg",
+          "downloadUrl": "https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-v2026.1.20/LoudScript-2026.1.20.dmg",
           "featureList": [
             "Read selected text from any Mac app",
             "Extract and read text from screenshots with OCR",
@@ -138,8 +147,8 @@
                 <a href="#guides">Guides</a>
                 <a href="/changelog.html" hreflang="en">Changelog{{{englishFallbackBadge}}}</a>
                 <a href="/support.html" hreflang="en">Support{{{englishFallbackBadge}}}</a>
-                <a href="https://apps.apple.com/app/loudscript-text-reader/id6747320736" target="_blank" rel="noopener">See iOS/iPadOS</a>
-                <a href="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg" target="_blank" rel="noopener" class="mac-nav-cta">Download DMG</a>
+                <a href="{{platformGuideUrl}}" hreflang="en">See iOS/iPadOS{{{englishFallbackBadge}}}</a>
+                <a href="/download/" hreflang="en" class="mac-nav-cta">Download DMG{{{englishFallbackBadge}}}</a>
             </nav>
             {{{languageNav}}}
         </header>
@@ -154,10 +163,10 @@
                 Listen to selected text, screenshots, and PDFs with natural voices while you keep working.
             </p>
             <div class="mac-cta-group" role="group" aria-label="LoudScript platforms">
-                <a href="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg" target="_blank" rel="noopener" class="mac-btn mac-btn-primary">
+                <a href="/download/" hreflang="en" class="mac-btn mac-btn-primary">
                     Download for Mac
                 </a>
-                <a href="https://apps.apple.com/app/loudscript-text-reader/id6747320736" target="_blank" rel="noopener" class="mac-btn mac-btn-secondary mac-btn-compact">
+                <a href="{{platformGuideUrl}}" hreflang="en" class="mac-btn mac-btn-secondary mac-btn-compact">
                     See iOS/iPadOS
                 </a>
             </div>
@@ -335,6 +344,16 @@
                     <h3>Compare offline text-to-speech engines</h3>
                     <p>Compare supported Macs, languages, download sizes, and voices.</p>
                 </a>
+                <a class="mac-guide-card" href="{{pdfGuideUrl}}" hreflang="en">
+                    <span>PDF reading{{{englishFallbackBadge}}}</span>
+                    <h3>Read a PDF aloud on Mac</h3>
+                    <p>Import up to 50 pages and follow synchronized highlighting in the original document.</p>
+                </a>
+                <a class="mac-guide-card" href="{{chooserGuideUrl}}" hreflang="en">
+                    <span>Choosing an app{{{englishFallbackBadge}}}</span>
+                    <h3>Choose a text-to-speech app for Mac</h3>
+                    <p>Compare the workflows, privacy boundaries, compatibility, and limitations that matter.</p>
+                </a>
             </div>
         </section>
 
@@ -369,7 +388,7 @@
             <h2>Start listening on your Mac.</h2>
             <p>Free, notarized direct download. No App Store account needed.</p>
             <div class="mac-cta-group" role="group" aria-label="Download LoudScript for Mac">
-                <a href="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg" target="_blank" rel="noopener" class="mac-btn mac-btn-primary">
+                <a href="/download/" hreflang="en" class="mac-btn mac-btn-primary">
                     Download LoudScript for Mac
                 </a>
             </div>
@@ -385,7 +404,9 @@
             <a href="{{selectedGuideUrl}}" hreflang="{{htmlLang}}">Selected Text Guide</a>
             <a href="{{ocrGuideUrl}}" hreflang="{{htmlLang}}">OCR Guide</a>
             <a href="{{offlineGuideUrl}}" hreflang="{{htmlLang}}">Offline Voices</a>
-            <a href="https://apps.apple.com/app/loudscript-text-reader/id6747320736" target="_blank" rel="noopener">See iOS/iPadOS</a>
+            <a href="{{pdfGuideUrl}}" hreflang="en">PDF Guide{{{englishFallbackBadge}}}</a>
+            <a href="{{chooserGuideUrl}}" hreflang="en">Choose a Mac TTS App{{{englishFallbackBadge}}}</a>
+            <a href="{{platformGuideUrl}}" hreflang="en">Mac vs iOS{{{englishFallbackBadge}}}</a>
         </nav>
         <p class="mac-footer-credit">
             Made by <a href="https://twitter.com/hoyelam" rel="noopener">Hoye Lam</a> &middot; &copy;2026 Kin-Yee

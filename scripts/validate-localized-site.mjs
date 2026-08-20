@@ -1,6 +1,7 @@
 import { access, readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { guideLastModified, latestMacRelease, siteLastModified } from "./site-metadata.mjs";
 
 const siteRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const localeSpecs = [
@@ -88,6 +89,12 @@ const guideRoutes = [
   { route: "read-selected-text-aloud-mac", schemaType: "HowTo", keywords: { en: "selected text", "zh-Hant": "朗讀", "zh-Hans": "朗读", de: "ausgewählten Text", es: "texto seleccionado", fr: "texte sélectionné", ja: "選択したテキスト", nl: "geselecteerde tekst" } },
   { route: "screenshot-ocr-text-to-speech-mac", schemaType: "HowTo", keywords: { en: "OCR", "zh-Hant": "OCR", "zh-Hans": "OCR", de: "OCR", es: "OCR", fr: "OCR", ja: "OCR", nl: "OCR" } },
   { route: "offline-text-to-speech-mac", schemaType: "TechArticle", keywords: { en: "Offline Text-to-Speech", "zh-Hant": "離線文字轉語音", "zh-Hans": "离线文本转语音", de: "Offline-Text-to-Speech", es: "texto a voz sin conexión", fr: "synthèse vocale hors ligne", ja: "オフライン音声読み上げ", nl: "offline tekst-naar-spraak" } }
+];
+const firstPartySeoPages = [
+  { route: "download", schemaType: "SoftwareApplication", titlePhrase: "Download LoudScript for Mac" },
+  { route: "best-text-to-speech-app-for-mac", schemaType: "TechArticle", titlePhrase: "Text-to-Speech App for Mac" },
+  { route: "read-pdf-aloud-mac", schemaType: "HowTo", titlePhrase: "Read a PDF Aloud on Mac" },
+  { route: "loudscript-mac-vs-ios", schemaType: "TechArticle", titlePhrase: "LoudScript for Mac vs iPhone and iPad" }
 ];
 const allOgLocales = localeSpecs.map(({ ogLocale }) => ogLocale);
 
@@ -231,7 +238,11 @@ for (const spec of localeSpecs) {
       && app?.name === messages["schema.appName"]
       && app?.description === messages["schema.appDescription"]
       && app?.operatingSystem === "macOS 15.6 or later"
-      && app?.offers?.price === 0,
+      && app?.offers?.price === 0
+      && app?.softwareVersion === latestMacRelease.version
+      && app?.downloadUrl === latestMacRelease.downloadUrl
+      && app?.installUrl === "https://loudscript.app/download/"
+      && webPage?.dateModified === siteLastModified,
     `${spec.output}: invalid app schema`
   );
   assert(!jsonLd["@graph"].some((entry) => entry["@type"] === "FAQPage"), `${spec.output}: obsolete FAQPage schema remains`);
@@ -255,6 +266,50 @@ for (const spec of localeSpecs) {
   for (const url of new Set(localUrls)) {
     await assertLocalTargetExists(url, outputPath);
   }
+}
+
+for (const page of firstPartySeoPages) {
+  const output = `${page.route}/index.html`;
+  const outputPath = path.join(siteRoot, output);
+  const canonical = `https://loudscript.app/${page.route}/`;
+  const html = await readFile(outputPath, "utf8");
+  const title = html.match(/<title>([^<]+)<\/title>/)?.[1];
+  const description = html.match(/<meta name="description" content="([^"]+)">/)?.[1];
+
+  assert(html.includes('<html lang="en">'), `${output}: incorrect html lang`);
+  assert(html.includes(`<link rel="canonical" href="${canonical}">`), `${output}: incorrect canonical`);
+  assert(html.includes(`<meta property="og:url" content="${canonical}">`), `${output}: incorrect Open Graph URL`);
+  assert(html.includes('<meta name="robots" content="index, follow">'), `${output}: page is not explicitly indexable`);
+  assert(title?.toLocaleLowerCase().includes(page.titlePhrase.toLocaleLowerCase()), `${output}: title lacks target phrase`);
+  assert(description && description.length >= 100 && description.length <= 180, `${output}: meta description is outside the reviewed range`);
+  assert((html.match(/<h1\b/g) || []).length === 1, `${output}: expected exactly one h1`);
+
+  const jsonLdMatch = html.match(/<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/);
+  assert(jsonLdMatch, `${output}: missing JSON-LD`);
+  const jsonLd = JSON.parse(jsonLdMatch[1]);
+  assert(Array.isArray(jsonLd["@graph"]), `${output}: JSON-LD graph is missing`);
+  const mainEntity = jsonLd["@graph"].find((entry) => entry["@type"] === page.schemaType);
+  assert(mainEntity, `${output}: ${page.schemaType} schema is missing`);
+  if (page.schemaType === "SoftwareApplication") {
+    assert(mainEntity.softwareVersion === latestMacRelease.version, `${output}: release version is stale`);
+    assert(mainEntity.downloadUrl === latestMacRelease.downloadUrl, `${output}: release URL is stale`);
+    assert(mainEntity.fileSize === latestMacRelease.fileSizeDisplay, `${output}: release size is stale`);
+    assert(html.includes(latestMacRelease.sha256), `${output}: SHA-256 checksum is stale`);
+    assert(html.includes(`${latestMacRelease.version} (build ${latestMacRelease.build})`), `${output}: visible release details are stale`);
+  } else {
+    assert(mainEntity.mainEntityOfPage === canonical, `${output}: schema canonical is incorrect`);
+    assert(mainEntity.dateModified === siteLastModified, `${output}: schema modification date is stale`);
+  }
+
+  for (const labelledBy of html.matchAll(/aria-labelledby="([^"]+)"/g)) {
+    assert(new RegExp(`\\bid=["']${escapeRegExp(labelledBy[1])}["']`).test(html), `${output}: missing aria-labelledby target ${labelledBy[1]}`);
+  }
+  const localUrls = [];
+  for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
+    const url = match[1];
+    if (!/^(?:https?:|mailto:|tel:)/.test(url)) localUrls.push(url);
+  }
+  for (const url of new Set(localUrls)) await assertLocalTargetExists(url, outputPath);
 }
 
 const guideTitles = new Set();
@@ -327,7 +382,7 @@ for (const guide of guideRoutes) {
     const breadcrumb = jsonLd["@graph"].find((entry) => entry["@type"] === "BreadcrumbList");
     assert(mainEntity?.inLanguage === locale.lang, `${output}: schema language is incorrect`);
     assert(mainEntity?.mainEntityOfPage === canonical, `${output}: schema canonical is incorrect`);
-    assert(mainEntity?.dateModified === "2026-08-19", `${output}: schema modification date is stale`);
+    assert(mainEntity?.dateModified === guideLastModified, `${output}: schema modification date is stale`);
     assert(breadcrumb?.itemListElement?.[1]?.item === canonical, `${output}: breadcrumb canonical is incorrect`);
 
     if (locale.id !== "en") {
@@ -394,12 +449,14 @@ const sitemapAlternates = [
   ['es', 'https://loudscript.app/es/'],
   ['fr', 'https://loudscript.app/fr/'],
   ['ja', 'https://loudscript.app/ja/'],
+  ['nl', 'https://loudscript.app/nl/'],
   ['x-default', 'https://loudscript.app/']
 ];
 for (const spec of localeSpecs) {
   const escapedCanonical = escapeRegExp(spec.canonical);
   const blockMatch = sitemap.match(new RegExp(`<url>\\s*<loc>${escapedCanonical}<\\/loc>([\\s\\S]*?)<\\/url>`));
   assert(blockMatch, `Sitemap lacks ${spec.canonical}`);
+  assert(blockMatch[1].includes(`<lastmod>${siteLastModified}</lastmod>`), `Sitemap block for ${spec.canonical} has a stale lastmod`);
   for (const [lang, href] of sitemapAlternates) {
     assert(
       blockMatch[1].includes(`hreflang="${lang}" href="${href}"`),
@@ -423,16 +480,34 @@ for (const guide of guideRoutes) {
   for (const [, canonical] of alternates.slice(0, 8)) {
     const blockMatch = sitemap.match(new RegExp(`<url>\\s*<loc>${escapeRegExp(canonical)}<\\/loc>([\\s\\S]*?)<\\/url>`));
     assert(blockMatch, `Sitemap lacks ${canonical}`);
+    assert(blockMatch[1].includes(`<lastmod>${siteLastModified}</lastmod>`), `Sitemap block for ${canonical} has a stale lastmod`);
     for (const [lang, href] of alternates) {
       assert(blockMatch[1].includes(`hreflang="${lang}" href="${href}"`), `Sitemap block for ${canonical} lacks ${lang} alternate`);
     }
   }
 }
 
+const changelogBlock = sitemap.match(/<url>\s*<loc>https:\/\/loudscript\.app\/changelog\.html<\/loc>([\s\S]*?)<\/url>/);
+assert(changelogBlock?.[1].includes(`<lastmod>${siteLastModified}</lastmod>`), "Sitemap changelog lastmod is stale");
+for (const page of firstPartySeoPages) {
+  const canonical = `https://loudscript.app/${page.route}/`;
+  const blockMatch = sitemap.match(new RegExp(`<url>\\s*<loc>${escapeRegExp(canonical)}<\\/loc>([\\s\\S]*?)<\\/url>`));
+  assert(blockMatch, `Sitemap lacks ${canonical}`);
+  assert(blockMatch[1].includes(`<lastmod>${siteLastModified}</lastmod>`), `Sitemap block for ${canonical} has a stale lastmod`);
+}
+
 const robots = await readFile(path.join(siteRoot, "robots.txt"), "utf8");
 assert(robots.includes("User-agent: *"), "robots.txt lacks a default crawler policy");
 assert(robots.includes("Allow: /"), "robots.txt does not allow the site root");
 assert(robots.includes("Sitemap: https://loudscript.app/sitemap.xml"), "robots.txt lacks the canonical sitemap URL");
+for (const crawler of ["OAI-SearchBot", "ChatGPT-User", "Claude-SearchBot", "Claude-User", "PerplexityBot", "Perplexity-User"]) {
+  assert(robots.includes(`User-agent: ${crawler}`), `robots.txt lacks an explicit ${crawler} policy`);
+}
+for (const trainingCrawler of ["GPTBot", "ClaudeBot"]) {
+  const group = robots.match(new RegExp(`User-agent: ${trainingCrawler}\\n([\\s\\S]*?)(?=\\nUser-agent:|\\nSitemap:|$)`))?.[1];
+  assert(group?.includes("Disallow: /"), `robots.txt does not block the training crawler ${trainingCrawler}`);
+}
+assert(robots.includes("Content-Signal: search=yes, ai-input=yes, ai-train=no, use=reference"), "robots.txt lacks explicit AI usage signals");
 assert(!/Disallow:\s*\/(?:zh-hans|zh-hant|de|es|fr|ja|nl)\/?/i.test(robots), "robots.txt blocks a localized page");
 
-console.log(`Validated ${localeSpecs.length} landing pages, ${guideRoutes.length * localeSpecs.length} guide pages, and ${englishKeys.length} landing message keys.`);
+console.log(`Validated ${localeSpecs.length} landing pages, ${guideRoutes.length * localeSpecs.length} localized guides, ${firstPartySeoPages.length} first-party SEO pages, and ${englishKeys.length} landing message keys.`);

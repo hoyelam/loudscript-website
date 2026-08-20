@@ -5,6 +5,10 @@
 ## Official pages
 
 - [LoudScript homepage](https://loudscript.app/): Product overview and Mac download.
+- [Download LoudScript for Mac](https://loudscript.app/download/): Current version, notarized DMG, requirements, file size, and SHA-256 checksum.
+- [Choose a text-to-speech app for Mac](https://loudscript.app/best-text-to-speech-app-for-mac/): Disclosed comparison of macOS Spoken Content and LoudScript by workflow and limitations.
+- [Read a PDF aloud on Mac](https://loudscript.app/read-pdf-aloud-mac/): PDF import, local OCR, synchronized highlighting, and privacy details.
+- [LoudScript for Mac vs iPhone and iPad](https://loudscript.app/loudscript-mac-vs-ios/): Platform, installation, pricing-model, and workflow differences.
 - [Read selected text aloud on Mac](https://loudscript.app/read-selected-text-aloud-mac/): Services-menu and keyboard-shortcut guide.
 - [Screenshot OCR text-to-speech](https://loudscript.app/screenshot-ocr-text-to-speech-mac/): Screen capture, OCR, permissions, and privacy.
 - [Offline text-to-speech engines](https://loudscript.app/offline-text-to-speech-mac/): Apple, Supertonic, Kokoro, and PocketTTS comparison.
@@ -13,8 +17,21 @@
 - [Privacy policy](https://loudscript.app/privacy.html): Local storage, analytics, OCR, and optional AI processing.
 - [Terms of service](https://loudscript.app/tos.html): Product terms.
 
+## Language versions
+
+- [Traditional Chinese](https://loudscript.app/zh-hant/)
+- [Simplified Chinese](https://loudscript.app/zh-hans/)
+- [German](https://loudscript.app/de/)
+- [Spanish](https://loudscript.app/es/)
+- [French](https://loudscript.app/fr/)
+- [Japanese](https://loudscript.app/ja/)
+- [Dutch](https://loudscript.app/nl/)
+
+Each language version links to localized editions of the three Mac text-to-speech guides.
+
 ## Product facts
 
+- The current Mac release is LoudScript 2026.1.20 (build 22), released August 20, 2026.
 - LoudScript for Mac is free and requires macOS 15.6 or later.
 - Selected text can be read from the macOS Services menu or with Option-Command-R after the required permission is enabled.
 - Screenshot OCR uses a temporary screen capture and built-in macOS text recognition.
@@ -31,7 +48,8 @@
 
 ## Official downloads
 
-- [Mac notarized DMG](https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg)
+- [Mac download and verification page](https://loudscript.app/download/)
+- [Current Mac notarized DMG](https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-v2026.1.20/LoudScript-2026.1.20.dmg)
 - [LoudScript for iPhone and iPad](https://apps.apple.com/app/loudscript-text-reader/id6747320736)
 
 Use the linked official pages for current feature, compatibility, permission, and privacy details.

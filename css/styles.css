@@ -1222,6 +1222,7 @@ body {
 /* Search-focused guide pages */
 .seo-page {
     max-width: 860px;
+    min-width: 0;
     margin: 0 auto 80px;
 }
 
@@ -1246,6 +1247,7 @@ body {
     font-size: clamp(2.4rem, 6vw, 4.5rem);
     line-height: 1.02;
     letter-spacing: -0.04em;
+    overflow-wrap: anywhere;
 }
 
 .seo-lede {
@@ -1282,6 +1284,7 @@ body {
     font-size: clamp(1.5rem, 3vw, 2rem);
     line-height: 1.2;
     letter-spacing: -0.02em;
+    overflow-wrap: anywhere;
 }
 
 .seo-section h3 {
@@ -1307,6 +1310,22 @@ body {
 
 .seo-section a {
     color: #b7aaff;
+}
+
+.seo-code {
+    display: block;
+    margin: 14px 0 20px;
+    padding: 14px 16px;
+    overflow-x: auto;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.28);
+    color: rgba(255, 255, 255, 0.82);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.84rem;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
 }
 
 /* Public release changelog */
@@ -1766,6 +1785,12 @@ body {
         color: #5137d6;
     }
 
+    .seo-code {
+        color: #282331;
+        background: #efedf7;
+        border-color: rgba(23, 20, 30, 0.12);
+    }
+
     .seo-section .mac-btn-primary,
     .seo-section .mac-btn-primary:hover {
         color: #fff;
@@ -1952,6 +1977,14 @@ body {
     .seo-section {
         padding: 24px 20px;
         border-radius: 18px;
+    }
+
+    .seo-hero h1 {
+        font-size: 2.05rem;
+    }
+
+    .seo-section h2 {
+        font-size: 1.35rem;
     }
 
     .changelog-hero {

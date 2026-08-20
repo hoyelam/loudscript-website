@@ -2,25 +2,50 @@ User-agent: OAI-SearchBot
 Allow: /
 Disallow: /admin/
 Disallow: /wp-admin/
+Content-Signal: search=yes, ai-input=yes, ai-train=no, use=reference
 
 User-agent: ChatGPT-User
 Allow: /
 Disallow: /admin/
 Disallow: /wp-admin/
+Content-Signal: search=yes, ai-input=yes, ai-train=no, use=reference
+
+User-agent: GPTBot
+Disallow: /
+Content-Signal: search=no, ai-input=no, ai-train=no, use=reference
 
 User-agent: Claude-SearchBot
 Allow: /
 Disallow: /admin/
 Disallow: /wp-admin/
+Content-Signal: search=yes, ai-input=yes, ai-train=no, use=reference
 
 User-agent: Claude-User
 Allow: /
 Disallow: /admin/
 Disallow: /wp-admin/
+Content-Signal: search=yes, ai-input=yes, ai-train=no, use=reference
+
+User-agent: ClaudeBot
+Disallow: /
+Content-Signal: search=no, ai-input=no, ai-train=no, use=reference
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin/
+Disallow: /wp-admin/
+Content-Signal: search=yes, ai-input=yes, ai-train=no, use=reference
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /admin/
+Disallow: /wp-admin/
+Content-Signal: search=yes, ai-input=yes, ai-train=no, use=reference
 
 User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /wp-admin/
+Content-Signal: search=yes, ai-input=yes, ai-train=no, use=reference
 
 Sitemap: https://loudscript.app/sitemap.xml

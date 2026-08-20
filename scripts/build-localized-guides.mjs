@@ -1,6 +1,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { guideLastModified, guideLastModifiedDisplay } from "./site-metadata.mjs";
 
 const siteRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const german = JSON.parse(
@@ -39,7 +40,7 @@ const common = {
   "Privacy": { zhHant: "隱私權", zhHans: "隐私" },
   "Made by": { zhHant: "製作者：", zhHans: "制作：" },
   "By ": { zhHant: "作者：", zhHans: "作者：" },
-  " · Updated August 19, 2026": { zhHant: " · 更新於 2026 年 8 月 19 日", zhHans: " · 更新于 2026 年 8 月 19 日" },
+  " · Updated August 20, 2026": { zhHant: " · 更新於 2026 年 8 月 20 日", zhHans: " · 更新于 2026 年 8 月 20 日" },
   "Download LoudScript for Mac": { zhHant: "下載 Mac 版 LoudScript", zhHans: "下载 Mac 版 LoudScript" },
   "LoudScript for Mac": { zhHant: "LoudScript Mac 版", zhHans: "LoudScript Mac 版" },
   "privacy policy": { zhHant: "隱私權政策", zhHans: "隐私政策" },
@@ -69,7 +70,7 @@ const selected = {
   "Read selected text aloud on Mac": { zhHant: "在 Mac 上朗讀選取的文字", zhHans: "在 Mac 上朗读所选文本" },
   "Selected text guide": { zhHant: "選取文字指南", zhHans: "所选文本指南" },
   "Highlight words in a browser, editor, email, PDF viewer, or another Mac app. LoudScript reads the selection with a local voice and keeps playback controls above your other windows.": { zhHant: "在瀏覽器、編輯器、郵件、PDF 閱讀器或其他 Mac App 中選取文字。LoudScript 會以本機語音朗讀內容，並讓播放控制項保持在其他視窗上方。", zhHans: "在浏览器、编辑器、邮件、PDF 阅读器或其他 Mac App 中选择文本。LoudScript 会使用本地语音朗读内容，并让播放控件保持在其他窗口上方。" },
-  "By Ho Ye Lam · Updated August 4, 2026": { zhHant: "作者：Ho Ye Lam · 更新於 2026 年 8 月 4 日", zhHans: "作者：Ho Ye Lam · 更新于 2026 年 8 月 4 日" },
+  "By Ho Ye Lam · Updated August 20, 2026": { zhHant: "作者：Ho Ye Lam · 更新於 2026 年 8 月 20 日", zhHans: "作者：Ho Ye Lam · 更新于 2026 年 8 月 20 日" },
   "Read selected text in three steps": { zhHant: "三個步驟朗讀選取的文字", zhHans: "三个步骤朗读所选文本" },
   "Select the text": { zhHant: "選取文字", zhHans: "选择文本" },
   " you want to hear in any app that allows text selection.": { zhHant: "，在任何可選取文字的 App 中選擇你想聆聽的內容。", zhHans: "，在任何可选择文本的 App 中选中你想聆听的内容。" },
@@ -278,8 +279,8 @@ function enhanceEnglish(html, guide) {
     );
   }
   html = html
-    .replaceAll('"dateModified": "2026-08-04"', '"dateModified": "2026-08-19"')
-    .replaceAll("Updated August 4, 2026", "Updated August 19, 2026");
+    .replace(/"dateModified": "\d{4}-\d{2}-\d{2}"/, `"dateModified": "${guideLastModified}"`)
+    .replace(/Updated [A-Z][a-z]+ \d{1,2}, \d{4}/, `Updated ${guideLastModifiedDisplay}`);
   html = html.replace(/\n\s*<link rel="alternate" hreflang="[^"]+" href="[^"]+">/g, "");
   html = html.replace(
     `    <link rel="canonical" href="https://loudscript.app/${guide.route}/">`,
