@@ -12,6 +12,9 @@ const spanish = JSON.parse(
 const french = JSON.parse(
   await readFile(path.join(siteRoot, "locales", "guides-fr.json"), "utf8")
 );
+const japanese = JSON.parse(
+  await readFile(path.join(siteRoot, "locales", "guides-ja.json"), "utf8")
+);
 const guides = [
   { route: "read-selected-text-aloud-mac", schemaType: "HowTo" },
   { route: "screenshot-ocr-text-to-speech-mac", schemaType: "HowTo" },
@@ -186,16 +189,17 @@ const offline = {
 };
 
 const locales = [
-  { id: "zh-Hant", key: "zhHant", prefix: "/zh-hant", ogLocale: "zh_TW", ogAlternates: ["en_US", "zh_CN", "de_DE", "es_ES", "fr_FR"], languageAria: "語言選擇" },
-  { id: "zh-Hans", key: "zhHans", prefix: "/zh-hans", ogLocale: "zh_CN", ogAlternates: ["en_US", "zh_TW", "de_DE", "es_ES", "fr_FR"], languageAria: "语言选择" },
-  { id: "de", key: "de", prefix: "/de", ogLocale: "de_DE", ogAlternates: ["en_US", "zh_TW", "zh_CN", "es_ES", "fr_FR"], languageAria: "Sprachauswahl" },
-  { id: "es", key: "es", prefix: "/es", ogLocale: "es_ES", ogAlternates: ["en_US", "zh_TW", "zh_CN", "de_DE", "fr_FR"], languageAria: "Selección de idioma" },
-  { id: "fr", key: "fr", prefix: "/fr", ogLocale: "fr_FR", ogAlternates: ["en_US", "zh_TW", "zh_CN", "de_DE", "es_ES"], languageAria: "Sélection de la langue" }
+  { id: "zh-Hant", key: "zhHant", prefix: "/zh-hant", ogLocale: "zh_TW", ogAlternates: ["en_US", "zh_CN", "de_DE", "es_ES", "fr_FR", "ja_JP"], languageAria: "語言選擇" },
+  { id: "zh-Hans", key: "zhHans", prefix: "/zh-hans", ogLocale: "zh_CN", ogAlternates: ["en_US", "zh_TW", "de_DE", "es_ES", "fr_FR", "ja_JP"], languageAria: "语言选择" },
+  { id: "de", key: "de", prefix: "/de", ogLocale: "de_DE", ogAlternates: ["en_US", "zh_TW", "zh_CN", "es_ES", "fr_FR", "ja_JP"], languageAria: "Sprachauswahl" },
+  { id: "es", key: "es", prefix: "/es", ogLocale: "es_ES", ogAlternates: ["en_US", "zh_TW", "zh_CN", "de_DE", "fr_FR", "ja_JP"], languageAria: "Selección de idioma" },
+  { id: "fr", key: "fr", prefix: "/fr", ogLocale: "fr_FR", ogAlternates: ["en_US", "zh_TW", "zh_CN", "de_DE", "es_ES", "ja_JP"], languageAria: "Sélection de la langue" },
+  { id: "ja", key: "ja", prefix: "/ja", ogLocale: "ja_JP", ogAlternates: ["en_US", "zh_TW", "zh_CN", "de_DE", "es_ES", "fr_FR"], languageAria: "言語を選択" }
 ];
 
 const translations = { ...common, ...selected, ...ocr, ...offline };
 const sourceKeys = Object.keys(translations).sort();
-const externalTranslations = { de: german, es: spanish, fr: french };
+const externalTranslations = { de: german, es: spanish, fr: french, ja: japanese };
 for (const [localeId, localized] of Object.entries(externalTranslations)) {
   const localizedKeys = Object.keys(localized).sort();
   if (JSON.stringify(localizedKeys) !== JSON.stringify(sourceKeys)) {
@@ -217,6 +221,7 @@ function alternateLinks(route) {
     `<link rel="alternate" hreflang="de" href="https://loudscript.app/de/${route}/">`,
     `<link rel="alternate" hreflang="es" href="https://loudscript.app/es/${route}/">`,
     `<link rel="alternate" hreflang="fr" href="https://loudscript.app/fr/${route}/">`,
+    `<link rel="alternate" hreflang="ja" href="https://loudscript.app/ja/${route}/">`,
     `<link rel="alternate" hreflang="x-default" href="https://loudscript.app/${route}/">`
   ].map((line) => `    ${line}`).join("\n");
 }
@@ -228,7 +233,8 @@ function languageNavigation(route, current, ariaLabel) {
     { id: "zh-Hans", href: `/zh-hans/${route}/`, lang: "zh-Hans", label: "简体中文" },
     { id: "de", href: `/de/${route}/`, lang: "de", label: "Deutsch" },
     { id: "es", href: `/es/${route}/`, lang: "es", label: "Español" },
-    { id: "fr", href: `/fr/${route}/`, lang: "fr", label: "Français" }
+    { id: "fr", href: `/fr/${route}/`, lang: "fr", label: "Français" },
+    { id: "ja", href: `/ja/${route}/`, lang: "ja", label: "日本語" }
   ];
   const currentOption = options.find((option) => option.id === current);
   const links = options.map((option) => {
@@ -276,7 +282,7 @@ function enhanceEnglish(html, guide) {
   html = html.replace(/\n\s*<meta property="og:locale:alternate" content="[^"]+">/g, "");
   html = html.replace(
     '    <meta property="og:locale" content="en_US">',
-    '    <meta property="og:locale" content="en_US">\n    <meta property="og:locale:alternate" content="zh_TW">\n    <meta property="og:locale:alternate" content="zh_CN">\n    <meta property="og:locale:alternate" content="de_DE">\n    <meta property="og:locale:alternate" content="es_ES">\n    <meta property="og:locale:alternate" content="fr_FR">'
+    '    <meta property="og:locale" content="en_US">\n    <meta property="og:locale:alternate" content="zh_TW">\n    <meta property="og:locale:alternate" content="zh_CN">\n    <meta property="og:locale:alternate" content="de_DE">\n    <meta property="og:locale:alternate" content="es_ES">\n    <meta property="og:locale:alternate" content="fr_FR">\n    <meta property="og:locale:alternate" content="ja_JP">'
   );
   if (!html.includes('"inLanguage": "en"')) {
     html = html.replace(`          "@type": "${guide.schemaType}",`, `          "@type": "${guide.schemaType}",\n          "inLanguage": "en",`);
@@ -294,7 +300,7 @@ function localize(base, guide, locale) {
   let html = base
     .replace('<html lang="en">', `<html lang="${locale.id}">`)
     .replace('"inLanguage": "en"', `"inLanguage": "${locale.id}"`)
-    .replace('    <meta property="og:locale" content="en_US">\n    <meta property="og:locale:alternate" content="zh_TW">\n    <meta property="og:locale:alternate" content="zh_CN">\n    <meta property="og:locale:alternate" content="de_DE">\n    <meta property="og:locale:alternate" content="es_ES">\n    <meta property="og:locale:alternate" content="fr_FR">', `    <meta property="og:locale" content="${locale.ogLocale}">\n${locale.ogAlternates.map((value) => `    <meta property="og:locale:alternate" content="${value}">`).join("\n")}`)
+    .replace('    <meta property="og:locale" content="en_US">\n    <meta property="og:locale:alternate" content="zh_TW">\n    <meta property="og:locale:alternate" content="zh_CN">\n    <meta property="og:locale:alternate" content="de_DE">\n    <meta property="og:locale:alternate" content="es_ES">\n    <meta property="og:locale:alternate" content="fr_FR">\n    <meta property="og:locale:alternate" content="ja_JP">', `    <meta property="og:locale" content="${locale.ogLocale}">\n${locale.ogAlternates.map((value) => `    <meta property="og:locale:alternate" content="${value}">`).join("\n")}`)
     .replace(/\s*<!-- GUIDE_LANGUAGE_NAV_START -->[\s\S]*?<!-- GUIDE_LANGUAGE_NAV_END -->/, `\n${languageNavigation(guide.route, locale.id, locale.languageAria)}`);
 
   for (const [source, targets] of Object.entries(translations).sort((a, b) => b[0].length - a[0].length)) {
@@ -318,7 +324,12 @@ function localize(base, guide, locale) {
   html = html
     .replaceAll('href="/support.html"', 'href="/support.html" hreflang="en"')
     .replaceAll('href="/privacy.html"', 'href="/privacy.html" hreflang="en"');
-  if (locale.id.startsWith("zh-")) {
+  if (locale.id === "ja") {
+    html = html
+      .replaceAll('<strong>Option-Command-R</strong>.</li>', '<strong>Option-Command-R</strong>を押します。</li>')
+      .replaceAll('<a href="/privacy.html" hreflang="en">プライバシーポリシー</a>.</p>', '<a href="/privacy.html" hreflang="en">プライバシーポリシー</a>をご覧ください。</p>');
+  }
+  if (locale.id.startsWith("zh-") || locale.id === "ja") {
     html = html
       .replaceAll('</strong>.</li>', '</strong>。</li>')
       .replaceAll('</a>.</p>', '</a>。</p>');

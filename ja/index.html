@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+    <link rel="preconnect" href="https://plausible.io" crossorigin>
+    <script defer data-domain="loudscript.app" src="https://plausible.io/js/script.js"></script>
+    <script defer src="/js/language-menu.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="LoudScriptは無料のMac向けテキスト読み上げアプリです。選択したテキスト、スクリーンショット、PDFを自然なローカル音声で聞けます。">
+    <meta name="author" content="Ho Ye Lam">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:site_name" content="LoudScript">
+    <meta property="og:title" content="Mac向けテキスト読み上げアプリ（無料）｜LoudScript">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://loudscript.app/ja/">
+    <meta property="og:image" content="https://loudscript.app/images/mac/mac-main-window.png">
+    <meta property="og:description" content="選択したテキスト、スクリーンショット、PDFを自然な音声で読み上げます。Macで無料で使えます。">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="zh_TW">
+    <meta property="og:locale:alternate" content="zh_CN">
+    <meta property="og:locale:alternate" content="de_DE">
+    <meta property="og:locale:alternate" content="es_ES">
+    <meta property="og:locale:alternate" content="fr_FR">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mac向けテキスト読み上げアプリ（無料）｜LoudScript">
+    <meta name="twitter:description" content="選択したテキスト、スクリーンショット、PDFを自然な音声で読み上げます。">
+    <meta name="twitter:image" content="https://loudscript.app/images/mac/mac-main-window.png">
+    <meta name="twitter:creator" content="@hoyelam">
+
+    <link rel="canonical" href="https://loudscript.app/ja/">
+    <link rel="alternate" hreflang="en" href="https://loudscript.app/">
+    <link rel="alternate" hreflang="zh-Hant" href="https://loudscript.app/zh-hant/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/">
+    <link rel="alternate" hreflang="de" href="https://loudscript.app/de/">
+    <link rel="alternate" hreflang="es" href="https://loudscript.app/es/">
+    <link rel="alternate" hreflang="fr" href="https://loudscript.app/fr/">
+    <link rel="alternate" hreflang="ja" href="https://loudscript.app/ja/">
+    <link rel="alternate" hreflang="x-default" href="https://loudscript.app/">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="color-scheme" content="dark light">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7fb">
+
+    <title>Mac向けテキスト読み上げアプリ（無料）｜LoudScript</title>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://loudscript.app/#website",
+          "url": "https://loudscript.app/",
+          "name": "LoudScript",
+          "publisher": { "@id": "https://loudscript.app/#organization" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://loudscript.app/ja/#webpage",
+          "url": "https://loudscript.app/ja/",
+          "name": "Mac向けテキスト読み上げアプリ（無料）｜LoudScript",
+          "isPartOf": { "@id": "https://loudscript.app/#website" },
+          "about": { "@id": "https://loudscript.app/ja/#mac-app" },
+          "mainEntity": { "@id": "https://loudscript.app/ja/#mac-app" },
+          "inLanguage": "ja"
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://loudscript.app/#organization",
+          "name": "Kin-Yee",
+          "url": "https://loudscript.app/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://loudscript.app/images/loudscript-icon-192.webp",
+            "width": 192,
+            "height": 192
+          },
+          "founder": { "@id": "https://loudscript.app/#creator" }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://loudscript.app/#creator",
+          "name": "Ho Ye Lam",
+          "alternateName": "Hoye Lam",
+          "url": "https://hoyelam.com/",
+          "sameAs": [
+            "https://github.com/hoyelam",
+            "https://x.com/hoyelam"
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://loudscript.app/ja/#mac-app",
+          "name": "Mac版LoudScript",
+          "url": "https://loudscript.app/ja/",
+          "description": "選択したテキスト、スクリーンショット、PDFを読み上げる無料のMacアプリ。",
+          "inLanguage": "ja",
+          "image": "https://loudscript.app/images/mac/mac-main-window.png",
+          "operatingSystem": "macOS 15.6 or later",
+          "applicationCategory": "UtilitiesApplication",
+          "isAccessibleForFree": true,
+          "downloadUrl": "https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg",
+          "featureList": [
+            "あらゆるMacアプリで選択したテキストを読み上げ",
+            "OCRでスクリーンショットの文字を抽出して読み上げ",
+            "必要なPDFページを読み込み、文書上で読み上げ箇所を確認",
+            "Apple、Supertonic、Kokoro、PocketTTSによるデバイス上の音声合成",
+            "フローティング再生コントロールと読み上げ履歴"
+          ],
+          "offers": {
+            "@type": "Offer",
+            "price": 0,
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          },
+          "author": { "@id": "https://loudscript.app/#creator" },
+          "publisher": { "@id": "https://loudscript.app/#organization" }
+        }
+      ]
+    }
+    </script>
+</head>
+
+<body class="mac-page">
+    <main class="mac-shell">
+        <header class="mac-nav">
+            <a href="/" class="mac-brand" aria-label="LoudScriptホームページへ移動">
+                <img src="/images/loudscript-icon-88.webp" class="mac-brand-logo" alt="LoudScriptアプリアイコン" width="44" height="44">
+                <span>LoudScript</span>
+            </a>
+            <nav class="mac-nav-links" aria-label="ページナビゲーション">
+                <a href="#guides">ガイド</a>
+                <a href="/changelog.html" hreflang="en">更新履歴 <small class="mac-link-language" aria-label="英語ページ">EN</small></a>
+                <a href="/support.html" hreflang="en">サポート <small class="mac-link-language" aria-label="英語ページ">EN</small></a>
+                <a href="https://apps.apple.com/app/loudscript-text-reader/id6747320736" target="_blank" rel="noopener">iOS/iPadOS版を見る</a>
+                <a href="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg" target="_blank" rel="noopener" class="mac-nav-cta">DMGをダウンロード</a>
+            </nav>
+            <nav class="mac-language-menu" aria-label="言語を選択">
+    <details>
+        <summary aria-label="言語を選択: 日本語">
+            <svg class="mac-language-globe" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M2.8 10h14.4M10 2.5c2 2.1 3 4.6 3 7.5s-1 5.4-3 7.5c-2-2.1-3-4.6-3-7.5s1-5.4 3-7.5Z"/></svg>
+            <span>日本語</span>
+            <svg class="mac-language-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg>
+        </summary>
+        <div class="mac-language-options">
+        <a href="/" lang="en" hreflang="en">
+            <span>English</span>
+            <svg class="mac-language-check" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 8.5 3 3 7-7"/></svg>
+        </a>
+        <a href="/zh-hant/" lang="zh-Hant" hreflang="zh-Hant">
+            <span>繁體中文</span>
+            <svg class="mac-language-check" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 8.5 3 3 7-7"/></svg>
+        </a>
+        <a href="/zh-hans/" lang="zh-Hans" hreflang="zh-Hans">
+            <span>简体中文</span>
+            <svg class="mac-language-check" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 8.5 3 3 7-7"/></svg>
+        </a>
+        <a href="/de/" lang="de" hreflang="de">
+            <span>Deutsch</span>
+            <svg class="mac-language-check" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 8.5 3 3 7-7"/></svg>
+        </a>
+        <a href="/es/" lang="es" hreflang="es">
+            <span>Español</span>
+            <svg class="mac-language-check" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 8.5 3 3 7-7"/></svg>
+        </a>
+        <a href="/fr/" lang="fr" hreflang="fr">
+            <span>Français</span>
+            <svg class="mac-language-check" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 8.5 3 3 7-7"/></svg>
+        </a>
+        <a href="/ja/" lang="ja" hreflang="ja" aria-current="page">
+            <span>日本語</span>
+            <svg class="mac-language-check" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 8.5 3 3 7-7"/></svg>
+        </a>
+        </div>
+    </details>
+</nav>
+        </header>
+
+        <section class="mac-hero">
+            <div class="mac-hero-badges">
+                <span class="mac-eyebrow">Mac版LoudScript</span>
+                <span class="mac-free-badge">無料</span>
+            </div>
+            <h1 class="mac-title">Mac上のあらゆるテキストを<br>音声で聞く</h1>
+            <p class="mac-intro">
+                Macのテキスト読み上げをもっと便利に。選択したテキスト、スクリーンショット、PDFを自然な音声で聞きながら作業を続けられます。
+            </p>
+            <div class="mac-cta-group" role="group" aria-label="LoudScript対応プラットフォーム">
+                <a href="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg" target="_blank" rel="noopener" class="mac-btn mac-btn-primary">
+                    Mac版をダウンロード
+                </a>
+                <a href="https://apps.apple.com/app/loudscript-text-reader/id6747320736" target="_blank" rel="noopener" class="mac-btn mac-btn-secondary mac-btn-compact">
+                    iOS/iPadOS版を見る
+                </a>
+            </div>
+            <p class="mac-note">Appleによる公証済みDMG。macOS 15.6以降が必要です。</p>
+
+            <div class="mac-hero-screenshots">
+                <figure class="mac-screenshot mac-screenshot-main">
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="/images/mac/mac-main-window-640.webp">
+                        <img src="/images/mac/mac-main-window.webp" srcset="/images/mac/mac-main-window-640.webp 640w, /images/mac/mac-main-window-1280.webp 1280w, /images/mac/mac-main-window.webp 2560w" sizes="860px" alt="PDFのテキストと文書を同期してハイライトしながら読み上げるLoudScript" width="2560" height="1410" fetchpriority="high" decoding="async">
+                    </picture>
+                </figure>
+                <figure class="mac-screenshot mac-screenshot-overlay">
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="/images/mac/mac-playback-settings-560.webp">
+                        <img src="/images/mac/mac-playback-settings.webp" srcset="/images/mac/mac-playback-settings-560.webp 560w, /images/mac/mac-playback-settings.webp 1120w" sizes="380px" alt="ローカル音声を選べるLoudScriptの音声モデル選択画面" width="1120" height="1416" decoding="async">
+                    </picture>
+                </figure>
+            </div>
+        </section>
+
+        <section class="mac-features" aria-label="主な機能">
+            <article class="mac-feature-card mac-reveal">
+                <span class="mac-feature-label">PDF読み上げ</span>
+                <h2>ページを見ながら聞けます。</h2>
+                <p>必要なページだけを読み込み、元の文書上で読み上げ箇所を追えます。</p>
+            </article>
+            <article class="mac-feature-card mac-reveal">
+                <span class="mac-feature-label">画面OCR</span>
+                <h2>選択できない文字も読み上げます。</h2>
+                <p>画像やアプリから文字を取り込み、そのまま音声で聞けます。</p>
+            </article>
+            <article class="mac-feature-card mac-reveal">
+                <span class="mac-feature-label">4つの音声エンジン</span>
+                <h2>好みの声を選べます。</h2>
+                <p>Appleの声を使うか、Supertonic、Kokoro、PocketTTSをダウンロードできます。</p>
+            </article>
+            <article class="mac-feature-card mac-reveal">
+                <span class="mac-feature-label">バックグラウンド再生</span>
+                <h2>作業を続けながら聞けます。</h2>
+                <p>ウインドウを切り替えず、小さなフローティングプレーヤーから再生を操作できます。</p>
+            </article>
+        </section>
+
+        <section class="mac-detail mac-reveal" aria-label="PDF読み上げ機能">
+            <div class="mac-detail-text">
+                <span class="mac-section-label">PDF読み上げ</span>
+                <h2>テキストと文書を並べて確認。</h2>
+                <p>
+                    抽出したテキストを元のPDFの横に表示します。LoudScriptは両方の画面で読み上げ中の文をハイライトします。
+                </p>
+                <ul class="mac-detail-list">
+                    <li>読み込み前にページ範囲を指定</li>
+                    <li>PDFのページをまたいで読み上げ箇所を追跡</li>
+                    <li>スペースが必要なときはテキストや概要を非表示</li>
+                </ul>
+            </div>
+            <div class="mac-detail-img">
+                <figure class="mac-screenshot">
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="/images/mac/mac-main-window-640.webp">
+                        <img src="/images/mac/mac-main-window.webp" srcset="/images/mac/mac-main-window-640.webp 640w, /images/mac/mac-main-window-1280.webp 1280w, /images/mac/mac-main-window.webp 2560w" sizes="(max-width: 900px) calc(100vw - 66px), 606px" alt="PDFのテキストと文書を同期してハイライトするLoudScriptの再生画面" width="2560" height="1410" loading="lazy" decoding="async">
+                    </picture>
+                </figure>
+            </div>
+        </section>
+
+        <section class="mac-detail mac-detail-reverse mac-reveal" aria-label="音声と再生の設定">
+            <div class="mac-detail-text">
+                <span class="mac-section-label">音声と再生</span>
+                <h2>LoudScriptの声をカスタマイズ。</h2>
+                <p>
+                    声と読み上げ速度を選び、より自然な区切りにしたい場合はAI整形を有効にできます。
+                </p>
+                <ul class="mac-detail-list">
+                    <li>ダウンロードした音声をLoudScriptで管理</li>
+                    <li>Appleの声を予備として使用</li>
+                    <li>いつでも読み上げ速度を変更</li>
+                </ul>
+            </div>
+            <div class="mac-detail-img">
+                <figure class="mac-screenshot">
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="/images/mac/mac-playback-settings-560.webp">
+                        <img src="/images/mac/mac-playback-settings.webp" srcset="/images/mac/mac-playback-settings-560.webp 560w, /images/mac/mac-playback-settings.webp 1120w" sizes="(max-width: 900px) min(400px, calc(100vw - 66px)), 400px" alt="Apple、Supertonic、Kokoro、PocketTTSを表示するLoudScriptの音声モデル選択画面" width="1120" height="1416" loading="lazy" decoding="async">
+                    </picture>
+                </figure>
+            </div>
+        </section>
+
+        <section class="mac-detail mac-reveal" aria-label="読み上げ履歴機能">
+            <div class="mac-detail-text">
+                <span class="mac-section-label">読み上げ履歴</span>
+                <h2>以前聞いた内容にすぐ戻れます。</h2>
+                <p>
+                    LoudScriptは読み上げた内容ごとにソース、言語、テキストを保存します。履歴を検索して、いつでももう一度聞けます。
+                </p>
+                <ul class="mac-detail-list">
+                    <li>読み上げ元を確認</li>
+                    <li>元のテキストと整形後のテキストを比較</li>
+                    <li>読み上げ時間とテキスト情報を確認</li>
+                </ul>
+            </div>
+            <div class="mac-detail-img">
+                <figure class="mac-screenshot mac-screenshot-constrained">
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="/images/mac/mac-history-overview-380.webp">
+                        <img src="/images/mac/mac-history-overview.webp" srcset="/images/mac/mac-history-overview-380.webp 380w, /images/mac/mac-history-overview.webp 760w" sizes="(max-width: 900px) min(400px, calc(100vw - 66px)), 400px" alt="言語、ソース、テキスト、再生情報を表示するLoudScriptの読み上げ概要" width="760" height="1800" loading="lazy" decoding="async">
+                    </picture>
+                </figure>
+            </div>
+        </section>
+
+        <section class="mac-workflow mac-reveal" aria-label="Mac版LoudScriptの使い方">
+            <span class="mac-section-label">使い方</span>
+            <h2>3ステップで読み上げ。</h2>
+            <div class="mac-steps">
+                <article class="mac-step-card mac-reveal">
+                    <span class="mac-step-num">01</span>
+                    <h3>テキストを追加</h3>
+                    <p>テキストを選択する、画面を取り込む、PDFを読み込む、またはLoudScriptに直接入力します。</p>
+                </article>
+                <article class="mac-step-card mac-reveal">
+                    <span class="mac-step-num">02</span>
+                    <h3>聞く</h3>
+                    <p>声を選んで再生を押します。読み上げ中の文は常にハイライトされます。</p>
+                </article>
+                <article class="mac-step-card mac-reveal">
+                    <span class="mac-step-num">03</span>
+                    <h3>あとで聞き直す</h3>
+                    <p>履歴から以前の読み上げを探して、再生またはコピーできます。</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="mac-audiences mac-reveal" aria-labelledby="audiences-title">
+            <span class="mac-section-label">日々の読書を快適に</span>
+            <h2 id="audiences-title">仕事、学習、アクセシビリティに役立つMac向けテキストリーダー。</h2>
+            <div class="mac-audience-grid">
+                <article class="mac-audience-card">
+                    <h3>耳で文章を校正</h3>
+                    <p>下書き、メール、台本を聞いて、抜けた単語、不自然な表現、繰り返しを見つけられます。</p>
+                </article>
+                <article class="mac-audience-card">
+                    <h3>画面を見続けずに学習</h3>
+                    <p>メモを取るとき、復習するとき、目を休めるときに、選択した文章を聞けます。</p>
+                </article>
+                <article class="mac-audience-card">
+                    <h3>選択できない文字を読む</h3>
+                    <p>画像、PDFビューア、インターフェイス上で文字を選択できない場合は、スクリーンショットOCRを使えます。</p>
+                </article>
+                <article class="mac-audience-card">
+                    <h3>聞きながら作業を継続</h3>
+                    <p>LoudScriptがバックグラウンドで読み上げている間、フローティングプレーヤーをほかのウインドウの上に表示できます。</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="mac-guides mac-reveal" id="guides" aria-labelledby="guides-title">
+            <span class="mac-section-label">Macテキスト読み上げガイド</span>
+            <h2 id="guides-title">目的に合う読み上げ方法を選べます。</h2>
+            <div class="mac-guide-grid">
+                <a class="mac-guide-card" href="/ja/read-selected-text-aloud-mac/" hreflang="ja">
+                    <span>選択したテキスト</span>
+                    <h3>Macで選択したテキストを読み上げる</h3>
+                    <p>ブラウザ、エディタ、メールなどのMacアプリで、サービスメニューまたはOption-Command-Rを使います。</p>
+                </a>
+                <a class="mac-guide-card" href="/ja/screenshot-ocr-text-to-speech-mac/" hreflang="ja">
+                    <span>スクリーンショットOCR</span>
+                    <h3>画面上の文字を音声に変換</h3>
+                    <p>選択できない文字を取り込み、macOSのOCRで抽出して読み上げます。</p>
+                </a>
+                <a class="mac-guide-card" href="/ja/offline-text-to-speech-mac/" hreflang="ja">
+                    <span>ローカル音声</span>
+                    <h3>オフライン音声読み上げエンジンを比較</h3>
+                    <p>対応Mac、言語、ダウンロードサイズ、音声を比較できます。</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="mac-faq mac-reveal" aria-labelledby="faq-title">
+            <span class="mac-section-label">よくある質問</span>
+            <h2 id="faq-title">Mac版LoudScriptのよくある質問</h2>
+            <div class="mac-faq-list">
+                <details>
+                    <summary>Macで選択したテキストを読み上げるには？</summary>
+                    <p>アプリでテキストを選択し、サービスメニューから<strong>Read with LoudScript</strong>を選ぶか、「選択したテキスト」へのアクセスを有効にして<strong>Option-Command-R</strong>を押します。</p>
+                </details>
+                <details>
+                    <summary>スクリーンショットや画像の文字も読み上げられますか？</summary>
+                    <p>はい。画面の範囲を取り込むと、LoudScriptが文字を検出して読み上げます。「画面収録とシステムオーディオ録音」の許可が必要です。</p>
+                </details>
+                <details>
+                    <summary>PDFを読み上げられますか？</summary>
+                    <p>はい。一度に最大50ページを読み込めます。元のPDFと抽出したテキストを並べ、読み上げ中の文をハイライトします。</p>
+                </details>
+                <details>
+                    <summary>LoudScriptはオフラインで使えますか？</summary>
+                    <p>はい。Appleの声はMac上で動作します。Supertonic、Kokoro、PocketTTSもモデルのダウンロード後はローカルで動作します。AI整形を有効にすると、選択したAIプロバイダへテキストが送信される場合があります。</p>
+                </details>
+                <details>
+                    <summary>LoudScriptに対応しているMacは？</summary>
+                    <p>LoudScriptにはmacOS 15.6以降が必要です。Appleの声とSupertonicはIntel搭載MacとAppleシリコン搭載Macに対応し、KokoroとPocketTTSにはAppleシリコンが必要です。</p>
+                </details>
+            </div>
+        </section>
+
+        <section class="mac-final-cta mac-reveal">
+            <h2>Macで読み上げを始めましょう。</h2>
+            <p>無料の公証済みDMGを直接ダウンロードできます。App Storeアカウントは不要です。</p>
+            <div class="mac-cta-group" role="group" aria-label="Mac版LoudScriptをダウンロード">
+                <a href="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg" target="_blank" rel="noopener" class="mac-btn mac-btn-primary">
+                    Mac版LoudScriptをダウンロード
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mac-footer">
+        <nav class="mac-footer-links" aria-label="フッターナビゲーション">
+            <a href="/changelog.html" hreflang="en">更新履歴 <small class="mac-link-language" aria-label="英語ページ">EN</small></a>
+            <a href="/tos.html" hreflang="en">利用規約 <small class="mac-link-language" aria-label="英語ページ">EN</small></a>
+            <a href="/privacy.html" hreflang="en">プライバシー <small class="mac-link-language" aria-label="英語ページ">EN</small></a>
+            <a href="/support.html" hreflang="en">サポート <small class="mac-link-language" aria-label="英語ページ">EN</small></a>
+            <a href="/ja/read-selected-text-aloud-mac/" hreflang="ja">選択テキストガイド</a>
+            <a href="/ja/screenshot-ocr-text-to-speech-mac/" hreflang="ja">OCRガイド</a>
+            <a href="/ja/offline-text-to-speech-mac/" hreflang="ja">オフライン音声</a>
+            <a href="https://apps.apple.com/app/loudscript-text-reader/id6747320736" target="_blank" rel="noopener">iOS/iPadOS版を見る</a>
+        </nav>
+        <p class="mac-footer-credit">
+            制作 <a href="https://twitter.com/hoyelam" rel="noopener">Hoye Lam</a> &middot; &copy;2026 Kin-Yee
+        </p>
+    </footer>
+
+    <script>
+    (function() {
+        var els = document.querySelectorAll('.mac-reveal');
+        if (!('IntersectionObserver' in window)) {
+            els.forEach(function(el) { el.classList.add('mac-visible'); });
+            return;
+        }
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('mac-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        els.forEach(function(el) { observer.observe(el); });
+    })();
+    </script>
+</body>
+</html>

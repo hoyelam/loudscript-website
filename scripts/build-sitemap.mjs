@@ -11,7 +11,8 @@ const locales = [
   { lang: "zh-Hans", prefix: "/zh-hans" },
   { lang: "de", prefix: "/de" },
   { lang: "es", prefix: "/es" },
-  { lang: "fr", prefix: "/fr" }
+  { lang: "fr", prefix: "/fr" },
+  { lang: "ja", prefix: "/ja" }
 ];
 const routes = [
   "",

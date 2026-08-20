@@ -62,12 +62,22 @@ const localeSpecs = [
     ogLocale: "fr_FR",
     primaryKeyword: "synthèse vocale pour Mac",
     openingKeyword: "synthèse vocale"
+  },
+  {
+    id: "ja",
+    lang: "ja",
+    canonical: "https://loudscript.app/ja/",
+    output: "ja/index.html",
+    prefix: "ja/",
+    ogLocale: "ja_JP",
+    primaryKeyword: "テキスト読み上げ",
+    openingKeyword: "テキスト読み上げ"
   }
 ];
 const guideRoutes = [
-  { route: "read-selected-text-aloud-mac", schemaType: "HowTo", keywords: { en: "selected text", "zh-Hant": "朗讀", "zh-Hans": "朗读", de: "ausgewählten Text", es: "texto seleccionado", fr: "texte sélectionné" } },
-  { route: "screenshot-ocr-text-to-speech-mac", schemaType: "HowTo", keywords: { en: "OCR", "zh-Hant": "OCR", "zh-Hans": "OCR", de: "OCR", es: "OCR", fr: "OCR" } },
-  { route: "offline-text-to-speech-mac", schemaType: "TechArticle", keywords: { en: "Offline Text-to-Speech", "zh-Hant": "離線文字轉語音", "zh-Hans": "离线文本转语音", de: "Offline-Text-to-Speech", es: "texto a voz sin conexión", fr: "synthèse vocale hors ligne" } }
+  { route: "read-selected-text-aloud-mac", schemaType: "HowTo", keywords: { en: "selected text", "zh-Hant": "朗讀", "zh-Hans": "朗读", de: "ausgewählten Text", es: "texto seleccionado", fr: "texte sélectionné", ja: "選択したテキスト" } },
+  { route: "screenshot-ocr-text-to-speech-mac", schemaType: "HowTo", keywords: { en: "OCR", "zh-Hant": "OCR", "zh-Hans": "OCR", de: "OCR", es: "OCR", fr: "OCR", ja: "OCR" } },
+  { route: "offline-text-to-speech-mac", schemaType: "TechArticle", keywords: { en: "Offline Text-to-Speech", "zh-Hant": "離線文字轉語音", "zh-Hans": "离线文本转语音", de: "Offline-Text-to-Speech", es: "texto a voz sin conexión", fr: "synthèse vocale hors ligne", ja: "オフライン音声読み上げ" } }
 ];
 const allOgLocales = localeSpecs.map(({ ogLocale }) => ogLocale);
 
@@ -121,6 +131,7 @@ const generatedMessageKeys = new Set([
   "nav.german",
   "nav.spanish",
   "nav.french",
+  "nav.japanese",
   "fallback.englishPage"
 ]);
 for (const [key, value] of Object.entries(english)) {
@@ -166,6 +177,10 @@ for (const spec of localeSpecs) {
     assert(messages["meta.title"].length <= 60, `${spec.output}: localized title is too long`);
     assert(messages["meta.description"].length >= 120 && messages["meta.description"].length <= 170, `${spec.output}: localized meta description is outside the reviewed range`);
   }
+  if (spec.id === "ja") {
+    assert(messages["meta.title"].length <= 35, `${spec.output}: Japanese title is too long`);
+    assert(messages["meta.description"].length >= 60 && messages["meta.description"].length <= 120, `${spec.output}: Japanese meta description is outside the reviewed range`);
+  }
   assert(
     html.includes(`<a href="/${spec.prefix}" lang="${spec.lang}" hreflang="${spec.lang}" aria-current="page">`),
     `${spec.output}: language navigation does not identify the current locale`
@@ -182,6 +197,7 @@ for (const spec of localeSpecs) {
     ['de', 'https://loudscript.app/de/'],
     ['es', 'https://loudscript.app/es/'],
     ['fr', 'https://loudscript.app/fr/'],
+    ['ja', 'https://loudscript.app/ja/'],
     ['x-default', 'https://loudscript.app/']
   ];
   for (const [lang, href] of alternates) {
@@ -239,6 +255,7 @@ for (const guide of guideRoutes) {
     ["de", `https://loudscript.app/de/${guide.route}/`],
     ["es", `https://loudscript.app/es/${guide.route}/`],
     ["fr", `https://loudscript.app/fr/${guide.route}/`],
+    ["ja", `https://loudscript.app/ja/${guide.route}/`],
     ["x-default", `https://loudscript.app/${guide.route}/`]
   ];
 
@@ -276,6 +293,10 @@ for (const guide of guideRoutes) {
     if (["de", "es", "fr"].includes(locale.id)) {
       assert(title.length <= 60, `${output}: localized title is too long`);
       assert(description.length >= 120 && description.length <= 170, `${output}: localized meta description is outside the reviewed range`);
+    }
+    if (locale.id === "ja") {
+      assert(title.length <= 35, `${output}: Japanese title is too long`);
+      assert(description.length >= 60 && description.length <= 120, `${output}: Japanese meta description is outside the reviewed range`);
     }
 
     for (const [lang, href] of alternates) {
@@ -321,6 +342,11 @@ for (const guide of guideRoutes) {
           assert(!html.includes(phrase), `${output}: untranslated English remains in French copy: ${phrase}`);
         }
       }
+      if (locale.id === "ja") {
+        for (const phrase of ["How to ", "What if ", "Updated August", ">Read selected text<", ">Download DMG<"]) {
+          assert(!html.includes(phrase), `${output}: untranslated English remains in Japanese copy: ${phrase}`);
+        }
+      }
       const localePrefix = `/${locale.prefix}`;
       for (const related of guideRoutes) {
         assert(html.includes(`href="${localePrefix}${related.route}/"`), `${output}: missing localized link to ${related.route}`);
@@ -349,6 +375,7 @@ const sitemapAlternates = [
   ['de', 'https://loudscript.app/de/'],
   ['es', 'https://loudscript.app/es/'],
   ['fr', 'https://loudscript.app/fr/'],
+  ['ja', 'https://loudscript.app/ja/'],
   ['x-default', 'https://loudscript.app/']
 ];
 for (const spec of localeSpecs) {
@@ -371,9 +398,10 @@ for (const guide of guideRoutes) {
     ["de", `https://loudscript.app/de/${guide.route}/`],
     ["es", `https://loudscript.app/es/${guide.route}/`],
     ["fr", `https://loudscript.app/fr/${guide.route}/`],
+    ["ja", `https://loudscript.app/ja/${guide.route}/`],
     ["x-default", `https://loudscript.app/${guide.route}/`]
   ];
-  for (const [, canonical] of alternates.slice(0, 6)) {
+  for (const [, canonical] of alternates.slice(0, 7)) {
     const blockMatch = sitemap.match(new RegExp(`<url>\\s*<loc>${escapeRegExp(canonical)}<\\/loc>([\\s\\S]*?)<\\/url>`));
     assert(blockMatch, `Sitemap lacks ${canonical}`);
     for (const [lang, href] of alternates) {
@@ -386,6 +414,6 @@ const robots = await readFile(path.join(siteRoot, "robots.txt"), "utf8");
 assert(robots.includes("User-agent: *"), "robots.txt lacks a default crawler policy");
 assert(robots.includes("Allow: /"), "robots.txt does not allow the site root");
 assert(robots.includes("Sitemap: https://loudscript.app/sitemap.xml"), "robots.txt lacks the canonical sitemap URL");
-assert(!/Disallow:\s*\/(?:zh-hans|zh-hant|de|es|fr)\/?/i.test(robots), "robots.txt blocks a localized page");
+assert(!/Disallow:\s*\/(?:zh-hans|zh-hant|de|es|fr|ja)\/?/i.test(robots), "robots.txt blocks a localized page");
 
 console.log(`Validated ${localeSpecs.length} landing pages, ${guideRoutes.length * localeSpecs.length} guide pages, and ${englishKeys.length} landing message keys.`);

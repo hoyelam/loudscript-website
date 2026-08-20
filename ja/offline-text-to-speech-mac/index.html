@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <script defer data-domain="loudscript.app" src="https://plausible.io/js/script.js"></script>
+    <script defer src="/js/language-menu.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LoudScriptのMac向けオフライン音声読み上げエンジン、Appleの声、Supertonic、Kokoro、PocketTTSを、対応ハードウェアやダウンロード要件とともに比較します。">
+    <meta name="author" content="Ho Ye Lam">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:site_name" content="LoudScript">
+    <meta property="og:title" content="Macのオフライン音声読み上げ｜LoudScript">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://loudscript.app/ja/offline-text-to-speech-mac/">
+    <meta property="og:image" content="https://loudscript.app/images/mac/mac-playback-settings.png">
+    <meta property="og:description" content="4つのデバイス内音声エンジンを、Macの互換性、対応言語、完成度、ダウンロードサイズで比較します。">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="zh_TW">
+    <meta property="og:locale:alternate" content="zh_CN">
+    <meta property="og:locale:alternate" content="de_DE">
+    <meta property="og:locale:alternate" content="es_ES">
+    <meta property="og:locale:alternate" content="fr_FR">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Macのオフライン音声読み上げ｜LoudScript">
+    <meta name="twitter:description" content="Mac上でローカルに動作するApple、Supertonic、Kokoro、PocketTTSの声から選べます。">
+    <meta name="twitter:image" content="https://loudscript.app/images/mac/mac-playback-settings.png">
+
+    <link rel="canonical" href="https://loudscript.app/ja/offline-text-to-speech-mac/">
+    <link rel="alternate" hreflang="en" href="https://loudscript.app/offline-text-to-speech-mac/">
+    <link rel="alternate" hreflang="zh-Hant" href="https://loudscript.app/zh-hant/offline-text-to-speech-mac/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/offline-text-to-speech-mac/">
+    <link rel="alternate" hreflang="de" href="https://loudscript.app/de/offline-text-to-speech-mac/">
+    <link rel="alternate" hreflang="es" href="https://loudscript.app/es/offline-text-to-speech-mac/">
+    <link rel="alternate" hreflang="fr" href="https://loudscript.app/fr/offline-text-to-speech-mac/">
+    <link rel="alternate" hreflang="ja" href="https://loudscript.app/ja/offline-text-to-speech-mac/">
+    <link rel="alternate" hreflang="x-default" href="https://loudscript.app/offline-text-to-speech-mac/">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <meta name="color-scheme" content="dark light">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7fb">
+
+    <title>Macのオフライン音声読み上げ｜LoudScript</title>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "TechArticle",
+          "inLanguage": "ja",
+          "@id": "https://loudscript.app/ja/offline-text-to-speech-mac/#article",
+          "headline": "Macのオフライン音声読み上げ: LoudScriptのローカルエンジンを比較",
+          "description": "Mac版LoudScriptで使えるApple、Supertonic、Kokoro、PocketTTSの実用的な比較です。",
+          "datePublished": "2026-08-04",
+          "dateModified": "2026-08-19",
+          "author": { "@type": "Person", "@id": "https://loudscript.app/#creator", "name": "Ho Ye Lam", "url": "https://hoyelam.com/" },
+          "publisher": { "@type": "Organization", "@id": "https://loudscript.app/#organization", "name": "Kin-Yee", "url": "https://loudscript.app/" },
+          "mainEntityOfPage": "https://loudscript.app/ja/offline-text-to-speech-mac/"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "LoudScript", "item": "https://loudscript.app/ja/" },
+            { "@type": "ListItem", "position": 2, "name": "Macのオフライン音声読み上げ", "item": "https://loudscript.app/ja/offline-text-to-speech-mac/" }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="mac-page">
+    <main class="mac-shell">
+        <header class="mac-nav">
+            <a href="/ja/" class="mac-brand" aria-label="LoudScriptホームページへ移動">
+                <img src="/images/loudscript-icon-88.webp" class="mac-brand-logo" alt="LoudScriptアプリアイコン" width="44" height="44">
+                <span>LoudScript</span>
+            </a>
+            <nav class="mac-nav-links" aria-label="ページナビゲーション">
+                <a href="/ja/">概要</a>
+                <a href="/ja/#guides">ガイド</a>
+                <a href="/support.html" hreflang="en">サポート</a>
+                <a href="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg" class="mac-nav-cta">DMGをダウンロード</a>
+            </nav>
+            <!-- GUIDE_LANGUAGE_NAV_START -->
+            <nav class="mac-language-menu" aria-label="言語を選択">
+                <details>
+                    <summary aria-label="言語を選択: 日本語">
+                        <svg class="mac-language-globe" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M2.8 10h14.4M10 2.5c2 2.1 3 4.6 3 7.5s-1 5.4-3 7.5c-2-2.1-3-4.6-3-7.5s1-5.4 3-7.5Z"/></svg>
+                        <span>日本語</span>
+                        <svg class="mac-language-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg>
+                    </summary>
+                    <div class="mac-language-options">
+                    <a href="/offline-text-to-speech-mac/" lang="en" hreflang="en">
+                        <span>English</span>
+                        <svg class="mac-language-check" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 8.5 3 3 7-7"/></svg>
+                    </a>
+                    <a href="/zh-hant/offline-text-to-speech-mac/" lang="zh-Hant" hreflang="zh-Hant">
+                        <span>繁體中文</span>
+                        <svg class="mac-language-check" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 8.5 3 3 7-7"/></svg>
+                    </a>
+                    <a href="/zh-hans/offline-text-to-speech-mac/" lang="zh-Hans" hreflang="zh-Hans">
+                        <span>简体中文</span>
+                        <svg class="mac-language-check" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 8.5 3 3 7-7"/></svg>
+                    </a>
+                    <a href="/de/offline-text-to-speech-mac/" lang="de" hreflang="de">
+                        <span>Deutsch</span>
+                        <svg class="mac-language-check" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 8.5 3 3 7-7"/></svg>
+                    </a>
+                    <a href="/es/offline-text-to-speech-mac/" lang="es" hreflang="es">
+                        <span>Español</span>
+                        <svg class="mac-language-check" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 8.5 3 3 7-7"/></svg>
+                    </a>
+                    <a href="/fr/offline-text-to-speech-mac/" lang="fr" hreflang="fr">
+                        <span>Français</span>
+                        <svg class="mac-language-check" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 8.5 3 3 7-7"/></svg>
+                    </a>
+                    <a href="/ja/offline-text-to-speech-mac/" lang="ja" hreflang="ja" aria-current="page">
+                        <span>日本語</span>
+                        <svg class="mac-language-check" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 8.5 3 3 7-7"/></svg>
+                    </a>
+                    </div>
+                </details>
+            </nav>
+            <!-- GUIDE_LANGUAGE_NAV_END -->
+        </header>
+
+        <article class="seo-page">
+            <header class="seo-hero">
+                <p class="seo-breadcrumb"><a href="/ja/">LoudScript</a> / オフライン音声ガイド</p>
+                <h1>Macのオフライン音声読み上げ</h1>
+                <p class="seo-lede">LoudScriptには、Mac上でテキストを音声に変換する4つのエンジンがあります。互換性、対応言語、モデルサイズ、完成度を比較して、用途に合う音声技術を選べます。</p>
+                <p class="seo-byline">作成者: <a href="https://hoyelam.com/" rel="author">Ho Ye Lam</a> · 2026年8月19日更新</p>
+            </header>
+
+            <section class="seo-section" aria-labelledby="comparison">
+                <h2 id="comparison">LoudScriptのローカル音声エンジンを比較</h2>
+                <div class="seo-table-wrap">
+                    <table class="seo-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">エンジン</th>
+                                <th scope="col">Mac対応</th>
+                                <th scope="col">対応言語</th>
+                                <th scope="col">ダウンロード</th>
+                                <th scope="col">状態</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Appleシステム音声</strong></td>
+                                <td>IntelおよびAppleシリコン</td>
+                                <td>macOSにインストール済みの声を使用</td>
+                                <td>内蔵</td>
+                                <td>安定版</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Supertonic</strong></td>
+                                <td>IntelおよびAppleシリコン</td>
+                                <td>複数言語と選択可能な音声スタイル</td>
+                                <td>約400MB</td>
+                                <td>安定版</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Kokoro</strong></td>
+                                <td>Appleシリコン</td>
+                                <td>英語と中国語（標準語）</td>
+                                <td>約320MB</td>
+                                <td>ベータ版</td>
+                            </tr>
+                            <tr>
+                                <td><strong>PocketTTS</strong></td>
+                                <td>Appleシリコン</td>
+                                <td>英語、ドイツ語、スペイン語、フランス語、イタリア語、ポルトガル語</td>
+                                <td>約1GB</td>
+                                <td>ベータ版</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>ダウンロードサイズは目安であり、モデルパッケージの更新に伴って変わる場合があります。LoudScriptの音声モデル選択画面で、互換性とインストール状態を確認できます。</p>
+            </section>
+
+            <section class="seo-section" aria-labelledby="choose-engine">
+                <h2 id="choose-engine">どのオフライン音声を選ぶべき？</h2>
+                <h3>幅広い互換性を求めるならAppleシステム音声</h3>
+                <p>Appleの声はmacOSに組み込まれているため、別途モデルをインストールする必要がなく、Intel搭載MacとAppleシリコン搭載Macで動作します。利用できる言語は、macOSの「リーダーと読み上げ」設定にインストールされている声によって異なります。</p>
+                <h3>ダウンロード型の多言語モデルならSupertonic</h3>
+                <p>Supertonicは、選択可能な音声スタイル、シーク機能、ローカル多言語音声合成に対応します。Intel搭載MacとAppleシリコン搭載Macの両方で使えるダウンロード型モデルです。</p>
+                <h3>コンパクトな英語・中国語音声ならKokoro</h3>
+                <p>KokoroはAppleシリコン向けのベータ版です。コンパクトなCore MLモデルで英語と中国語（標準語）の音声を利用できます。</p>
+                <h3>6言語の表現豊かな音声ならPocketTTS</h3>
+                <p>PocketTTSはAppleシリコン向けの大容量ベータモデルで、英語、ドイツ語、スペイン語、フランス語、イタリア語、ポルトガル語の声を収録しています。</p>
+            </section>
+
+            <section class="seo-section" aria-labelledby="offline-meaning">
+                <h2 id="offline-meaning">LoudScriptにおける「オフライン」の意味</h2>
+                <p>任意のモデルファイルをダウンロードしたあとは、音声合成がローカルで実行されます。元の読み上げテキストが製品分析サービスに送信されることはありません。モデルのインストールとアプリの更新には引き続きネットワーク接続が必要です。</p>
+                <p>任意のAI整形は別機能です。有効にすると、ローカルでの読み上げが始まる前に整形対象のテキストが外部プロバイダへ送信されることがあります。すべてのテキスト処理をMac上で完結させたい場合は、AI整形を無効のままにしてください。<a href="/privacy.html" hreflang="en">プライバシーポリシー</a>にデータ処理の範囲を記載しています。</p>
+            </section>
+
+            <section class="seo-section" aria-labelledby="use-engines">
+                <h2 id="use-engines">Macアプリ全体でローカル音声を使う</h2>
+                <p>選択した音声エンジンは、手入力したテキスト、ほかのアプリで選択したテキスト、スクリーンショットOCR、読み上げ履歴、フローティングプレーヤーで利用できます。</p>
+                <div class="seo-related">
+                    <a href="/ja/read-selected-text-aloud-mac/">選択したテキストを読み上げる</a>
+                    <a href="/ja/screenshot-ocr-text-to-speech-mac/">OCRでスクリーンショットを読み上げる</a>
+                </div>
+            </section>
+
+            <section class="seo-section seo-callout" aria-labelledby="download">
+                <h2 id="download">Macで声を選ぶ</h2>
+                <p>LoudScriptは無料で、macOS 15.6以降が必要です。ダウンロード型モデルは任意で、アプリから削除できます。</p>
+                <a href="https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-latest/LoudScript.dmg" class="mac-btn mac-btn-primary">Mac版LoudScriptをダウンロード</a>
+            </section>
+        </article>
+    </main>
+
+    <footer class="mac-footer">
+        <nav class="mac-footer-links" aria-label="フッターナビゲーション">
+            <a href="/ja/">LoudScript</a>
+            <a href="/ja/read-selected-text-aloud-mac/">選択したテキスト</a>
+            <a href="/ja/screenshot-ocr-text-to-speech-mac/">スクリーンショットOCR</a>
+            <a href="/support.html" hreflang="en">サポート</a>
+            <a href="/privacy.html" hreflang="en">プライバシー</a>
+        </nav>
+        <p class="mac-footer-credit">制作 <a href="https://twitter.com/hoyelam" rel="noopener">Hoye Lam</a> &middot; &copy;2026 Kin-Yee</p>
+    </footer>
+</body>
+</html>
