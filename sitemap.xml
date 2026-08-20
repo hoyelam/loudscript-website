@@ -9,6 +9,7 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://loudscript.app/de/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://loudscript.app/es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loudscript.app/fr/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loudscript.app/" />
   </url>
   <url>
@@ -19,6 +20,7 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://loudscript.app/de/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://loudscript.app/es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loudscript.app/fr/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loudscript.app/" />
   </url>
   <url>
@@ -29,6 +31,7 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://loudscript.app/de/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://loudscript.app/es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loudscript.app/fr/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loudscript.app/" />
   </url>
   <url>
@@ -39,6 +42,7 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://loudscript.app/de/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://loudscript.app/es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loudscript.app/fr/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loudscript.app/" />
   </url>
   <url>
@@ -49,6 +53,18 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://loudscript.app/de/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://loudscript.app/es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loudscript.app/fr/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loudscript.app/" />
+  </url>
+  <url>
+    <loc>https://loudscript.app/fr/</loc>
+    <lastmod>2026-08-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loudscript.app/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loudscript.app/zh-hant/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://loudscript.app/de/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://loudscript.app/es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loudscript.app/fr/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loudscript.app/" />
   </url>
   <url>
@@ -59,6 +75,7 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/read-selected-text-aloud-mac/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://loudscript.app/de/read-selected-text-aloud-mac/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://loudscript.app/es/read-selected-text-aloud-mac/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loudscript.app/fr/read-selected-text-aloud-mac/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loudscript.app/read-selected-text-aloud-mac/" />
   </url>
   <url>
@@ -69,6 +86,7 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/read-selected-text-aloud-mac/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://loudscript.app/de/read-selected-text-aloud-mac/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://loudscript.app/es/read-selected-text-aloud-mac/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loudscript.app/fr/read-selected-text-aloud-mac/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loudscript.app/read-selected-text-aloud-mac/" />
   </url>
   <url>
@@ -79,6 +97,7 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/read-selected-text-aloud-mac/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://loudscript.app/de/read-selected-text-aloud-mac/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://loudscript.app/es/read-selected-text-aloud-mac/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loudscript.app/fr/read-selected-text-aloud-mac/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loudscript.app/read-selected-text-aloud-mac/" />
   </url>
   <url>
@@ -89,6 +108,7 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/read-selected-text-aloud-mac/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://loudscript.app/de/read-selected-text-aloud-mac/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://loudscript.app/es/read-selected-text-aloud-mac/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loudscript.app/fr/read-selected-text-aloud-mac/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loudscript.app/read-selected-text-aloud-mac/" />
   </url>
   <url>
@@ -99,6 +119,18 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/read-selected-text-aloud-mac/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://loudscript.app/de/read-selected-text-aloud-mac/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://loudscript.app/es/read-selected-text-aloud-mac/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loudscript.app/fr/read-selected-text-aloud-mac/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loudscript.app/read-selected-text-aloud-mac/" />
+  </url>
+  <url>
+    <loc>https://loudscript.app/fr/read-selected-text-aloud-mac/</loc>
+    <lastmod>2026-08-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loudscript.app/read-selected-text-aloud-mac/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loudscript.app/zh-hant/read-selected-text-aloud-mac/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/read-selected-text-aloud-mac/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://loudscript.app/de/read-selected-text-aloud-mac/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://loudscript.app/es/read-selected-text-aloud-mac/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loudscript.app/fr/read-selected-text-aloud-mac/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loudscript.app/read-selected-text-aloud-mac/" />
   </url>
   <url>
@@ -109,6 +141,7 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/screenshot-ocr-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://loudscript.app/de/screenshot-ocr-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://loudscript.app/es/screenshot-ocr-text-to-speech-mac/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loudscript.app/fr/screenshot-ocr-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loudscript.app/screenshot-ocr-text-to-speech-mac/" />
   </url>
   <url>
@@ -119,6 +152,7 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/screenshot-ocr-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://loudscript.app/de/screenshot-ocr-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://loudscript.app/es/screenshot-ocr-text-to-speech-mac/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loudscript.app/fr/screenshot-ocr-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loudscript.app/screenshot-ocr-text-to-speech-mac/" />
   </url>
   <url>
@@ -129,6 +163,7 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/screenshot-ocr-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://loudscript.app/de/screenshot-ocr-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://loudscript.app/es/screenshot-ocr-text-to-speech-mac/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loudscript.app/fr/screenshot-ocr-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loudscript.app/screenshot-ocr-text-to-speech-mac/" />
   </url>
   <url>
@@ -139,6 +174,7 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/screenshot-ocr-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://loudscript.app/de/screenshot-ocr-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://loudscript.app/es/screenshot-ocr-text-to-speech-mac/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loudscript.app/fr/screenshot-ocr-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loudscript.app/screenshot-ocr-text-to-speech-mac/" />
   </url>
   <url>
@@ -149,6 +185,18 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/screenshot-ocr-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://loudscript.app/de/screenshot-ocr-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://loudscript.app/es/screenshot-ocr-text-to-speech-mac/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loudscript.app/fr/screenshot-ocr-text-to-speech-mac/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loudscript.app/screenshot-ocr-text-to-speech-mac/" />
+  </url>
+  <url>
+    <loc>https://loudscript.app/fr/screenshot-ocr-text-to-speech-mac/</loc>
+    <lastmod>2026-08-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loudscript.app/screenshot-ocr-text-to-speech-mac/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loudscript.app/zh-hant/screenshot-ocr-text-to-speech-mac/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/screenshot-ocr-text-to-speech-mac/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://loudscript.app/de/screenshot-ocr-text-to-speech-mac/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://loudscript.app/es/screenshot-ocr-text-to-speech-mac/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loudscript.app/fr/screenshot-ocr-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loudscript.app/screenshot-ocr-text-to-speech-mac/" />
   </url>
   <url>
@@ -159,6 +207,7 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/offline-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://loudscript.app/de/offline-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://loudscript.app/es/offline-text-to-speech-mac/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loudscript.app/fr/offline-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loudscript.app/offline-text-to-speech-mac/" />
   </url>
   <url>
@@ -169,6 +218,7 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/offline-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://loudscript.app/de/offline-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://loudscript.app/es/offline-text-to-speech-mac/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loudscript.app/fr/offline-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loudscript.app/offline-text-to-speech-mac/" />
   </url>
   <url>
@@ -179,6 +229,7 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/offline-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://loudscript.app/de/offline-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://loudscript.app/es/offline-text-to-speech-mac/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loudscript.app/fr/offline-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loudscript.app/offline-text-to-speech-mac/" />
   </url>
   <url>
@@ -189,6 +240,7 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/offline-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://loudscript.app/de/offline-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://loudscript.app/es/offline-text-to-speech-mac/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loudscript.app/fr/offline-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loudscript.app/offline-text-to-speech-mac/" />
   </url>
   <url>
@@ -199,6 +251,18 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/offline-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://loudscript.app/de/offline-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://loudscript.app/es/offline-text-to-speech-mac/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loudscript.app/fr/offline-text-to-speech-mac/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loudscript.app/offline-text-to-speech-mac/" />
+  </url>
+  <url>
+    <loc>https://loudscript.app/fr/offline-text-to-speech-mac/</loc>
+    <lastmod>2026-08-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loudscript.app/offline-text-to-speech-mac/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loudscript.app/zh-hant/offline-text-to-speech-mac/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loudscript.app/zh-hans/offline-text-to-speech-mac/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://loudscript.app/de/offline-text-to-speech-mac/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://loudscript.app/es/offline-text-to-speech-mac/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loudscript.app/fr/offline-text-to-speech-mac/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loudscript.app/offline-text-to-speech-mac/" />
   </url>
   <url>

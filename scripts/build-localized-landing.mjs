@@ -13,7 +13,7 @@ const locales = [
     canonicalUrl: "https://loudscript.app/",
     outputPath: path.join(siteRoot, "index.html"),
     ogLocale: "en_US",
-    ogAlternateLocales: ["zh_TW", "zh_CN", "de_DE", "es_ES"],
+    ogAlternateLocales: ["zh_TW", "zh_CN", "de_DE", "es_ES", "fr_FR"],
     guidePrefix: ""
   },
   {
@@ -23,7 +23,7 @@ const locales = [
     canonicalUrl: "https://loudscript.app/zh-hant/",
     outputPath: path.join(siteRoot, "zh-hant", "index.html"),
     ogLocale: "zh_TW",
-    ogAlternateLocales: ["en_US", "zh_CN", "de_DE", "es_ES"],
+    ogAlternateLocales: ["en_US", "zh_CN", "de_DE", "es_ES", "fr_FR"],
     guidePrefix: "/zh-hant"
   },
   {
@@ -33,7 +33,7 @@ const locales = [
     canonicalUrl: "https://loudscript.app/zh-hans/",
     outputPath: path.join(siteRoot, "zh-hans", "index.html"),
     ogLocale: "zh_CN",
-    ogAlternateLocales: ["en_US", "zh_TW", "de_DE", "es_ES"],
+    ogAlternateLocales: ["en_US", "zh_TW", "de_DE", "es_ES", "fr_FR"],
     guidePrefix: "/zh-hans"
   },
   {
@@ -43,7 +43,7 @@ const locales = [
     canonicalUrl: "https://loudscript.app/de/",
     outputPath: path.join(siteRoot, "de", "index.html"),
     ogLocale: "de_DE",
-    ogAlternateLocales: ["en_US", "zh_TW", "zh_CN", "es_ES"],
+    ogAlternateLocales: ["en_US", "zh_TW", "zh_CN", "es_ES", "fr_FR"],
     guidePrefix: "/de"
   },
   {
@@ -53,8 +53,18 @@ const locales = [
     canonicalUrl: "https://loudscript.app/es/",
     outputPath: path.join(siteRoot, "es", "index.html"),
     ogLocale: "es_ES",
-    ogAlternateLocales: ["en_US", "zh_TW", "zh_CN", "de_DE"],
+    ogAlternateLocales: ["en_US", "zh_TW", "zh_CN", "de_DE", "fr_FR"],
     guidePrefix: "/es"
+  },
+  {
+    id: "fr",
+    htmlLang: "fr",
+    textDirection: "ltr",
+    canonicalUrl: "https://loudscript.app/fr/",
+    outputPath: path.join(siteRoot, "fr", "index.html"),
+    ogLocale: "fr_FR",
+    ogAlternateLocales: ["en_US", "zh_TW", "zh_CN", "de_DE", "es_ES"],
+    guidePrefix: "/fr"
   }
 ];
 
@@ -72,7 +82,8 @@ function languageNavigation(locale, messages) {
     { id: "zh-Hant", href: "/zh-hant/", lang: "zh-Hant", label: messages["nav.chinese"] },
     { id: "zh-Hans", href: "/zh-hans/", lang: "zh-Hans", label: messages["nav.simplifiedChinese"] },
     { id: "de", href: "/de/", lang: "de", label: messages["nav.german"] },
-    { id: "es", href: "/es/", lang: "es", label: messages["nav.spanish"] }
+    { id: "es", href: "/es/", lang: "es", label: messages["nav.spanish"] },
+    { id: "fr", href: "/fr/", lang: "fr", label: messages["nav.french"] }
   ];
   const current = options.find((option) => option.id === locale.id);
   const links = options.map((option) => {

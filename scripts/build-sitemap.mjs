@@ -10,7 +10,8 @@ const locales = [
   { lang: "zh-Hant", prefix: "/zh-hant" },
   { lang: "zh-Hans", prefix: "/zh-hans" },
   { lang: "de", prefix: "/de" },
-  { lang: "es", prefix: "/es" }
+  { lang: "es", prefix: "/es" },
+  { lang: "fr", prefix: "/fr" }
 ];
 const routes = [
   "",

@@ -2,14 +2,14 @@
 
 ## State
 
-The landing page and all three SEO guides support English, Traditional Chinese under `/zh-hant/`, Simplified Chinese under `/zh-hans/`, German under `/de/`, and Spanish under `/es/`. Changelog, support, terms, and privacy pages remain English and are marked with `EN` on localized landing pages.
+The landing page and all three SEO guides support English, Traditional Chinese under `/zh-hant/`, Simplified Chinese under `/zh-hans/`, German under `/de/`, Spanish under `/es/`, and French under `/fr/`. Changelog, support, terms, and privacy pages remain English and are marked with `EN` on localized landing pages.
 
 ## Edit and build
 
 1. Edit shared markup in `templates/landing.html`.
 2. Edit source copy in `locales/en.json`.
 3. Add the same keys to every translated locale file.
-4. Edit Chinese guide translations in `scripts/build-localized-guides.mjs`, German guide translations in `locales/guides-de.json`, and Spanish guide translations in `locales/guides-es.json` when guide source copy changes.
+4. Edit Chinese guide translations in `scripts/build-localized-guides.mjs`, German guide translations in `locales/guides-de.json`, Spanish guide translations in `locales/guides-es.json`, and French guide translations in `locales/guides-fr.json` when guide source copy changes.
 5. Run `npm run build` to generate deployable HTML.
 6. Run `npm test` to validate translation parity, links, metadata, structured data, accessibility references, and sitemap coverage.
 
@@ -20,9 +20,10 @@ Generated files are committed because the site deploys as static files:
 - `zh-hans/index.html`
 - `de/index.html`
 - `es/index.html`
-- `read-selected-text-aloud-mac/index.html` and all four localized variants
-- `screenshot-ocr-text-to-speech-mac/index.html` and all four localized variants
-- `offline-text-to-speech-mac/index.html` and all four localized variants
+- `fr/index.html`
+- `read-selected-text-aloud-mac/index.html` and all five localized variants
+- `screenshot-ocr-text-to-speech-mac/index.html` and all five localized variants
+- `offline-text-to-speech-mac/index.html` and all five localized variants
 
 ## Traditional Chinese glossary
 
@@ -115,6 +116,30 @@ Use Apple Spain terminology consistently and address readers informally with `t�
 | Text to Speech | Texto a voz |
 | Privacy | Privacidad |
 
+## French glossary
+
+Use Apple France terminology consistently and address readers formally with `vous`. Preserve literal product commands, such as `Read with LoudScript`, because the Mac app does not provide a localized command name.
+
+| English | French |
+| --- | --- |
+| Selected Text | Texte sélectionné |
+| Screen OCR | OCR de capture d’écran |
+| PDF Reading | Lecture de PDF |
+| Reading History | Historique de lecture |
+| Voice & Playback | Voix et lecture |
+| Background Playback | Lecture en arrière-plan |
+| Speech engine | Moteur vocal |
+| Local voices | Voix locales |
+| Apple silicon | Puce Apple |
+| AI formatting | Mise en forme par IA |
+| Accessibility | Accessibilité |
+| Screen Recording & System Audio | Enregistrement de l’écran et des sons du système |
+| System Settings | Réglages Système |
+| Spoken Content | Lire et énoncer |
+| Speak Selection | Énoncer la sélection |
+| Text to Speech | Synthèse vocale |
+| Privacy | Confidentialité |
+
 ## Adding a locale
 
 1. Copy `locales/en.json` to a correctly cased BCP 47 locale filename.
@@ -128,9 +153,9 @@ Use Apple Spain terminology consistently and address readers informally with `t�
 ## SEO launch checklist
 
 1. Deploy every generated locale page before, or atomically with, the sitemap that references it.
-2. Confirm `https://loudscript.app/zh-hans/`, `https://loudscript.app/zh-hant/`, `https://loudscript.app/de/`, and `https://loudscript.app/es/` return HTTP 200 in production.
-3. Confirm the live pages retain their self-referencing canonicals and the complete reciprocal `en`, `zh-Hans`, `zh-Hant`, `de`, `es`, and `x-default` hreflang set.
+2. Confirm `https://loudscript.app/zh-hans/`, `https://loudscript.app/zh-hant/`, `https://loudscript.app/de/`, `https://loudscript.app/es/`, and `https://loudscript.app/fr/` return HTTP 200 in production.
+3. Confirm the live pages retain their self-referencing canonicals and the complete reciprocal `en`, `zh-Hans`, `zh-Hant`, `de`, `es`, `fr`, and `x-default` hreflang set.
 4. Confirm the live sitemap contains the same alternate set for each localized URL, then submit it in Google Search Console and Bing Webmaster Tools.
 5. Inspect all localized URLs in Search Console after deployment and request indexing if discovery is delayed.
-6. Monitor impressions for `texto a voz para Mac`, `leer texto seleccionado en Mac`, `OCR de capturas en Mac`, `texto a voz sin conexión para Mac`, `Text auf dem Mac vorlesen`, `Offline Text-to-Speech Mac`, `Mac 文本转语音`, `Mac 文字转语音`, `Mac 文字轉語音`, and related PDF/OCR queries before changing keyword targeting.
-7. Keep every guide's complete main content, metadata, schema, internal links, and reciprocal language annotations synchronized across all five locales.
+6. Monitor impressions for `synthèse vocale pour Mac`, `lire du texte sélectionné sur Mac`, `OCR de capture d’écran sur Mac`, `synthèse vocale hors ligne sur Mac`, `texto a voz para Mac`, `leer texto seleccionado en Mac`, `OCR de capturas en Mac`, `texto a voz sin conexión para Mac`, `Text auf dem Mac vorlesen`, `Offline Text-to-Speech Mac`, `Mac 文本转语音`, `Mac 文字转语音`, `Mac 文字轉語音`, and related PDF/OCR queries before changing keyword targeting.
+7. Keep every guide's complete main content, metadata, schema, internal links, and reciprocal language annotations synchronized across all six locales.
