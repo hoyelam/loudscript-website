@@ -12,7 +12,8 @@ const locales = [
   { lang: "de", prefix: "/de" },
   { lang: "es", prefix: "/es" },
   { lang: "fr", prefix: "/fr" },
-  { lang: "ja", prefix: "/ja" }
+  { lang: "ja", prefix: "/ja" },
+  { lang: "nl", prefix: "/nl" }
 ];
 const routes = [
   "",

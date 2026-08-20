@@ -72,12 +72,22 @@ const localeSpecs = [
     ogLocale: "ja_JP",
     primaryKeyword: "テキスト読み上げ",
     openingKeyword: "テキスト読み上げ"
+  },
+  {
+    id: "nl",
+    lang: "nl",
+    canonical: "https://loudscript.app/nl/",
+    output: "nl/index.html",
+    prefix: "nl/",
+    ogLocale: "nl_NL",
+    primaryKeyword: "tekst-naar-spraak voor Mac",
+    openingKeyword: "tekst-naar-spraak"
   }
 ];
 const guideRoutes = [
-  { route: "read-selected-text-aloud-mac", schemaType: "HowTo", keywords: { en: "selected text", "zh-Hant": "朗讀", "zh-Hans": "朗读", de: "ausgewählten Text", es: "texto seleccionado", fr: "texte sélectionné", ja: "選択したテキスト" } },
-  { route: "screenshot-ocr-text-to-speech-mac", schemaType: "HowTo", keywords: { en: "OCR", "zh-Hant": "OCR", "zh-Hans": "OCR", de: "OCR", es: "OCR", fr: "OCR", ja: "OCR" } },
-  { route: "offline-text-to-speech-mac", schemaType: "TechArticle", keywords: { en: "Offline Text-to-Speech", "zh-Hant": "離線文字轉語音", "zh-Hans": "离线文本转语音", de: "Offline-Text-to-Speech", es: "texto a voz sin conexión", fr: "synthèse vocale hors ligne", ja: "オフライン音声読み上げ" } }
+  { route: "read-selected-text-aloud-mac", schemaType: "HowTo", keywords: { en: "selected text", "zh-Hant": "朗讀", "zh-Hans": "朗读", de: "ausgewählten Text", es: "texto seleccionado", fr: "texte sélectionné", ja: "選択したテキスト", nl: "geselecteerde tekst" } },
+  { route: "screenshot-ocr-text-to-speech-mac", schemaType: "HowTo", keywords: { en: "OCR", "zh-Hant": "OCR", "zh-Hans": "OCR", de: "OCR", es: "OCR", fr: "OCR", ja: "OCR", nl: "OCR" } },
+  { route: "offline-text-to-speech-mac", schemaType: "TechArticle", keywords: { en: "Offline Text-to-Speech", "zh-Hant": "離線文字轉語音", "zh-Hans": "离线文本转语音", de: "Offline-Text-to-Speech", es: "texto a voz sin conexión", fr: "synthèse vocale hors ligne", ja: "オフライン音声読み上げ", nl: "offline tekst-naar-spraak" } }
 ];
 const allOgLocales = localeSpecs.map(({ ogLocale }) => ogLocale);
 
@@ -132,6 +142,7 @@ const generatedMessageKeys = new Set([
   "nav.spanish",
   "nav.french",
   "nav.japanese",
+  "nav.dutch",
   "fallback.englishPage"
 ]);
 for (const [key, value] of Object.entries(english)) {
@@ -173,7 +184,7 @@ for (const spec of localeSpecs) {
   localizedTitles.add(messages["meta.title"]);
   localizedDescriptions.add(messages["meta.description"]);
   assert((html.match(/<h1\b/g) || []).length === 1, `${spec.output}: expected exactly one h1`);
-  if (["de", "es", "fr"].includes(spec.id)) {
+  if (["de", "es", "fr", "nl"].includes(spec.id)) {
     assert(messages["meta.title"].length <= 60, `${spec.output}: localized title is too long`);
     assert(messages["meta.description"].length >= 120 && messages["meta.description"].length <= 170, `${spec.output}: localized meta description is outside the reviewed range`);
   }
@@ -198,6 +209,7 @@ for (const spec of localeSpecs) {
     ['es', 'https://loudscript.app/es/'],
     ['fr', 'https://loudscript.app/fr/'],
     ['ja', 'https://loudscript.app/ja/'],
+    ['nl', 'https://loudscript.app/nl/'],
     ['x-default', 'https://loudscript.app/']
   ];
   for (const [lang, href] of alternates) {
@@ -256,6 +268,7 @@ for (const guide of guideRoutes) {
     ["es", `https://loudscript.app/es/${guide.route}/`],
     ["fr", `https://loudscript.app/fr/${guide.route}/`],
     ["ja", `https://loudscript.app/ja/${guide.route}/`],
+    ["nl", `https://loudscript.app/nl/${guide.route}/`],
     ["x-default", `https://loudscript.app/${guide.route}/`]
   ];
 
@@ -290,7 +303,7 @@ for (const guide of guideRoutes) {
     assert(!guideDescriptions.has(description), `${output}: duplicate guide description`);
     guideTitles.add(title);
     guideDescriptions.add(description);
-    if (["de", "es", "fr"].includes(locale.id)) {
+    if (["de", "es", "fr", "nl"].includes(locale.id)) {
       assert(title.length <= 60, `${output}: localized title is too long`);
       assert(description.length >= 120 && description.length <= 170, `${output}: localized meta description is outside the reviewed range`);
     }
@@ -347,6 +360,11 @@ for (const guide of guideRoutes) {
           assert(!html.includes(phrase), `${output}: untranslated English remains in Japanese copy: ${phrase}`);
         }
       }
+      if (locale.id === "nl") {
+        for (const phrase of ["How to ", "What if ", "Updated August", ">Read selected text<", ">Download DMG<"]) {
+          assert(!html.includes(phrase), `${output}: untranslated English remains in Dutch copy: ${phrase}`);
+        }
+      }
       const localePrefix = `/${locale.prefix}`;
       for (const related of guideRoutes) {
         assert(html.includes(`href="${localePrefix}${related.route}/"`), `${output}: missing localized link to ${related.route}`);
@@ -399,9 +417,10 @@ for (const guide of guideRoutes) {
     ["es", `https://loudscript.app/es/${guide.route}/`],
     ["fr", `https://loudscript.app/fr/${guide.route}/`],
     ["ja", `https://loudscript.app/ja/${guide.route}/`],
+    ["nl", `https://loudscript.app/nl/${guide.route}/`],
     ["x-default", `https://loudscript.app/${guide.route}/`]
   ];
-  for (const [, canonical] of alternates.slice(0, 7)) {
+  for (const [, canonical] of alternates.slice(0, 8)) {
     const blockMatch = sitemap.match(new RegExp(`<url>\\s*<loc>${escapeRegExp(canonical)}<\\/loc>([\\s\\S]*?)<\\/url>`));
     assert(blockMatch, `Sitemap lacks ${canonical}`);
     for (const [lang, href] of alternates) {
@@ -414,6 +433,6 @@ const robots = await readFile(path.join(siteRoot, "robots.txt"), "utf8");
 assert(robots.includes("User-agent: *"), "robots.txt lacks a default crawler policy");
 assert(robots.includes("Allow: /"), "robots.txt does not allow the site root");
 assert(robots.includes("Sitemap: https://loudscript.app/sitemap.xml"), "robots.txt lacks the canonical sitemap URL");
-assert(!/Disallow:\s*\/(?:zh-hans|zh-hant|de|es|fr|ja)\/?/i.test(robots), "robots.txt blocks a localized page");
+assert(!/Disallow:\s*\/(?:zh-hans|zh-hant|de|es|fr|ja|nl)\/?/i.test(robots), "robots.txt blocks a localized page");
 
 console.log(`Validated ${localeSpecs.length} landing pages, ${guideRoutes.length * localeSpecs.length} guide pages, and ${englishKeys.length} landing message keys.`);

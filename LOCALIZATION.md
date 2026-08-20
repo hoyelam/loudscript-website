@@ -2,14 +2,14 @@
 
 ## State
 
-The landing page and all three SEO guides support English, Traditional Chinese under `/zh-hant/`, Simplified Chinese under `/zh-hans/`, German under `/de/`, Spanish under `/es/`, French under `/fr/`, and Japanese under `/ja/`. Changelog, support, terms, and privacy pages remain English and are marked with `EN` on localized landing pages.
+The landing page and all three SEO guides support English, Traditional Chinese under `/zh-hant/`, Simplified Chinese under `/zh-hans/`, German under `/de/`, Spanish under `/es/`, French under `/fr/`, Japanese under `/ja/`, and Dutch under `/nl/`. Changelog, support, terms, and privacy pages remain English and are marked with `EN` on localized landing pages.
 
 ## Edit and build
 
 1. Edit shared markup in `templates/landing.html`.
 2. Edit source copy in `locales/en.json`.
 3. Add the same keys to every translated locale file.
-4. Edit Chinese guide translations in `scripts/build-localized-guides.mjs`, German guide translations in `locales/guides-de.json`, Spanish guide translations in `locales/guides-es.json`, French guide translations in `locales/guides-fr.json`, and Japanese guide translations in `locales/guides-ja.json` when guide source copy changes.
+4. Edit Chinese guide translations in `scripts/build-localized-guides.mjs`, German guide translations in `locales/guides-de.json`, Spanish guide translations in `locales/guides-es.json`, French guide translations in `locales/guides-fr.json`, Japanese guide translations in `locales/guides-ja.json`, and Dutch guide translations in `locales/guides-nl.json` when guide source copy changes.
 5. Run `npm run build` to generate deployable HTML.
 6. Run `npm test` to validate translation parity, links, metadata, structured data, accessibility references, and sitemap coverage.
 
@@ -22,9 +22,10 @@ Generated files are committed because the site deploys as static files:
 - `es/index.html`
 - `fr/index.html`
 - `ja/index.html`
-- `read-selected-text-aloud-mac/index.html` and all six localized variants
-- `screenshot-ocr-text-to-speech-mac/index.html` and all six localized variants
-- `offline-text-to-speech-mac/index.html` and all six localized variants
+- `nl/index.html`
+- `read-selected-text-aloud-mac/index.html` and all seven localized variants
+- `screenshot-ocr-text-to-speech-mac/index.html` and all seven localized variants
+- `offline-text-to-speech-mac/index.html` and all seven localized variants
 
 ## Traditional Chinese glossary
 
@@ -166,6 +167,30 @@ Use current Apple Japan terminology consistently and use polite, concise Japanes
 | Text to Speech | テキスト読み上げ / 音声読み上げ |
 | Privacy | プライバシー |
 
+## Dutch glossary
+
+Use current Apple Netherlands terminology consistently and address readers informally with `je`. Preserve literal product commands, such as `Read with LoudScript`, because the Mac app does not provide a localized command name.
+
+| English | Dutch |
+| --- | --- |
+| Selected Text | Geselecteerde tekst |
+| Screen OCR | Scherm-OCR / OCR van schermafbeeldingen |
+| PDF Reading | Pdf’s voorlezen |
+| Reading History | Leesgeschiedenis |
+| Voice & Playback | Stem en afspelen |
+| Background Playback | Afspelen op de achtergrond |
+| Speech engine | Spraakengine |
+| Local voices | Lokale stemmen |
+| Apple silicon | Apple silicon |
+| AI formatting | AI-opmaak |
+| Accessibility | Toegankelijkheid |
+| Screen Recording & System Audio | Scherm- en systeemaudio-opname |
+| System Settings | Systeeminstellingen |
+| Spoken Content | Lezen en spreken |
+| Speak Selection | Spreek selectie uit |
+| Text to Speech | Tekst-naar-spraak |
+| Privacy | Privacy |
+
 ## Adding a locale
 
 1. Copy `locales/en.json` to a correctly cased BCP 47 locale filename.
@@ -179,9 +204,9 @@ Use current Apple Japan terminology consistently and use polite, concise Japanes
 ## SEO launch checklist
 
 1. Deploy every generated locale page before, or atomically with, the sitemap that references it.
-2. Confirm `https://loudscript.app/zh-hans/`, `https://loudscript.app/zh-hant/`, `https://loudscript.app/de/`, `https://loudscript.app/es/`, `https://loudscript.app/fr/`, and `https://loudscript.app/ja/` return HTTP 200 in production.
-3. Confirm the live pages retain their self-referencing canonicals and the complete reciprocal `en`, `zh-Hans`, `zh-Hant`, `de`, `es`, `fr`, `ja`, and `x-default` hreflang set.
+2. Confirm `https://loudscript.app/zh-hans/`, `https://loudscript.app/zh-hant/`, `https://loudscript.app/de/`, `https://loudscript.app/es/`, `https://loudscript.app/fr/`, `https://loudscript.app/ja/`, and `https://loudscript.app/nl/` return HTTP 200 in production.
+3. Confirm the live pages retain their self-referencing canonicals and the complete reciprocal `en`, `zh-Hans`, `zh-Hant`, `de`, `es`, `fr`, `ja`, `nl`, and `x-default` hreflang set.
 4. Confirm the live sitemap contains the same alternate set for each localized URL, then submit it in Google Search Console and Bing Webmaster Tools.
 5. Inspect all localized URLs in Search Console after deployment and request indexing if discovery is delayed.
-6. Monitor impressions for `Mac テキスト読み上げ`, `Mac 選択したテキスト 読み上げ`, `Mac スクリーンショット OCR`, `Mac オフライン 音声読み上げ`, `synthèse vocale pour Mac`, `lire du texte sélectionné sur Mac`, `OCR de capture d’écran sur Mac`, `synthèse vocale hors ligne sur Mac`, `texto a voz para Mac`, `leer texto seleccionado en Mac`, `OCR de capturas en Mac`, `texto a voz sin conexión para Mac`, `Text auf dem Mac vorlesen`, `Offline Text-to-Speech Mac`, `Mac 文本转语音`, `Mac 文字转语音`, `Mac 文字轉語音`, and related PDF/OCR queries before changing keyword targeting.
-7. Keep every guide's complete main content, metadata, schema, internal links, and reciprocal language annotations synchronized across all seven locales.
+6. Monitor impressions for `tekst-naar-spraak voor Mac`, `geselecteerde tekst voorlezen op Mac`, `schermafbeelding OCR Mac`, `offline tekst-naar-spraak voor Mac`, `Mac テキスト読み上げ`, `Mac 選択したテキスト 読み上げ`, `Mac スクリーンショット OCR`, `Mac オフライン 音声読み上げ`, `synthèse vocale pour Mac`, `lire du texte sélectionné sur Mac`, `OCR de capture d’écran sur Mac`, `synthèse vocale hors ligne sur Mac`, `texto a voz para Mac`, `leer texto seleccionado en Mac`, `OCR de capturas en Mac`, `texto a voz sin conexión para Mac`, `Text auf dem Mac vorlesen`, `Offline Text-to-Speech Mac`, `Mac 文本转语音`, `Mac 文字转语音`, `Mac 文字轉語音`, and related PDF/OCR queries before changing keyword targeting.
+7. Keep every guide's complete main content, metadata, schema, internal links, and reciprocal language annotations synchronized across all eight locales.

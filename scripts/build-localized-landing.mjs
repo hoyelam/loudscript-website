@@ -13,7 +13,7 @@ const locales = [
     canonicalUrl: "https://loudscript.app/",
     outputPath: path.join(siteRoot, "index.html"),
     ogLocale: "en_US",
-    ogAlternateLocales: ["zh_TW", "zh_CN", "de_DE", "es_ES", "fr_FR", "ja_JP"],
+    ogAlternateLocales: ["zh_TW", "zh_CN", "de_DE", "es_ES", "fr_FR", "ja_JP", "nl_NL"],
     guidePrefix: ""
   },
   {
@@ -23,7 +23,7 @@ const locales = [
     canonicalUrl: "https://loudscript.app/zh-hant/",
     outputPath: path.join(siteRoot, "zh-hant", "index.html"),
     ogLocale: "zh_TW",
-    ogAlternateLocales: ["en_US", "zh_CN", "de_DE", "es_ES", "fr_FR", "ja_JP"],
+    ogAlternateLocales: ["en_US", "zh_CN", "de_DE", "es_ES", "fr_FR", "ja_JP", "nl_NL"],
     guidePrefix: "/zh-hant"
   },
   {
@@ -33,7 +33,7 @@ const locales = [
     canonicalUrl: "https://loudscript.app/zh-hans/",
     outputPath: path.join(siteRoot, "zh-hans", "index.html"),
     ogLocale: "zh_CN",
-    ogAlternateLocales: ["en_US", "zh_TW", "de_DE", "es_ES", "fr_FR", "ja_JP"],
+    ogAlternateLocales: ["en_US", "zh_TW", "de_DE", "es_ES", "fr_FR", "ja_JP", "nl_NL"],
     guidePrefix: "/zh-hans"
   },
   {
@@ -43,7 +43,7 @@ const locales = [
     canonicalUrl: "https://loudscript.app/de/",
     outputPath: path.join(siteRoot, "de", "index.html"),
     ogLocale: "de_DE",
-    ogAlternateLocales: ["en_US", "zh_TW", "zh_CN", "es_ES", "fr_FR", "ja_JP"],
+    ogAlternateLocales: ["en_US", "zh_TW", "zh_CN", "es_ES", "fr_FR", "ja_JP", "nl_NL"],
     guidePrefix: "/de"
   },
   {
@@ -53,7 +53,7 @@ const locales = [
     canonicalUrl: "https://loudscript.app/es/",
     outputPath: path.join(siteRoot, "es", "index.html"),
     ogLocale: "es_ES",
-    ogAlternateLocales: ["en_US", "zh_TW", "zh_CN", "de_DE", "fr_FR", "ja_JP"],
+    ogAlternateLocales: ["en_US", "zh_TW", "zh_CN", "de_DE", "fr_FR", "ja_JP", "nl_NL"],
     guidePrefix: "/es"
   },
   {
@@ -63,7 +63,7 @@ const locales = [
     canonicalUrl: "https://loudscript.app/fr/",
     outputPath: path.join(siteRoot, "fr", "index.html"),
     ogLocale: "fr_FR",
-    ogAlternateLocales: ["en_US", "zh_TW", "zh_CN", "de_DE", "es_ES", "ja_JP"],
+    ogAlternateLocales: ["en_US", "zh_TW", "zh_CN", "de_DE", "es_ES", "ja_JP", "nl_NL"],
     guidePrefix: "/fr"
   },
   {
@@ -73,8 +73,18 @@ const locales = [
     canonicalUrl: "https://loudscript.app/ja/",
     outputPath: path.join(siteRoot, "ja", "index.html"),
     ogLocale: "ja_JP",
-    ogAlternateLocales: ["en_US", "zh_TW", "zh_CN", "de_DE", "es_ES", "fr_FR"],
+    ogAlternateLocales: ["en_US", "zh_TW", "zh_CN", "de_DE", "es_ES", "fr_FR", "nl_NL"],
     guidePrefix: "/ja"
+  },
+  {
+    id: "nl",
+    htmlLang: "nl",
+    textDirection: "ltr",
+    canonicalUrl: "https://loudscript.app/nl/",
+    outputPath: path.join(siteRoot, "nl", "index.html"),
+    ogLocale: "nl_NL",
+    ogAlternateLocales: ["en_US", "zh_TW", "zh_CN", "de_DE", "es_ES", "fr_FR", "ja_JP"],
+    guidePrefix: "/nl"
   }
 ];
 
@@ -94,7 +104,8 @@ function languageNavigation(locale, messages) {
     { id: "de", href: "/de/", lang: "de", label: messages["nav.german"] },
     { id: "es", href: "/es/", lang: "es", label: messages["nav.spanish"] },
     { id: "fr", href: "/fr/", lang: "fr", label: messages["nav.french"] },
-    { id: "ja", href: "/ja/", lang: "ja", label: messages["nav.japanese"] }
+    { id: "ja", href: "/ja/", lang: "ja", label: messages["nav.japanese"] },
+    { id: "nl", href: "/nl/", lang: "nl", label: messages["nav.dutch"] }
   ];
   const current = options.find((option) => option.id === locale.id);
   const links = options.map((option) => {
