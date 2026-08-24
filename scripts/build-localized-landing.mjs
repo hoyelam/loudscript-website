@@ -1,6 +1,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { latestMacRelease, siteLastModified } from "./site-metadata.mjs";
 
 const siteRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const templatePath = path.join(siteRoot, "templates", "landing.html");
@@ -176,6 +177,9 @@ for (const locale of locales) {
     .replaceAll("{{chooserGuideUrl}}", "/best-text-to-speech-app-for-mac/")
     .replaceAll("{{platformGuideUrl}}", "/loudscript-mac-vs-ios/")
     .replaceAll("{{ogLocale}}", locale.ogLocale)
+    .replaceAll("{{siteLastModified}}", siteLastModified)
+    .replaceAll("{{latestMacVersion}}", latestMacRelease.version)
+    .replaceAll("{{latestMacDownloadUrl}}", latestMacRelease.downloadUrl)
     .replace("{{{ogAlternateLocaleTags}}}", ogAlternateLocaleTags(locale))
     .replace("{{{languageNav}}}", languageNavigation(locale, messages))
     .replaceAll("{{{englishFallbackBadge}}}", englishFallbackBadge(locale, messages));

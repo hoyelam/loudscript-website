@@ -91,10 +91,10 @@ const guideRoutes = [
   { route: "offline-text-to-speech-mac", schemaType: "TechArticle", keywords: { en: "Offline Text-to-Speech", "zh-Hant": "離線文字轉語音", "zh-Hans": "离线文本转语音", de: "Offline-Text-to-Speech", es: "texto a voz sin conexión", fr: "synthèse vocale hors ligne", ja: "オフライン音声読み上げ", nl: "offline tekst-naar-spraak" } }
 ];
 const firstPartySeoPages = [
-  { route: "download", schemaType: "SoftwareApplication", titlePhrase: "Download LoudScript for Mac" },
-  { route: "best-text-to-speech-app-for-mac", schemaType: "TechArticle", titlePhrase: "Text-to-Speech App for Mac" },
-  { route: "read-pdf-aloud-mac", schemaType: "HowTo", titlePhrase: "Read a PDF Aloud on Mac" },
-  { route: "loudscript-mac-vs-ios", schemaType: "TechArticle", titlePhrase: "LoudScript for Mac vs iPhone and iPad" }
+  { route: "download", schemaType: "SoftwareApplication", titlePhrase: "Download LoudScript for Mac", lastModified: siteLastModified },
+  { route: "best-text-to-speech-app-for-mac", schemaType: "TechArticle", titlePhrase: "Text-to-Speech App for Mac", lastModified: "2026-08-20" },
+  { route: "read-pdf-aloud-mac", schemaType: "HowTo", titlePhrase: "Read a PDF Aloud on Mac", lastModified: "2026-08-20" },
+  { route: "loudscript-mac-vs-ios", schemaType: "TechArticle", titlePhrase: "LoudScript for Mac vs iPhone and iPad", lastModified: "2026-08-20" }
 ];
 const allOgLocales = localeSpecs.map(({ ogLocale }) => ogLocale);
 
@@ -291,14 +291,19 @@ for (const page of firstPartySeoPages) {
   const mainEntity = jsonLd["@graph"].find((entry) => entry["@type"] === page.schemaType);
   assert(mainEntity, `${output}: ${page.schemaType} schema is missing`);
   if (page.schemaType === "SoftwareApplication") {
+    const webPage = jsonLd["@graph"].find((entry) => entry["@type"] === "WebPage");
+    assert(webPage?.dateModified === page.lastModified, `${output}: WebPage modification date is stale`);
     assert(mainEntity.softwareVersion === latestMacRelease.version, `${output}: release version is stale`);
     assert(mainEntity.downloadUrl === latestMacRelease.downloadUrl, `${output}: release URL is stale`);
     assert(mainEntity.fileSize === latestMacRelease.fileSizeDisplay, `${output}: release size is stale`);
+    assert(mainEntity.datePublished === latestMacRelease.released, `${output}: release date is stale`);
+    assert(mainEntity.releaseNotes.endsWith(`#version-${latestMacRelease.version.replaceAll(".", "-")}`), `${output}: release notes URL is stale`);
     assert(html.includes(latestMacRelease.sha256), `${output}: SHA-256 checksum is stale`);
+    assert(html.includes(latestMacRelease.fileSizeBytes.toLocaleString("en-US")), `${output}: visible release size is stale`);
     assert(html.includes(`${latestMacRelease.version} (build ${latestMacRelease.build})`), `${output}: visible release details are stale`);
   } else {
     assert(mainEntity.mainEntityOfPage === canonical, `${output}: schema canonical is incorrect`);
-    assert(mainEntity.dateModified === siteLastModified, `${output}: schema modification date is stale`);
+    assert(mainEntity.dateModified === page.lastModified, `${output}: schema modification date is stale`);
   }
 
   for (const labelledBy of html.matchAll(/aria-labelledby="([^"]+)"/g)) {
@@ -480,7 +485,7 @@ for (const guide of guideRoutes) {
   for (const [, canonical] of alternates.slice(0, 8)) {
     const blockMatch = sitemap.match(new RegExp(`<url>\\s*<loc>${escapeRegExp(canonical)}<\\/loc>([\\s\\S]*?)<\\/url>`));
     assert(blockMatch, `Sitemap lacks ${canonical}`);
-    assert(blockMatch[1].includes(`<lastmod>${siteLastModified}</lastmod>`), `Sitemap block for ${canonical} has a stale lastmod`);
+    assert(blockMatch[1].includes(`<lastmod>${guideLastModified}</lastmod>`), `Sitemap block for ${canonical} has a stale lastmod`);
     for (const [lang, href] of alternates) {
       assert(blockMatch[1].includes(`hreflang="${lang}" href="${href}"`), `Sitemap block for ${canonical} lacks ${lang} alternate`);
     }
@@ -493,8 +498,12 @@ for (const page of firstPartySeoPages) {
   const canonical = `https://loudscript.app/${page.route}/`;
   const blockMatch = sitemap.match(new RegExp(`<url>\\s*<loc>${escapeRegExp(canonical)}<\\/loc>([\\s\\S]*?)<\\/url>`));
   assert(blockMatch, `Sitemap lacks ${canonical}`);
-  assert(blockMatch[1].includes(`<lastmod>${siteLastModified}</lastmod>`), `Sitemap block for ${canonical} has a stale lastmod`);
+  assert(blockMatch[1].includes(`<lastmod>${page.lastModified}</lastmod>`), `Sitemap block for ${canonical} has a stale lastmod`);
 }
+
+const llms = await readFile(path.join(siteRoot, "llms.txt"), "utf8");
+assert(llms.includes(`LoudScript ${latestMacRelease.version} (build ${latestMacRelease.build})`), "llms.txt release facts are stale");
+assert(llms.includes(latestMacRelease.downloadUrl), "llms.txt download URL is stale");
 
 const robots = await readFile(path.join(siteRoot, "robots.txt"), "utf8");
 assert(robots.includes("User-agent: *"), "robots.txt lacks a default crawler policy");
