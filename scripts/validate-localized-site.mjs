@@ -1,7 +1,7 @@
 import { access, readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { guideLastModified, latestMacRelease, siteLastModified } from "./site-metadata.mjs";
+import { guideLastModified, latestMacRelease, releaseLastModified, siteLastModified } from "./site-metadata.mjs";
 
 const siteRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const localeSpecs = [
@@ -241,8 +241,10 @@ for (const spec of localeSpecs) {
       && app?.offers?.price === 0
       && app?.softwareVersion === latestMacRelease.version
       && app?.downloadUrl === latestMacRelease.downloadUrl
+      && app?.releaseNotes === latestMacRelease.releaseNotesUrl
+      && app?.dateModified === releaseLastModified
       && app?.installUrl === "https://loudscript.app/download/"
-      && webPage?.dateModified === siteLastModified,
+      && webPage?.dateModified === releaseLastModified,
     `${spec.output}: invalid app schema`
   );
   assert(!jsonLd["@graph"].some((entry) => entry["@type"] === "FAQPage"), `${spec.output}: obsolete FAQPage schema remains`);
@@ -288,14 +290,27 @@ for (const page of firstPartySeoPages) {
   assert(jsonLdMatch, `${output}: missing JSON-LD`);
   const jsonLd = JSON.parse(jsonLdMatch[1]);
   assert(Array.isArray(jsonLd["@graph"]), `${output}: JSON-LD graph is missing`);
+  const webPage = jsonLd["@graph"].find((entry) => entry["@type"] === "WebPage");
   const mainEntity = jsonLd["@graph"].find((entry) => entry["@type"] === page.schemaType);
   assert(mainEntity, `${output}: ${page.schemaType} schema is missing`);
   if (page.schemaType === "SoftwareApplication") {
     assert(mainEntity.softwareVersion === latestMacRelease.version, `${output}: release version is stale`);
     assert(mainEntity.downloadUrl === latestMacRelease.downloadUrl, `${output}: release URL is stale`);
+    assert(mainEntity.releaseNotes === latestMacRelease.releaseNotesUrl, `${output}: release notes URL is stale`);
+    assert(mainEntity.datePublished === releaseLastModified, `${output}: release publication date is stale`);
+    assert(mainEntity.dateModified === releaseLastModified, `${output}: release modification date is stale`);
     assert(mainEntity.fileSize === latestMacRelease.fileSizeDisplay, `${output}: release size is stale`);
+    const releaseProperties = Object.fromEntries((mainEntity.additionalProperty || []).map((property) => [property.name, property.value]));
+    assert(releaseProperties.Build === latestMacRelease.build, `${output}: release build is stale`);
+    assert(releaseProperties["File size in bytes"] === latestMacRelease.fileSizeBytes, `${output}: release byte count is stale`);
+    assert(releaseProperties["SHA-256"] === latestMacRelease.sha256, `${output}: release checksum schema is stale`);
     assert(html.includes(latestMacRelease.sha256), `${output}: SHA-256 checksum is stale`);
     assert(html.includes(`${latestMacRelease.version} (build ${latestMacRelease.build})`), `${output}: visible release details are stale`);
+    assert(html.includes(`Released ${latestMacRelease.releasedDisplay}`), `${output}: visible release date is stale`);
+    assert(html.includes(`${latestMacRelease.fileSizeBytes.toLocaleString("en-US")} bytes (${latestMacRelease.fileSizeDisplay})`), `${output}: visible byte count is stale`);
+    assert(html.includes(`href="${latestMacRelease.downloadUrl}"`), `${output}: visible release URL is stale`);
+    assert(html.includes(`href="${new URL(latestMacRelease.releaseNotesUrl).pathname}${new URL(latestMacRelease.releaseNotesUrl).hash}"`), `${output}: visible release notes URL is stale`);
+    assert(webPage?.dateModified === releaseLastModified, `${output}: webpage modification date is stale`);
   } else {
     assert(mainEntity.mainEntityOfPage === canonical, `${output}: schema canonical is incorrect`);
     assert(mainEntity.dateModified === siteLastModified, `${output}: schema modification date is stale`);
@@ -456,7 +471,7 @@ for (const spec of localeSpecs) {
   const escapedCanonical = escapeRegExp(spec.canonical);
   const blockMatch = sitemap.match(new RegExp(`<url>\\s*<loc>${escapedCanonical}<\\/loc>([\\s\\S]*?)<\\/url>`));
   assert(blockMatch, `Sitemap lacks ${spec.canonical}`);
-  assert(blockMatch[1].includes(`<lastmod>${siteLastModified}</lastmod>`), `Sitemap block for ${spec.canonical} has a stale lastmod`);
+  assert(blockMatch[1].includes(`<lastmod>${releaseLastModified}</lastmod>`), `Sitemap block for ${spec.canonical} has a stale lastmod`);
   for (const [lang, href] of sitemapAlternates) {
     assert(
       blockMatch[1].includes(`hreflang="${lang}" href="${href}"`),
@@ -480,7 +495,7 @@ for (const guide of guideRoutes) {
   for (const [, canonical] of alternates.slice(0, 8)) {
     const blockMatch = sitemap.match(new RegExp(`<url>\\s*<loc>${escapeRegExp(canonical)}<\\/loc>([\\s\\S]*?)<\\/url>`));
     assert(blockMatch, `Sitemap lacks ${canonical}`);
-    assert(blockMatch[1].includes(`<lastmod>${siteLastModified}</lastmod>`), `Sitemap block for ${canonical} has a stale lastmod`);
+    assert(blockMatch[1].includes(`<lastmod>${guideLastModified}</lastmod>`), `Sitemap block for ${canonical} has a stale lastmod`);
     for (const [lang, href] of alternates) {
       assert(blockMatch[1].includes(`hreflang="${lang}" href="${href}"`), `Sitemap block for ${canonical} lacks ${lang} alternate`);
     }
@@ -488,13 +503,30 @@ for (const guide of guideRoutes) {
 }
 
 const changelogBlock = sitemap.match(/<url>\s*<loc>https:\/\/loudscript\.app\/changelog\.html<\/loc>([\s\S]*?)<\/url>/);
-assert(changelogBlock?.[1].includes(`<lastmod>${siteLastModified}</lastmod>`), "Sitemap changelog lastmod is stale");
+assert(changelogBlock?.[1].includes(`<lastmod>${releaseLastModified}</lastmod>`), "Sitemap changelog lastmod is stale");
 for (const page of firstPartySeoPages) {
   const canonical = `https://loudscript.app/${page.route}/`;
   const blockMatch = sitemap.match(new RegExp(`<url>\\s*<loc>${escapeRegExp(canonical)}<\\/loc>([\\s\\S]*?)<\\/url>`));
   assert(blockMatch, `Sitemap lacks ${canonical}`);
-  assert(blockMatch[1].includes(`<lastmod>${siteLastModified}</lastmod>`), `Sitemap block for ${canonical} has a stale lastmod`);
+  const expectedLastModified = page.route === "download" ? releaseLastModified : siteLastModified;
+  assert(blockMatch[1].includes(`<lastmod>${expectedLastModified}</lastmod>`), `Sitemap block for ${canonical} has a stale lastmod`);
 }
+
+const appcast = await readFile(path.join(siteRoot, "appcast.xml"), "utf8");
+const latestAppcastItem = appcast.match(/<item>([\s\S]*?)<\/item>/)?.[1];
+assert(latestAppcastItem, "appcast.xml has no release item");
+assert(new RegExp(`<sparkle:version>${escapeRegExp(latestMacRelease.build)}<\\/sparkle:version>`).test(latestAppcastItem), "appcast build is stale");
+assert(new RegExp(`<sparkle:shortVersionString>${escapeRegExp(latestMacRelease.version)}<\\/sparkle:shortVersionString>`).test(latestAppcastItem), "appcast version is stale");
+assert(latestAppcastItem.includes(`url="${latestMacRelease.downloadUrl}"`), "appcast asset URL is stale");
+assert(latestAppcastItem.includes(`length="${latestMacRelease.fileSizeBytes}"`), "appcast asset byte length is stale");
+
+const changelog = await readFile(path.join(siteRoot, "changelog.html"), "utf8");
+const releaseAnchor = latestMacRelease.releaseNotesUrl.split("#")[1];
+assert(changelog.includes(`id="${releaseAnchor}"`), "changelog current release anchor is missing");
+
+const llms = await readFile(path.join(siteRoot, "llms.txt"), "utf8");
+assert(llms.includes(`LoudScript ${latestMacRelease.version} (build ${latestMacRelease.build})`), "llms.txt release version is stale");
+assert(llms.includes(latestMacRelease.downloadUrl), "llms.txt release URL is stale");
 
 const robots = await readFile(path.join(siteRoot, "robots.txt"), "utf8");
 assert(robots.includes("User-agent: *"), "robots.txt lacks a default crawler policy");

@@ -1,6 +1,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { latestMacRelease, releaseLastModified } from "./site-metadata.mjs";
 
 const siteRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const templatePath = path.join(siteRoot, "templates", "landing.html");
@@ -169,6 +170,10 @@ for (const locale of locales) {
     .replaceAll("{{htmlLang}}", locale.htmlLang)
     .replaceAll("{{textDirection}}", locale.textDirection)
     .replaceAll("{{canonicalUrl}}", locale.canonicalUrl)
+    .replaceAll("{{releaseVersion}}", latestMacRelease.version)
+    .replaceAll("{{releaseLastModified}}", releaseLastModified)
+    .replaceAll("{{releaseNotesUrl}}", latestMacRelease.releaseNotesUrl)
+    .replaceAll("{{releaseDownloadUrl}}", latestMacRelease.downloadUrl)
     .replaceAll("{{selectedGuideUrl}}", `${locale.guidePrefix}/read-selected-text-aloud-mac/`)
     .replaceAll("{{ocrGuideUrl}}", `${locale.guidePrefix}/screenshot-ocr-text-to-speech-mac/`)
     .replaceAll("{{offlineGuideUrl}}", `${locale.guidePrefix}/offline-text-to-speech-mac/`)

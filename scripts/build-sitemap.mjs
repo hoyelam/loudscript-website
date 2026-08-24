@@ -1,11 +1,10 @@
 import { writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { siteLastModified } from "./site-metadata.mjs";
+import { guideLastModified, releaseLastModified, siteLastModified } from "./site-metadata.mjs";
 
 const siteRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const siteUrl = "https://loudscript.app";
-const lastModified = siteLastModified;
 const locales = [
   { lang: "en", prefix: "" },
   { lang: "zh-Hant", prefix: "/zh-hant" },
@@ -17,20 +16,20 @@ const locales = [
   { lang: "nl", prefix: "/nl" }
 ];
 const routes = [
-  "",
-  "read-selected-text-aloud-mac",
-  "screenshot-ocr-text-to-speech-mac",
-  "offline-text-to-speech-mac"
+  { route: "", lastModified: releaseLastModified },
+  { route: "read-selected-text-aloud-mac", lastModified: guideLastModified },
+  { route: "screenshot-ocr-text-to-speech-mac", lastModified: guideLastModified },
+  { route: "offline-text-to-speech-mac", lastModified: guideLastModified }
 ];
 const staticPages = [
-  { route: "download/", lastModified: siteLastModified },
+  { route: "download/", lastModified: releaseLastModified },
   { route: "best-text-to-speech-app-for-mac/", lastModified: siteLastModified },
   { route: "read-pdf-aloud-mac/", lastModified: siteLastModified },
   { route: "loudscript-mac-vs-ios/", lastModified: siteLastModified },
   { route: "privacy.html", lastModified: "2026-05-21" },
   { route: "tos.html", lastModified: "2026-05-21" },
   { route: "support.html", lastModified: "2026-08-04" },
-  { route: "changelog.html", lastModified: siteLastModified }
+  { route: "changelog.html", lastModified: releaseLastModified }
 ];
 
 function localizedUrl(prefix, route) {
@@ -45,7 +44,7 @@ function alternateLines(route) {
   return lines.join("\n");
 }
 
-const localizedBlocks = routes.flatMap((route) =>
+const localizedBlocks = routes.flatMap(({ route, lastModified }) =>
   locales.map(({ prefix }) => [
     "  <url>",
     `    <loc>${localizedUrl(prefix, route)}</loc>`,
