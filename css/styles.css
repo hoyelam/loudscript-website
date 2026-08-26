@@ -1330,65 +1330,131 @@ body {
 
 /* Public release changelog */
 .changelog-page {
-    max-width: 860px;
+    max-width: 980px;
     margin: 0 auto 80px;
 }
 
 .changelog-hero {
-    max-width: 680px;
-    margin: 0 auto 56px;
-    text-align: center;
+    max-width: 760px;
+    margin: 0 0 64px 58px;
+    text-align: left;
 }
 
 .changelog-hero .mac-section-label {
-    margin: 0 0 18px;
+    margin: 0 0 16px;
 }
 
 .changelog-hero h1 {
     margin: 0;
     color: #fff;
-    font-size: clamp(2.7rem, 7vw, 5rem);
+    font-size: clamp(3rem, 7vw, 5.2rem);
     line-height: 1;
     letter-spacing: -0.045em;
 }
 
 .changelog-hero > p:last-child {
-    margin: 24px auto 0;
+    margin: 22px 0 0;
+    max-width: 560px;
     color: rgba(255, 255, 255, 0.68);
     font-size: 1.12rem;
     line-height: 1.7;
 }
 
 .release-list {
-    display: grid;
-    gap: 20px;
+    position: relative;
+    margin-left: 16px;
+    padding-left: 42px;
+}
+
+.release-list::before {
+    position: absolute;
+    top: 24px;
+    bottom: 24px;
+    left: 7px;
+    width: 1px;
+    background: rgba(183, 170, 255, 0.28);
+    content: "";
 }
 
 .release-entry {
-    padding: 32px 36px;
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 24px;
-    background: rgba(255, 255, 255, 0.03);
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    scroll-margin-top: 32px;
+}
+
+.release-entry::before {
+    position: absolute;
+    top: 31px;
+    left: -42px;
+    z-index: 1;
+    width: 11px;
+    height: 11px;
+    border: 2px solid rgba(183, 170, 255, 0.72);
+    border-radius: 50%;
+    background: #07070a;
+    box-shadow: 0 0 0 6px #07070a;
+    content: "";
+    transition: border-color 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
+}
+
+.release-entry[open]::before {
+    border-color: #b7aaff;
+    background: #8a70ff;
+    box-shadow: 0 0 0 6px #07070a, 0 0 18px rgba(138, 112, 255, 0.46);
+}
+
+.release-summary {
+    display: block;
+    padding: 27px 4px 26px;
+    cursor: pointer;
+    list-style: none;
+}
+
+.release-summary::-webkit-details-marker {
+    display: none;
+}
+
+.release-summary:focus-visible {
+    border-radius: 12px;
+    outline: 3px solid rgba(183, 170, 255, 0.74);
+    outline-offset: 4px;
+}
+
+.release-summary:hover .release-version,
+.release-summary:focus-visible .release-version {
+    color: #c8beff;
 }
 
 .release-header {
     display: flex;
-    align-items: flex-start;
-    gap: 24px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    margin: 0;
+}
+
+.release-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    min-width: 0;
+    flex: 1;
 }
 
 .release-version-row {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin: 0 0 7px;
+    min-width: 0;
 }
 
 .release-version {
     color: #fff;
-    font-size: 1.35rem;
+    font-size: 1.28rem;
     font-weight: 700;
     letter-spacing: -0.02em;
+    transition: color 160ms ease;
 }
 
 .release-latest {
@@ -1404,20 +1470,52 @@ body {
 }
 
 .release-header time {
+    flex: 0 0 auto;
     color: rgba(255, 255, 255, 0.5);
     font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.release-disclosure {
+    display: inline-flex;
+    justify-content: flex-end;
+    min-width: 76px;
+    color: rgba(255, 255, 255, 0.54);
+    font-size: 0.78rem;
+    font-weight: 650;
+    letter-spacing: 0.02em;
+}
+
+.release-disclosure-expanded {
+    display: none;
+}
+
+.release-entry[open] .release-disclosure-collapsed {
+    display: none;
+}
+
+.release-entry[open] .release-disclosure-expanded {
+    display: inline;
+}
+
+.release-content {
+    padding: 0 116px 30px 0;
 }
 
 .release-notes {
-    margin: 24px 0 0;
+    margin: 0;
     padding-left: 22px;
 }
 
 .release-notes li {
-    margin: 9px 0;
+    margin: 10px 0;
     padding-left: 4px;
     color: rgba(255, 255, 255, 0.7);
     line-height: 1.65;
+}
+
+.release-notes li::marker {
+    color: #8a70ff;
 }
 
 .seo-steps {
@@ -1584,7 +1682,8 @@ body {
     }
 
     .mac-page a:focus-visible,
-    .mac-faq-list summary:focus-visible {
+    .mac-faq-list summary:focus-visible,
+    .release-summary:focus-visible {
         outline-color: #6042f5;
     }
 
@@ -1806,10 +1905,24 @@ body {
         color: rgba(23, 20, 30, 0.7);
     }
 
+    .release-list::before {
+        background: rgba(81, 55, 214, 0.2);
+    }
+
     .release-entry {
-        background: rgba(255, 255, 255, 0.82);
-        border-color: rgba(23, 20, 30, 0.08);
-        box-shadow: 0 1px 2px rgba(34, 27, 55, 0.03);
+        border-color: rgba(23, 20, 30, 0.1);
+    }
+
+    .release-entry::before {
+        border-color: rgba(81, 55, 214, 0.56);
+        background: #f7f7fb;
+        box-shadow: 0 0 0 6px #f7f7fb;
+    }
+
+    .release-entry[open]::before {
+        border-color: #6042f5;
+        background: #6042f5;
+        box-shadow: 0 0 0 6px #f7f7fb, 0 0 16px rgba(96, 66, 245, 0.24);
     }
 
     .release-latest {
@@ -1820,6 +1933,15 @@ body {
 
     .release-header time {
         color: rgba(23, 20, 30, 0.55);
+    }
+
+    .release-disclosure {
+        color: rgba(23, 20, 30, 0.56);
+    }
+
+    .release-summary:hover .release-version,
+    .release-summary:focus-visible .release-version {
+        color: #5137d6;
     }
 
     .seo-table th,
@@ -1851,6 +1973,11 @@ body {
     .mac-reveal {
         opacity: 1;
         transform: none;
+        transition: none;
+    }
+
+    .release-entry::before,
+    .release-version {
         transition: none;
     }
 }
@@ -1988,17 +2115,85 @@ body {
     }
 
     .changelog-hero {
+        margin-left: 0;
         margin-bottom: 40px;
     }
 
+    .changelog-hero h1 {
+        font-size: 3rem;
+    }
+
+    .release-list {
+        margin-left: 4px;
+        padding-left: 30px;
+    }
+
+    .release-list::before {
+        left: 5px;
+    }
+
     .release-entry {
-        padding: 24px 20px;
-        border-radius: 18px;
+        scroll-margin-top: 20px;
+    }
+
+    .release-entry::before {
+        top: 27px;
+        left: -30px;
+        width: 9px;
+        height: 9px;
+        box-shadow: 0 0 0 5px #07070a;
+    }
+
+    .release-entry[open]::before {
+        box-shadow: 0 0 0 5px #07070a, 0 0 14px rgba(138, 112, 255, 0.42);
+    }
+
+    .release-summary {
+        padding: 22px 2px;
     }
 
     .release-header {
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .release-heading {
+        align-items: flex-start;
         flex-direction: column;
-        gap: 14px;
+        gap: 6px;
+    }
+
+    .release-version {
+        font-size: 1.08rem;
+    }
+
+    .release-latest {
+        padding: 3px 7px;
+        font-size: 0.62rem;
+    }
+
+    .release-disclosure {
+        min-width: auto;
+        padding-top: 2px;
+        font-size: 0.72rem;
+    }
+
+    .release-content {
+        padding: 0 0 24px;
+    }
+
+    .release-notes {
+        padding-left: 19px;
+    }
+
+    @media (prefers-color-scheme: light) {
+        .release-entry::before {
+            box-shadow: 0 0 0 5px #f7f7fb;
+        }
+
+        .release-entry[open]::before {
+            box-shadow: 0 0 0 5px #f7f7fb, 0 0 14px rgba(96, 66, 245, 0.2);
+        }
     }
 
     .mac-btn {

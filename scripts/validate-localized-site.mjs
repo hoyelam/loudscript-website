@@ -494,6 +494,16 @@ for (const guide of guideRoutes) {
 
 const changelogBlock = sitemap.match(/<url>\s*<loc>https:\/\/loudscript\.app\/changelog\.html<\/loc>([\s\S]*?)<\/url>/);
 assert(changelogBlock?.[1].includes(`<lastmod>${siteLastModified}</lastmod>`), "Sitemap changelog lastmod is stale");
+
+const changelog = await readFile(path.join(siteRoot, "changelog.html"), "utf8");
+const releaseEntries = [...changelog.matchAll(/<details class="release-entry"[^>]*>/g)].map((match) => match[0]);
+const latestReleaseId = `version-${latestMacRelease.version.replaceAll(".", "-")}`;
+assert(releaseEntries.length > 0, "Changelog lacks timeline release entries");
+assert(releaseEntries[0].includes(`id="${latestReleaseId}"`), "Changelog latest timeline entry is stale");
+assert(releaseEntries.filter((entry) => /\sopen(?:\s|>)/.test(entry)).length === 1, "Changelog must open exactly one release by default");
+assert(changelog.includes('<script defer src="/js/changelog.js"></script>'), "Changelog lacks its deep-link behavior script");
+await access(path.join(siteRoot, "js/changelog.js"));
+
 for (const page of firstPartySeoPages) {
   const canonical = `https://loudscript.app/${page.route}/`;
   const blockMatch = sitemap.match(new RegExp(`<url>\\s*<loc>${escapeRegExp(canonical)}<\\/loc>([\\s\\S]*?)<\\/url>`));
