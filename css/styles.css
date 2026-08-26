@@ -1352,12 +1352,24 @@ body {
     letter-spacing: -0.045em;
 }
 
-.changelog-hero > p:last-child {
+.changelog-intro {
     margin: 22px 0 0;
     max-width: 560px;
     color: rgba(255, 255, 255, 0.68);
     font-size: 1.12rem;
     line-height: 1.7;
+}
+
+.changelog-release-count {
+    margin: 8px 0 0;
+    color: rgba(255, 255, 255, 0.44);
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.changelog-release-count strong {
+    color: #b7aaff;
+    font-weight: 650;
 }
 
 .release-list {
@@ -1900,9 +1912,17 @@ body {
         color: #17141e;
     }
 
-    .changelog-hero > p:last-child,
+    .changelog-intro,
     .release-notes li {
         color: rgba(23, 20, 30, 0.7);
+    }
+
+    .changelog-release-count {
+        color: rgba(23, 20, 30, 0.5);
+    }
+
+    .changelog-release-count strong {
+        color: #5137d6;
     }
 
     .release-list::before {
