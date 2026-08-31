@@ -106,6 +106,14 @@ function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
+function xmlTagValue(xml, tagName) {
+  return xml.match(new RegExp(`<${escapeRegExp(tagName)}>([^<]+)</${escapeRegExp(tagName)}>`))?.[1];
+}
+
+function xmlAttributeValue(element, attributeName) {
+  return element.match(new RegExp(`\\b${escapeRegExp(attributeName)}="([^"]+)"`))?.[1];
+}
+
 async function assertLocalTargetExists(url, outputPath) {
   if (url.startsWith("#")) {
     const html = await readFile(outputPath, "utf8");
@@ -126,6 +134,33 @@ const english = JSON.parse(await readFile(path.join(siteRoot, "locales", "en.jso
 const englishKeys = Object.keys(english).sort();
 const localizedTitles = new Set();
 const localizedDescriptions = new Set();
+const changelog = await readFile(path.join(siteRoot, "changelog.html"), "utf8");
+const releaseNotesUrl = `https://loudscript.app/changelog.html${latestMacRelease.changelogAnchor}`;
+const releaseNotesId = latestMacRelease.changelogAnchor.slice(1);
+const currentChangelogEntry = changelog.match(
+  new RegExp(`<details class="release-entry"[^>]*\\bid="${escapeRegExp(releaseNotesId)}"[\\s\\S]*?<\\/details>`)
+)?.[0];
+
+assert(
+  currentChangelogEntry,
+  "Changelog lacks the current release notes anchor"
+);
+assert(
+  currentChangelogEntry.includes(`<time datetime="${latestMacRelease.released}">`),
+  "Changelog current release date is stale"
+);
+
+const appcast = await readFile(path.join(siteRoot, "appcast.xml"), "utf8");
+const latestAppcastItem = appcast.match(/<item>([\s\S]*?)<\/item>/)?.[1];
+const appcastEnclosure = latestAppcastItem?.match(/<enclosure\b[^>]*\/>/)?.[0];
+assert(latestAppcastItem, "Appcast lacks a release item");
+const appcastPublishedAt = new Date(xmlTagValue(latestAppcastItem, "pubDate"));
+assert(!Number.isNaN(appcastPublishedAt.valueOf()), "Appcast latest publication date is invalid");
+assert(xmlTagValue(latestAppcastItem, "sparkle:shortVersionString") === latestMacRelease.version, "Appcast latest version is stale");
+assert(xmlTagValue(latestAppcastItem, "sparkle:version") === latestMacRelease.build, "Appcast latest build is stale");
+assert(appcastPublishedAt.toISOString().slice(0, 10) === latestMacRelease.released, "Appcast latest release date is stale");
+assert(xmlAttributeValue(appcastEnclosure ?? "", "url") === latestMacRelease.downloadUrl, "Appcast latest asset URL is stale");
+assert(xmlAttributeValue(appcastEnclosure ?? "", "length") === String(latestMacRelease.fileSizeBytes), "Appcast latest asset byte length is stale");
 
 for (const spec of localeSpecs) {
   const messages = JSON.parse(
@@ -242,8 +277,14 @@ for (const spec of localeSpecs) {
       && app?.softwareVersion === latestMacRelease.version
       && app?.downloadUrl === latestMacRelease.downloadUrl
       && app?.installUrl === "https://loudscript.app/download/"
+      && app?.releaseNotes === releaseNotesUrl
       && webPage?.dateModified === siteLastModified,
     `${spec.output}: invalid app schema`
+  );
+  assert(app.releaseNotes.endsWith(latestMacRelease.changelogAnchor), `${spec.output}: release notes anchor is stale`);
+  assert(
+    new RegExp(`\\bid=["']${escapeRegExp(new URL(app.releaseNotes).hash.slice(1))}["']`).test(changelog),
+    `${spec.output}: release notes anchor does not resolve`
   );
   assert(!jsonLd["@graph"].some((entry) => entry["@type"] === "FAQPage"), `${spec.output}: obsolete FAQPage schema remains`);
   const faqList = html.match(/<div class="mac-faq-list">([\s\S]*?)<\/div>/)?.[1];
@@ -297,10 +338,11 @@ for (const page of firstPartySeoPages) {
     assert(mainEntity.downloadUrl === latestMacRelease.downloadUrl, `${output}: release URL is stale`);
     assert(mainEntity.fileSize === latestMacRelease.fileSizeDisplay, `${output}: release size is stale`);
     assert(mainEntity.datePublished === latestMacRelease.released, `${output}: release date is stale`);
-    assert(mainEntity.releaseNotes.endsWith(`#version-${latestMacRelease.version.replaceAll(".", "-")}`), `${output}: release notes URL is stale`);
+    assert(mainEntity.releaseNotes === releaseNotesUrl, `${output}: release notes URL is stale`);
     assert(html.includes(latestMacRelease.sha256), `${output}: SHA-256 checksum is stale`);
     assert(html.includes(latestMacRelease.fileSizeBytes.toLocaleString("en-US")), `${output}: visible release size is stale`);
     assert(html.includes(`${latestMacRelease.version} (build ${latestMacRelease.build})`), `${output}: visible release details are stale`);
+    assert(html.includes(latestMacRelease.releasedDisplay), `${output}: visible release date is stale`);
   } else {
     assert(mainEntity.mainEntityOfPage === canonical, `${output}: schema canonical is incorrect`);
     assert(mainEntity.dateModified === page.lastModified, `${output}: schema modification date is stale`);
@@ -495,7 +537,6 @@ for (const guide of guideRoutes) {
 const changelogBlock = sitemap.match(/<url>\s*<loc>https:\/\/loudscript\.app\/changelog\.html<\/loc>([\s\S]*?)<\/url>/);
 assert(changelogBlock?.[1].includes(`<lastmod>${siteLastModified}</lastmod>`), "Sitemap changelog lastmod is stale");
 
-const changelog = await readFile(path.join(siteRoot, "changelog.html"), "utf8");
 const releaseEntries = [...changelog.matchAll(/<details class="release-entry"[^>]*>/g)].map((match) => match[0]);
 const releaseYears = [...changelog.matchAll(/<time datetime="(\d{4})-\d{2}-\d{2}">/g)].map((match) => Number(match[1]));
 const latestReleaseId = `version-${latestMacRelease.version.replaceAll(".", "-")}`;

@@ -179,6 +179,7 @@ for (const locale of locales) {
     .replaceAll("{{ogLocale}}", locale.ogLocale)
     .replaceAll("{{siteLastModified}}", siteLastModified)
     .replaceAll("{{latestMacVersion}}", latestMacRelease.version)
+    .replaceAll("{{latestMacChangelogAnchor}}", latestMacRelease.changelogAnchor)
     .replaceAll("{{latestMacDownloadUrl}}", latestMacRelease.downloadUrl)
     .replace("{{{ogAlternateLocaleTags}}}", ogAlternateLocaleTags(locale))
     .replace("{{{languageNav}}}", languageNavigation(locale, messages))
