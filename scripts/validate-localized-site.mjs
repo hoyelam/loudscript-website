@@ -565,6 +565,13 @@ const llms = await readFile(path.join(siteRoot, "llms.txt"), "utf8");
 assert(llms.includes(`LoudScript ${latestMacRelease.version} (build ${latestMacRelease.build})`), "llms.txt release facts are stale");
 assert(llms.includes(latestMacRelease.downloadUrl), "llms.txt download URL is stale");
 
+const support = await readFile(path.join(siteRoot, "support.html"), "utf8");
+const supportEmail = "hoyelam@kin-yee.com";
+assert(
+  support.includes(`<!--email_off--><a href="mailto:${supportEmail}">${supportEmail}</a><!--/email_off-->`),
+  "Support email is not protected from Cloudflare email obfuscation"
+);
+
 const robots = await readFile(path.join(siteRoot, "robots.txt"), "utf8");
 assert(robots.includes("User-agent: *"), "robots.txt lacks a default crawler policy");
 assert(robots.includes("Allow: /"), "robots.txt does not allow the site root");
