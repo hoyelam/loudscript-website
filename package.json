@@ -5,6 +5,7 @@
   "scripts": {
     "build": "node scripts/build-localized-landing.mjs && node scripts/build-localized-guides.mjs && node scripts/build-sitemap.mjs",
     "pretest": "npm run build",
-    "test": "node scripts/validate-localized-site.mjs"
+    "test": "npm run test:template-indexing && node scripts/validate-localized-site.mjs",
+    "test:template-indexing": "node scripts/validate-template-indexing.mjs"
   }
 }
