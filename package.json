@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "test:hero-images": "node --test scripts/test-hero-image-sizes.mjs",
     "build": "node scripts/build-localized-landing.mjs && node scripts/build-localized-guides.mjs && node scripts/build-sitemap.mjs",
     "pretest": "npm run build",
     "test": "npm run test:template-indexing && node scripts/validate-localized-site.mjs",
