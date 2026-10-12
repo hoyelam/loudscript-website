@@ -1,9 +1,44 @@
-import { writeFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { guideLastModified, siteLastModified } from "./site-metadata.mjs";
 
 const siteRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const changelogLastModified = publicReleaseLastModified(
+  await readFile(path.join(siteRoot, "changelog.html"), "utf8")
+);
+
+function publicReleaseLastModified(html) {
+  const start = "<!-- PUBLIC_RELEASES_START -->";
+  const end = "<!-- PUBLIC_RELEASES_END -->";
+  const fail = (reason) => { throw new Error(`Invalid public changelog: ${reason}`); };
+  if (html.split(start).length !== 2 || html.split(end).length !== 2
+      || html.indexOf(start) > html.indexOf(end)) {
+    fail("expected one ordered pair of PUBLIC_RELEASES markers");
+  }
+  // Match the site's release-entry details blocks, ignoring commented-out releases.
+  const releases = html.slice(html.indexOf(start) + start.length, html.indexOf(end))
+    .replace(/<!--[\s\S]*?-->/g, "");
+  const entries = [...releases.matchAll(/<details\b[^>]*>[\s\S]*?<\/details\s*>/gi)]
+    .map(([entry]) => entry)
+    .filter((entry) => /<details\b[^>]*\sclass\s*=\s*(["'])[^"']*\brelease-entry\b[^"']*\1/i.test(entry));
+  if (!entries.length) fail("no public release entries");
+  const dates = entries.map((entry) => {
+    const times = [...entry.matchAll(/<time\b[^>]*>/gi)];
+    const date = times.length === 1
+      ? times[0][0].match(/\sdatetime\s*=\s*(["'])(.*?)\1/i)?.[2] : undefined;
+    if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) fail("missing or invalid release date");
+    const [year, month, day] = date.split("-").map(Number);
+    const leap = year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+    const days = [31, leap ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    if (year < 1 || month < 1 || month > 12 || day < 1 || day > days[month - 1]) {
+      fail(`invalid release date ${date}`);
+    }
+    return date;
+  });
+  return dates.sort().at(-1);
+}
+
 const siteUrl = "https://loudscript.app";
 const locales = [
   { lang: "en", prefix: "" },
@@ -29,7 +64,7 @@ const staticPages = [
   { route: "privacy.html", lastModified: "2026-05-21" },
   { route: "tos.html", lastModified: "2026-05-21" },
   { route: "support.html", lastModified: "2026-08-04" },
-  { route: "changelog.html", lastModified: siteLastModified }
+  { route: "changelog.html", lastModified: changelogLastModified }
 ];
 
 function localizedUrl(prefix, route) {
