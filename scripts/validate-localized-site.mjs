@@ -535,7 +535,8 @@ for (const guide of guideRoutes) {
 }
 
 const changelogBlock = sitemap.match(/<url>\s*<loc>https:\/\/loudscript\.app\/changelog\.html<\/loc>([\s\S]*?)<\/url>/);
-assert(changelogBlock?.[1].includes(`<lastmod>${siteLastModified}</lastmod>`), "Sitemap changelog lastmod is stale");
+// build-sitemap.mjs dates the changelog by its newest public release.
+assert(changelogBlock?.[1].includes(`<lastmod>${latestMacRelease.released}</lastmod>`), "Sitemap changelog lastmod is stale");
 
 const releaseEntries = [...changelog.matchAll(/<details class="release-entry"[^>]*>/g)].map((match) => match[0]);
 const releaseYears = [...changelog.matchAll(/<time datetime="(\d{4})-\d{2}-\d{2}">/g)].map((match) => Number(match[1]));
