@@ -151,6 +151,12 @@ function replaceAllLiteral(source, search, replacement) {
 }
 
 const template = await readFile(templatePath, "utf8");
+// GitHub Pages also serves the raw template. Keep that source out of search,
+// and opt only the generated, fully rendered landing pages into indexing.
+const templateRobots = '<meta name="robots" content="noindex, follow" data-build-only="robots">';
+if (template.split(templateRobots).length !== 2) {
+  throw new Error("Expected exactly one source-template noindex marker");
+}
 const englishMessages = JSON.parse(
   await readFile(path.join(siteRoot, "locales", "en.json"), "utf8")
 );
@@ -167,6 +173,7 @@ for (const locale of locales) {
   }
 
   let html = template
+    .replace(templateRobots, '<meta name="robots" content="index, follow">')
     .replaceAll("{{htmlLang}}", locale.htmlLang)
     .replaceAll("{{textDirection}}", locale.textDirection)
     .replaceAll("{{canonicalUrl}}", locale.canonicalUrl)
