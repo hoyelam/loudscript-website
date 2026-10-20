@@ -2,6 +2,7 @@ import { access, readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { guideLastModified, latestMacRelease, siteLastModified } from "./site-metadata.mjs";
+import { releasePages, renderReleasePage, releasedDisplayUS } from "./release-pages.mjs";
 
 const siteRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const localeSpecs = [
@@ -99,7 +100,12 @@ const firstPartySeoPages = [
 const allOgLocales = localeSpecs.map(({ ogLocale }) => ogLocale);
 
 function assert(condition, message) {
-  if (!condition) throw new Error(message);
+  if (!condition) {
+    const fix = /changelog|appcast/i.test(message)
+      ? "Rerun the release lane to synchronize changelog.html, appcast.xml and data/latest-mac-release.json, then run npm test."
+      : "Run npm run build, then npm test; if this persists, correct the source template or release record.";
+    throw new Error(`${message}. ${fix}`);
+  }
 }
 
 function escapeRegExp(value) {
@@ -137,6 +143,14 @@ const localizedDescriptions = new Set();
 const changelog = await readFile(path.join(siteRoot, "changelog.html"), "utf8");
 const releaseNotesUrl = `https://loudscript.app/changelog.html${latestMacRelease.changelogAnchor}`;
 const releaseNotesId = latestMacRelease.changelogAnchor.slice(1);
+const publicChangelog = changelog.split("<!-- PUBLIC_RELEASES_START -->")[1]
+  ?.split("<!-- PUBLIC_RELEASES_END -->")[0]?.replace(/<!--[\s\S]*?-->/g, "") ?? "";
+const firstChangelogEntry = publicChangelog.match(/<details class="release-entry"[^>]*>[\s\S]*?<\/details>/)?.[0];
+assert(firstChangelogEntry?.includes(`id="${releaseNotesId}"`)
+  && firstChangelogEntry.includes(`<span class="release-version">Version ${latestMacRelease.version}</span>`),
+  `changelog.html first release is stale: expected ${latestMacRelease.version} from data/latest-mac-release.json`);
+assert(siteLastModified >= latestMacRelease.released,
+  "data/latest-mac-release.json siteLastModified predates the current release; run node scripts/set-latest-mac-release.mjs with the release arguments");
 const currentChangelogEntry = changelog.match(
   new RegExp(`<details class="release-entry"[^>]*\\bid="${escapeRegExp(releaseNotesId)}"[\\s\\S]*?<\\/details>`)
 )?.[0];
@@ -161,6 +175,11 @@ assert(xmlTagValue(latestAppcastItem, "sparkle:version") === latestMacRelease.bu
 assert(appcastPublishedAt.toISOString().slice(0, 10) === latestMacRelease.released, "Appcast latest release date is stale");
 assert(xmlAttributeValue(appcastEnclosure ?? "", "url") === latestMacRelease.downloadUrl, "Appcast latest asset URL is stale");
 assert(xmlAttributeValue(appcastEnclosure ?? "", "length") === String(latestMacRelease.fileSizeBytes), "Appcast latest asset byte length is stale");
+
+for (const page of releasePages) {
+  assert(await readFile(path.join(siteRoot, page.output), "utf8") === await renderReleasePage(page),
+    `${page.output}: stale generated release facts or content`);
+}
 
 for (const spec of localeSpecs) {
   const messages = JSON.parse(
@@ -564,6 +583,7 @@ for (const page of firstPartySeoPages) {
 
 const llms = await readFile(path.join(siteRoot, "llms.txt"), "utf8");
 assert(llms.includes(`LoudScript ${latestMacRelease.version} (build ${latestMacRelease.build})`), "llms.txt release facts are stale");
+assert(llms.includes(`released ${releasedDisplayUS}.`), "llms.txt release date is stale");
 assert(llms.includes(latestMacRelease.downloadUrl), "llms.txt download URL is stale");
 
 const support = await readFile(path.join(siteRoot, "support.html"), "utf8");

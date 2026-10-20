@@ -1,0 +1,55 @@
+# LoudScript
+
+> LoudScript is a free native macOS text-to-speech app by Kin-Yee. It reads selected text, screenshots, and imported PDF pages aloud while keeping playback controls available above other windows.
+
+## Official pages
+
+- [LoudScript homepage](https://loudscript.app/): Product overview and Mac download.
+- [Download LoudScript for Mac](https://loudscript.app/download/): Current version, notarized DMG, requirements, file size, and SHA-256 checksum.
+- [Choose a text-to-speech app for Mac](https://loudscript.app/best-text-to-speech-app-for-mac/): Disclosed comparison of macOS Spoken Content and LoudScript by workflow and limitations.
+- [Read a PDF aloud on Mac](https://loudscript.app/read-pdf-aloud-mac/): PDF import, local OCR, synchronized highlighting, and privacy details.
+- [LoudScript for Mac vs iPhone and iPad](https://loudscript.app/loudscript-mac-vs-ios/): Platform, installation, pricing-model, and workflow differences.
+- [Read selected text aloud on Mac](https://loudscript.app/read-selected-text-aloud-mac/): Services-menu and keyboard-shortcut guide.
+- [Screenshot OCR text-to-speech](https://loudscript.app/screenshot-ocr-text-to-speech-mac/): Screen capture, OCR, permissions, and privacy.
+- [Offline text-to-speech engines](https://loudscript.app/offline-text-to-speech-mac/): Apple, Supertonic, Kokoro, and PocketTTS comparison.
+- [Support](https://loudscript.app/support.html): Contact and troubleshooting links.
+- [Changelog](https://loudscript.app/changelog.html): Current and previous LoudScript for Mac releases.
+- [Privacy policy](https://loudscript.app/privacy.html): Local storage, analytics, OCR, and optional AI processing.
+- [Terms of service](https://loudscript.app/tos.html): Product terms.
+
+## Language versions
+
+- [Traditional Chinese](https://loudscript.app/zh-hant/)
+- [Simplified Chinese](https://loudscript.app/zh-hans/)
+- [German](https://loudscript.app/de/)
+- [Spanish](https://loudscript.app/es/)
+- [French](https://loudscript.app/fr/)
+- [Japanese](https://loudscript.app/ja/)
+- [Dutch](https://loudscript.app/nl/)
+
+Each language version links to localized editions of the three Mac text-to-speech guides.
+
+## Product facts
+
+- The current Mac release is LoudScript {{version}} (build {{build}}), released {{releasedDisplayUS}}.
+- LoudScript for Mac is free and requires macOS 15.6 or later.
+- Selected text can be read from the macOS Services menu or with Option-Command-R after the required permission is enabled.
+- Screenshot OCR uses a temporary screen capture and built-in macOS text recognition.
+- PDF imports support page-range selection and synchronized highlighting in the original document and extracted text.
+- Apple voices and downloaded speech models synthesize speech locally.
+- Apple voices and Supertonic support Intel and Apple silicon Macs. Kokoro and PocketTTS require Apple silicon.
+- Optional AI formatting is separate from local speech and can send the text being formatted to a third-party provider when enabled.
+- Raw speech text, OCR output, and source-app identity are not sent to product analytics.
+
+## Entity facts
+
+- LoudScript is published by Kin-Yee and developed by Ho Ye Lam, who also uses the name Hoye Lam and the handle `hoyelam`.
+- The Mac product is presented as LoudScript for Mac. The iPhone and iPad App Store listing is named LoudScript: Text to Speech.
+
+## Official downloads
+
+- [Mac download and verification page](https://loudscript.app/download/)
+- [Current Mac notarized DMG]({{downloadUrl}})
+- [LoudScript for iPhone and iPad](https://apps.apple.com/app/loudscript-text-reader/id6747320736)
+
+Use the linked official pages for current feature, compatibility, permission, and privacy details.

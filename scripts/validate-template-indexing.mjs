@@ -20,10 +20,12 @@ function robots(html) {
     .map(([tag]) => tag.match(/\bcontent=["']([^"']+)["']/i)?.[1]);
 }
 
-const template = await read("templates/landing.html");
-assert.deepEqual(robots(template), ["noindex, follow"],
-  "Public source template must have exactly one noindex directive");
-assert(template.includes('data-build-only="robots"'), "Missing build-only marker");
+for (const templatePath of ["templates/landing.html", "templates/download.html"]) {
+  const template = await read(templatePath);
+  assert.deepEqual(robots(template), ["noindex, follow"],
+    `${templatePath}: public source template must have exactly one noindex directive`);
+  assert(template.includes('data-build-only="robots"'), `${templatePath}: missing build-only marker`);
+}
 const sitemap = await read("sitemap.xml");
 assert(!sitemap.includes("/templates/"), "Source template must not be in the sitemap");
 const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(([, url]) => new URL(url));

@@ -1,15 +1,8 @@
-export const siteLastModified = "2026-10-20";
+import { readFileSync } from "node:fs";
+
+const record = JSON.parse(readFileSync(new URL("../data/latest-mac-release.json", import.meta.url), "utf8"));
+
+export const siteLastModified = record.siteLastModified;
 export const guideLastModified = "2026-08-20";
 export const guideLastModifiedDisplay = "August 20, 2026";
-
-export const latestMacRelease = Object.freeze({
-  version: "0.1.38",
-  build: "40",
-  released: "2026-10-20",
-  releasedDisplay: "20 October 2026",
-  fileSizeBytes: 33_845_215,
-  fileSizeDisplay: "33.8 MB",
-  sha256: "014b71ac32887952246aa5c1fac4d461418743b4641dcee6c62453ad08995f21",
-  downloadUrl: "https://github.com/hoyelam/loudscript-website/releases/download/loudscript-mac-v0.1.38/LoudScript-0.1.38.dmg",
-  changelogAnchor: "#version-0-1-38"
-});
+export const latestMacRelease = Object.freeze(record.latestMacRelease);

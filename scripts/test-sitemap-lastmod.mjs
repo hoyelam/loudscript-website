@@ -25,6 +25,8 @@ async function fixture(t, html) {
   for (const file of ["build-sitemap.mjs", "site-metadata.mjs"]) {
     await copyFile(path.join(root, "scripts", file), path.join(dir, "scripts", file));
   }
+  await mkdir(path.join(dir, "data"));
+  await copyFile(path.join(root, "data/latest-mac-release.json"), path.join(dir, "data/latest-mac-release.json"));
   await writeFile(path.join(dir, "changelog.html"), html);
   await writeFile(path.join(dir, "sitemap.xml"), original);
   const result = spawnSync(process.execPath, [path.join(dir, "scripts/build-sitemap.mjs")], {
