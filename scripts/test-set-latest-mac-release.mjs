@@ -15,7 +15,8 @@ async function fixture(t) {
   await mkdir(path.join(dir, "data"));
   await copyFile(new URL("scripts/set-latest-mac-release.mjs", root), path.join(dir, "scripts/set-latest-mac-release.mjs"));
   const recordPath = path.join(dir, "data/latest-mac-release.json");
-  await copyFile(new URL("data/latest-mac-release.json", root), recordPath);
+  const record = JSON.parse(await readFile(new URL("data/latest-mac-release.json", root), "utf8"));
+  await writeFile(recordPath, JSON.stringify({ ...record, siteLastModified: "2026-01-01" }, null, 2) + "\n");
   const dmg = path.join(dir, "LoudScript-0.1.39.dmg");
   const bytes = Buffer.alloc(33_845_215, 42);
   await writeFile(dmg, bytes);
